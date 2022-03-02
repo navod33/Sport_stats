@@ -36,12 +36,14 @@ class Kernel extends HttpKernel
             // \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
+			\EMedia\Oxygen\Http\Middleware\LoadViewSettings::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
         'api' => [
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
+			\EMedia\Oxygen\Http\Middleware\ParseNonPostFormData::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
@@ -56,6 +58,9 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+		'auth.acl' => \EMedia\Oxygen\Http\Middleware\AuthorizeAcl::class,
+		'auth.api' => \EMedia\Oxygen\Http\Middleware\ApiAuthenticate::class,
+		'auth.api.logged-in' => \EMedia\Oxygen\Http\Middleware\ApiUserAccessTokenVerification::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
