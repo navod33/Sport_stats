@@ -28,7 +28,7 @@ Route::group([
 	if (config('features.api_active')) {
 		Route::post('/register', 'Auth\AuthController@register');
 		Route::post('/login', 'Auth\AuthController@login');
-        Route::get('/verify-email/{code}', 'Auth\AuthController@verityEmail');
+        Route::post('/verify-email/{code}', 'Auth\AuthController@verityEmail');
 		Route::post('/password/email', 'Auth\ForgotPasswordController@checkRequest');
         Route::post('/resend-code', 'Auth\AuthController@resendCode');
 
