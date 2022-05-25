@@ -152,7 +152,7 @@ paths:
                         $ref: '#/definitions/ApiError'
                     description: 'Generic API error. Check `message` for more information.'
     '/verify-email/{code}':
-        get:
+        post:
             tags:
                 - Auth
             summary: 'Email Verification'
@@ -161,7 +161,7 @@ paths:
                 - application/x-www-form-urlencoded
             produces:
                 - application/json
-            operationId: auth_get_email_verification
+            operationId: auth_post_email_verification
             description: ''
             parameters:
                 -

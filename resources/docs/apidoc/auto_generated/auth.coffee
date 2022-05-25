@@ -53,7 +53,7 @@
 # ******************************************************** #
 ###
 @apiVersion 1.0.0
-@api {GET} api/v1/verify-email/{code} Email Verification
+@api {POST} api/v1/verify-email/{code} Email Verification
 @apiGroup Auth
 @apiParam {Integer} code Verification Code
 @apiUse default_headers

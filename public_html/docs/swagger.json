@@ -202,7 +202,7 @@
             }
         },
         "\/verify-email\/{code}": {
-            "get": {
+            "post": {
                 "tags": [
                     "Auth"
                 ],
@@ -214,7 +214,7 @@
                 "produces": [
                     "application\/json"
                 ],
-                "operationId": "auth_get_email_verification",
+                "operationId": "auth_post_email_verification",
                 "description": "",
                 "parameters": [
                     {
