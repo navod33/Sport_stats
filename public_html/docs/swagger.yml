@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
     title: 'sportstats API'
-    version: 1.0.0.20220518
+    version: 1.0.0.20220525
 host: localhost.test
 schemes:
     - http
@@ -244,7 +244,7 @@ paths:
                         $ref: '#/definitions/ApiError'
                     description: 'Generic API error. Check `message` for more information.'
     /resend-code:
-        get:
+        post:
             tags:
                 - Auth
             summary: 'Resend Verification Code'
@@ -253,7 +253,7 @@ paths:
                 - application/x-www-form-urlencoded
             produces:
                 - application/json
-            operationId: auth_get_resend_verification_code
+            operationId: auth_post_resend_verification_code
             description: ''
             parameters:
                 -
@@ -686,6 +686,8 @@ definitions:
             avatar_url:
                 type: string
             timezone:
+                type: string
+            email_verified_at:
                 type: string
             access_token:
                 type: string

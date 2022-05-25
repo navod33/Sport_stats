@@ -40,43 +40,6 @@ define({ "api": [
   {
     "version": "1.0.0",
     "type": "GET",
-    "url": "api/v1/resend-code",
-    "title": "Resend Verification Code",
-    "group": "Auth",
-    "filename": "C:/Users/DELL/Desktop/elegant/sportstats/pr463_sportstats_backend/resources/docs/apidoc/auto_generated/auth.coffee",
-    "groupTitle": "Auth",
-    "name": "GetApiV1ResendCode",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Accept",
-            "description": "<p>Set to <code>application/json</code></p>"
-          },
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "x-api-key",
-            "description": "<p>API Key</p>"
-          },
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "x-access-token",
-            "description": "<p>Unique user authentication token</p>"
-          }
-        ]
-      }
-    }
-  },
-  {
-    "version": "1.0.0",
-    "type": "GET",
     "url": "api/v1/verify-email/{code}",
     "title": "Email Verification",
     "group": "Auth",
@@ -346,6 +309,43 @@ define({ "api": [
     "filename": "C:/Users/DELL/Desktop/elegant/sportstats/pr463_sportstats_backend/resources/docs/apidoc/auto_generated/auth.coffee",
     "groupTitle": "Auth",
     "name": "PostApiV1Register"
+  },
+  {
+    "version": "1.0.0",
+    "type": "POST",
+    "url": "api/v1/resend-code",
+    "title": "Resend Verification Code",
+    "group": "Auth",
+    "filename": "C:/Users/DELL/Desktop/elegant/sportstats/pr463_sportstats_backend/resources/docs/apidoc/auto_generated/auth.coffee",
+    "groupTitle": "Auth",
+    "name": "PostApiV1ResendCode",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept",
+            "description": "<p>Set to <code>application/json</code></p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "x-api-key",
+            "description": "<p>API Key</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>Unique user authentication token</p>"
+          }
+        ]
+      }
+    }
   },
   {
     "version": "1.0.0",

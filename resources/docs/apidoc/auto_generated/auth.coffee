@@ -65,7 +65,7 @@
 # ******************************************************** #
 ###
 @apiVersion 1.0.0
-@api {GET} api/v1/resend-code Resend Verification Code
+@api {POST} api/v1/resend-code Resend Verification Code
 @apiGroup Auth
 @apiUse default_headers
 ###
