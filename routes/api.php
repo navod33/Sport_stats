@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 // Start Oxygen API routes
 Route::group([
@@ -28,7 +28,9 @@ Route::group([
 	if (config('features.api_active')) {
 		Route::post('/register', 'Auth\AuthController@register');
 		Route::post('/login', 'Auth\AuthController@login');
+        Route::post('/verify-email/{code}', 'Auth\AuthController@verityEmail');
 		Route::post('/password/email', 'Auth\ForgotPasswordController@checkRequest');
+        Route::post('/resend-code', 'Auth\AuthController@resendCode');
 
 		// guest (all-users) API routes
 		Route::get('/guests', 'GuestController@index');
