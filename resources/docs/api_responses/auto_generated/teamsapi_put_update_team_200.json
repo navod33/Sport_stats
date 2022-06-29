@@ -1,0 +1,15 @@
+{
+    "payload": {
+        "id": 1,
+        "uuid": "b24c645d-f139-4816-9564-0b7118e7bae4",
+        "owner_id": 1,
+        "image_uuid": null,
+        "player_count": 14,
+        "name": "Jaylen Hill",
+        "team_number": "G2H9K",
+        "metadata": null,
+        "performance_notes": "Rerum repellendus at recusandae quo adipisci."
+    },
+    "message": "",
+    "result": true
+}

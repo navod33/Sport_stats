@@ -1,0 +1,20 @@
+{
+    "payload": {
+        "name": "Freddie Hansen",
+        "email": "dell62@hotmail.com",
+        "uuid": "f541ba14-4fe1-4f42-b0fc-5c49626f64d9",
+        "id": 35,
+        "owner": {
+            "uuid": "c1e7d9ce-f32b-428f-94bd-0e20a2bb87b6",
+            "last_name": null,
+            "email": "apps+user@elegantmedia.com.au",
+            "email_verified_at": null,
+            "avatar_url": null,
+            "timezone": "Australia\/Melbourne",
+            "first_name": "Peter Parker (REGULAR USER)",
+            "full_name": "Peter Parker (REGULAR USER)"
+        }
+    },
+    "message": "",
+    "result": true
+}

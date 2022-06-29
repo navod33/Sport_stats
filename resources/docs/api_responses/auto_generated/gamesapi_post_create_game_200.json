@@ -1,0 +1,24 @@
+{
+    "payload": {
+        "tournament_name": "Et molestiae et dignissimos blanditiis.",
+        "played_at": "2022-06-29T02:29:26.000000Z",
+        "location": "68C Brett Corner\nNew Sebastian, VIC 2681",
+        "season_id": 4,
+        "team_b_name": "Team B",
+        "uuid": "7475212a-c5f4-4fd4-a38b-dc7352e7dbaa",
+        "id": 29,
+        "owner_id": "1",
+        "owner": {
+            "uuid": "c1e7d9ce-f32b-428f-94bd-0e20a2bb87b6",
+            "last_name": null,
+            "email": "apps+user@elegantmedia.com.au",
+            "email_verified_at": null,
+            "avatar_url": null,
+            "timezone": "Australia\/Melbourne",
+            "first_name": "Peter Parker (REGULAR USER)",
+            "full_name": "Peter Parker (REGULAR USER)"
+        }
+    },
+    "message": "",
+    "result": true
+}

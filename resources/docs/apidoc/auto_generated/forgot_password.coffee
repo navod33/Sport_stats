@@ -10,6 +10,12 @@
 @apiParam {String} email Email
 @apiHeader {String} Accept `application/json`
 @apiHeader {String} x-api-key API Key
+@apiSuccessExample {json} Success-Response / HTTP 200 OK
+{
+    "payload": "",
+    "message": "A password reset email will be sent to you in a moment.",
+    "result": true
+}
 @apiErrorExample {json} Error-Response / HTTP 422 Unprocessable Content
 {
 					"message": "Failed to send password reset email. Ensure your email is correct and try again.",

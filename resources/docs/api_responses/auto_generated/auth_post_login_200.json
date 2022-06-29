@@ -1,0 +1,15 @@
+{
+    "payload": {
+        "uuid": "b86e43f4-8a82-4ef6-a059-0f836968e574",
+        "last_name": null,
+        "email": "apps+suadmin@elegantmedia.com.au",
+        "email_verified_at": null,
+        "avatar_url": null,
+        "timezone": "Australia\/Melbourne",
+        "first_name": "Tony Stark (SUPER-ADMIN)",
+        "full_name": "Tony Stark (SUPER-ADMIN)",
+        "access_token": "16564697658JWLDvsUjp6emwofDcjOhyvYXHzer9ITWW9"
+    },
+    "message": "",
+    "result": true
+}

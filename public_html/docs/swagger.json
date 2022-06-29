@@ -1,10 +1,10 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "sportstats API",
-        "version": "1.0.0.20220525"
+        "title": "Boost App API",
+        "version": "1.0.0.20220629"
     },
-    "host": "localhost.test",
+    "host": "boost.test",
     "schemes": [
         "http"
     ],
@@ -802,6 +802,1411 @@
                 }
             }
         },
+        "\/seasons": {
+            "get": {
+                "tags": [
+                    "SeasonsAPI"
+                ],
+                "summary": "Seasons",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "seasonsapi_get_seasons",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "description": "Search query",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": true,
+                        "description": "Page number",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/SeasonsAPISeasonsResponse"
+                        },
+                        "description": "SeasonsAPISeasonsResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            }
+        },
+        "\/files": {
+            "post": {
+                "tags": [
+                    "FilesAPI"
+                ],
+                "summary": "Upload files",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "filesapi_post_upload_files",
+                "description": "Use this endpoint to upload all files, including player images. You must use the `uuid` that gets returned, and use it to attach the file to other objects.",
+                "parameters": [
+                    {
+                        "name": "file",
+                        "in": "formData",
+                        "required": true,
+                        "description": "Image file to upload. Upload as a form field.",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/FilesAPIUploadFilesResponse"
+                        },
+                        "description": "FilesAPIUploadFilesResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            }
+        },
+        "\/teams": {
+            "get": {
+                "tags": [
+                    "TeamsAPI"
+                ],
+                "summary": "List Teams",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "teamsapi_get_list_teams",
+                "description": "Get a list of teams created by user",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "description": "Search query to filter by a name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": true,
+                        "description": "Page number",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/TeamsAPIListTeamsResponse"
+                        },
+                        "description": "TeamsAPIListTeamsResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "TeamsAPI"
+                ],
+                "summary": "Create Team",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "teamsapi_post_create_team",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "description": "Team name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "team_number",
+                        "in": "formData",
+                        "required": false,
+                        "description": "A number for the team. Can be any value",
+                        "type": "string"
+                    },
+                    {
+                        "name": "player_count",
+                        "in": "formData",
+                        "required": false,
+                        "description": "Number of players for the team",
+                        "type": "string"
+                    },
+                    {
+                        "name": "image_uuid",
+                        "in": "formData",
+                        "required": false,
+                        "description": "UUID for the team profile picture. Get a UUID from file upload endpoint",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/TeamsAPICreateTeamResponse"
+                        },
+                        "description": "TeamsAPICreateTeamResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            }
+        },
+        "\/teams\/{uuid}": {
+            "put": {
+                "tags": [
+                    "TeamsAPI"
+                ],
+                "summary": "Update Team",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "teamsapi_put_update_team",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "required": true,
+                        "description": "uuid of the Team to update",
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "description": "Team name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "team_number",
+                        "in": "formData",
+                        "required": false,
+                        "description": "A number for the team. Can be any value",
+                        "type": "string"
+                    },
+                    {
+                        "name": "player_count",
+                        "in": "formData",
+                        "required": false,
+                        "description": "Number of players for the team",
+                        "type": "string"
+                    },
+                    {
+                        "name": "image_uuid",
+                        "in": "formData",
+                        "required": false,
+                        "description": "UUID for the team profile picture. Get a UUID from file upload endpoint",
+                        "type": "string"
+                    },
+                    {
+                        "name": "performance_notes",
+                        "in": "formData",
+                        "required": false,
+                        "description": "Team performance notes",
+                        "type": "string"
+                    },
+                    {
+                        "name": "metadata",
+                        "in": "formData",
+                        "required": true,
+                        "description": "An array of key value pairs to store any metadata",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/TeamsAPIUpdateTeamResponse"
+                        },
+                        "description": "TeamsAPIUpdateTeamResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "TeamsAPI"
+                ],
+                "summary": "Delete Team",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "teamsapi_delete_delete_team",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "required": true,
+                        "description": "uuid of the Team to delete",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/SuccessResponse"
+                        },
+                        "description": "SuccessResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            }
+        },
+        "\/players": {
+            "get": {
+                "tags": [
+                    "PlayersAPI"
+                ],
+                "summary": "List Players",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "playersapi_get_list_players",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": true,
+                        "description": "Page number",
+                        "type": "string"
+                    },
+                    {
+                        "name": "team_id",
+                        "in": "query",
+                        "required": true,
+                        "description": "Team ID. Send with the request URL as `team_id=xxx`",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/PlayersAPIListPlayersResponse"
+                        },
+                        "description": "PlayersAPIListPlayersResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "PlayersAPI"
+                ],
+                "summary": "Create Player",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "playersapi_post_create_player",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "description": "Player name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "required": false,
+                        "description": "String",
+                        "type": "string"
+                    },
+                    {
+                        "name": "positions",
+                        "in": "formData",
+                        "required": true,
+                        "description": "List of positions as a comma seperated list. The API does NOT validate the data. It is upto the client to store and fetch this field",
+                        "type": "string"
+                    },
+                    {
+                        "name": "image_uuid",
+                        "in": "formData",
+                        "required": false,
+                        "description": "UUID for the team profile picture. Get a UUID from file upload endpoint",
+                        "type": "string"
+                    },
+                    {
+                        "name": "team_id",
+                        "in": "formData",
+                        "required": true,
+                        "description": "Team ID",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/PlayersAPICreatePlayerResponse"
+                        },
+                        "description": "PlayersAPICreatePlayerResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            }
+        },
+        "\/players\/{uuid}": {
+            "put": {
+                "tags": [
+                    "PlayersAPI"
+                ],
+                "summary": "Update Player",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "playersapi_put_update_player",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "description": "Player name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "required": false,
+                        "description": "String",
+                        "type": "string"
+                    },
+                    {
+                        "name": "positions",
+                        "in": "formData",
+                        "required": true,
+                        "description": "List of positions as a comma seperated list. The API does NOT validate the data. It is upto the client to store and fetch this field",
+                        "type": "string"
+                    },
+                    {
+                        "name": "image_uuid",
+                        "in": "formData",
+                        "required": false,
+                        "description": "UUID for the team profile picture. Get a UUID from file upload endpoint",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/PlayersAPIUpdatePlayerResponse"
+                        },
+                        "description": "PlayersAPIUpdatePlayerResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "PlayersAPI"
+                ],
+                "summary": "Delete Player",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "playersapi_delete_delete_player",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "required": true,
+                        "description": "uuid of the player to delete",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/SuccessResponse"
+                        },
+                        "description": "SuccessResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            }
+        },
+        "\/games": {
+            "get": {
+                "tags": [
+                    "GamesAPI"
+                ],
+                "summary": "List Games",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "gamesapi_get_list_games",
+                "description": "Get a list of games created by user. Pagination is supported. Played at time is in UTC. Convert to your timezone before using.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": true,
+                        "description": "Page number",
+                        "type": "string"
+                    },
+                    {
+                        "name": "period",
+                        "in": "query",
+                        "required": false,
+                        "description": "Period can be `past`, `future`, `from_today`. The default is `from_today`.",
+                        "type": "string"
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "description": "Order can be `asc`, `desc`. The default is `asc`.",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/GamesAPIListGamesResponse"
+                        },
+                        "description": "GamesAPIListGamesResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "GamesAPI"
+                ],
+                "summary": "Create Game",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "gamesapi_post_create_game",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "tournament_name",
+                        "in": "formData",
+                        "required": true,
+                        "description": "Tournament name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "played_at",
+                        "in": "formData",
+                        "required": true,
+                        "description": " 2022-07-01T13",
+                        "type": "string"
+                    },
+                    {
+                        "name": "location",
+                        "in": "formData",
+                        "required": false,
+                        "description": " \"The Palace\"",
+                        "type": "string"
+                    },
+                    {
+                        "name": "season_id",
+                        "in": "formData",
+                        "required": false,
+                        "description": "Season ID",
+                        "type": "string"
+                    },
+                    {
+                        "name": "team_a_id",
+                        "in": "formData",
+                        "required": true,
+                        "description": "Team A ID",
+                        "type": "string"
+                    },
+                    {
+                        "name": "team_a_image_uuid",
+                        "in": "formData",
+                        "required": false,
+                        "description": "UUID for the team A profile picture. Get a UUID from file upload endpoint. Only use this to override the default team A image.",
+                        "type": "string"
+                    },
+                    {
+                        "name": "team_b_image_uuid",
+                        "in": "formData",
+                        "required": false,
+                        "description": "UUID for the team B profile picture. Get a UUID from file upload endpoint.",
+                        "type": "string"
+                    },
+                    {
+                        "name": "team_b_name",
+                        "in": "formData",
+                        "required": true,
+                        "description": "String",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/GamesAPICreateGameResponse"
+                        },
+                        "description": "GamesAPICreateGameResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            }
+        },
+        "\/games\/{uuid}": {
+            "put": {
+                "tags": [
+                    "GamesAPI"
+                ],
+                "summary": "Update Game",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "gamesapi_put_update_game",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "required": true,
+                        "description": "Game UUID",
+                        "type": "string"
+                    },
+                    {
+                        "name": "tournament_name",
+                        "in": "formData",
+                        "required": true,
+                        "description": "Tournament name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "played_at",
+                        "in": "formData",
+                        "required": true,
+                        "description": " 2022-07-01T13",
+                        "type": "string"
+                    },
+                    {
+                        "name": "location",
+                        "in": "formData",
+                        "required": false,
+                        "description": " \"The Palace\"",
+                        "type": "string"
+                    },
+                    {
+                        "name": "season_id",
+                        "in": "formData",
+                        "required": false,
+                        "description": "Season ID",
+                        "type": "string"
+                    },
+                    {
+                        "name": "team_a_id",
+                        "in": "formData",
+                        "required": true,
+                        "description": "Team A ID",
+                        "type": "string"
+                    },
+                    {
+                        "name": "team_a_image_uuid",
+                        "in": "formData",
+                        "required": false,
+                        "description": "UUID for the team A profile picture. Get a UUID from file upload endpoint. Only use this to override the default team A image.",
+                        "type": "string"
+                    },
+                    {
+                        "name": "team_b_image_uuid",
+                        "in": "formData",
+                        "required": false,
+                        "description": "UUID for the team B profile picture. Get a UUID from file upload endpoint.",
+                        "type": "string"
+                    },
+                    {
+                        "name": "team_b_name",
+                        "in": "formData",
+                        "required": true,
+                        "description": "String",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/GamesAPIUpdateGameResponse"
+                        },
+                        "description": "GamesAPIUpdateGameResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "GamesAPI"
+                ],
+                "summary": "Delete Game",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "gamesapi_delete_delete_game",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "required": true,
+                        "description": "uuid of the Game to delete",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/SuccessResponse"
+                        },
+                        "description": "SuccessResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            }
+        },
+        "\/games\/{gameUuid}\/scores": {
+            "get": {
+                "tags": [
+                    "ScoresAPI"
+                ],
+                "summary": "List Scores per Game",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "scoresapi_get_list_scores_per_game",
+                "description": "Get a list of scores for a game. Pagination is supported.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": true,
+                        "description": "Page number",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ScoresAPIListScoresPerGameResponse"
+                        },
+                        "description": "ScoresAPIListScoresPerGameResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "ScoresAPI"
+                ],
+                "summary": "Create Score",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "scoresapi_post_create_score",
+                "description": "Create a new score for a player. Each record will be unique by `gameUuid`, `player_id`, `position` and `time_segment`. If the record already exists, it will be updated. If a score record must be deleted, you should send a null score value or use delete endpoint.",
+                "parameters": [
+                    {
+                        "name": "gameUuid",
+                        "in": "path",
+                        "required": true,
+                        "description": "Game UUID",
+                        "type": "string"
+                    },
+                    {
+                        "name": "player_id",
+                        "in": "formData",
+                        "required": true,
+                        "description": "Player ID",
+                        "type": "string"
+                    },
+                    {
+                        "name": "position",
+                        "in": "formData",
+                        "required": true,
+                        "description": "Position of the player in the game",
+                        "type": "string"
+                    },
+                    {
+                        "name": "time_segment",
+                        "in": "formData",
+                        "required": true,
+                        "description": "Time segment on game. Examples `Quarter 1`, `Quarter 2`, `Quarter 3`, `Quarter 4`, `Overtime`, `Shootout`",
+                        "type": "string"
+                    },
+                    {
+                        "name": "score",
+                        "in": "formData",
+                        "required": true,
+                        "description": "To delete a record, send a score of `null`. ",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ScoresAPICreateScoreResponse"
+                        },
+                        "description": "ScoresAPICreateScoreResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            }
+        },
+        "\/games\/{gameUuid}\/scores\/{uuid}": {
+            "delete": {
+                "tags": [
+                    "ScoresAPI"
+                ],
+                "summary": "Delete Score",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "scoresapi_delete_delete_score",
+                "description": "Delete a score record.",
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "required": true,
+                        "description": "Score UUID",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/SuccessResponse"
+                        },
+                        "description": "SuccessResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            }
+        },
         "\/settings": {
             "get": {
                 "tags": [
@@ -1007,22 +2412,16 @@
                 }
             }
         },
-        "Setting": {
+        "Season": {
             "type": "object",
             "properties": {
                 "id": {
-                    "type": "integer"
-                },
-                "key": {
                     "type": "string"
                 },
-                "value": {
+                "uuid": {
                     "type": "string"
                 },
-                "created_at": {
-                    "type": "string"
-                },
-                "updated_at": {
+                "name": {
                     "type": "string"
                 }
             }
@@ -1042,7 +2441,161 @@
                 "public_url": {
                     "type": "string"
                 },
+                "file_url": {
+                    "type": "string"
+                },
                 "permalink": {
+                    "type": "string"
+                }
+            }
+        },
+        "Team": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "uuid": {
+                    "type": "string"
+                },
+                "owner_id": {
+                    "type": "string"
+                },
+                "image_uuid": {
+                    "type": "string"
+                },
+                "player_count": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "team_number": {
+                    "type": "string"
+                },
+                "metadata": {
+                    "type": "string"
+                },
+                "performance_notes": {
+                    "type": "string"
+                }
+            }
+        },
+        "Player": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "uuid": {
+                    "type": "string"
+                },
+                "team_id": {
+                    "type": "string"
+                },
+                "image_uuid": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "positions": {
+                    "type": "string"
+                },
+                "metadata": {
+                    "type": "string"
+                },
+                "performance_notes": {
+                    "type": "string"
+                }
+            }
+        },
+        "Game": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "uuid": {
+                    "type": "string"
+                },
+                "owner_id": {
+                    "type": "string"
+                },
+                "season_id": {
+                    "type": "string"
+                },
+                "team_a_id": {
+                    "type": "string"
+                },
+                "team_b_id": {
+                    "type": "string"
+                },
+                "team_b_name": {
+                    "type": "string"
+                },
+                "tournament_name": {
+                    "type": "string"
+                },
+                "played_at": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "team_a_image_uuid": {
+                    "type": "string"
+                },
+                "team_b_image_uuid": {
+                    "type": "string"
+                }
+            }
+        },
+        "Score": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "uuid": {
+                    "type": "string"
+                },
+                "game_id": {
+                    "type": "string"
+                },
+                "time_segment": {
+                    "type": "string"
+                },
+                "position": {
+                    "type": "string"
+                },
+                "player_id": {
+                    "type": "string"
+                },
+                "score": {
+                    "type": "integer"
+                }
+            }
+        },
+        "Setting": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
                     "type": "string"
                 }
             }
@@ -1218,6 +2771,231 @@
                 },
                 "payload": {
                     "$ref": "#\/definitions\/User"
+                }
+            }
+        },
+        "SeasonsAPISeasonsResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "payload": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/Season"
+                    }
+                },
+                "paginator": {
+                    "$ref": "#\/definitions\/Paginator"
+                }
+            }
+        },
+        "FilesAPIUploadFilesResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "payload": {
+                    "$ref": "#\/definitions\/File"
+                }
+            }
+        },
+        "TeamsAPIListTeamsResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "payload": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/Team"
+                    }
+                },
+                "paginator": {
+                    "$ref": "#\/definitions\/Paginator"
+                }
+            }
+        },
+        "TeamsAPICreateTeamResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "payload": {
+                    "$ref": "#\/definitions\/Team"
+                }
+            }
+        },
+        "TeamsAPIUpdateTeamResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "payload": {
+                    "$ref": "#\/definitions\/Team"
+                }
+            }
+        },
+        "PlayersAPIListPlayersResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "payload": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/Player"
+                    }
+                },
+                "paginator": {
+                    "$ref": "#\/definitions\/Paginator"
+                }
+            }
+        },
+        "PlayersAPICreatePlayerResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "payload": {
+                    "$ref": "#\/definitions\/Player"
+                }
+            }
+        },
+        "PlayersAPIUpdatePlayerResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "payload": {
+                    "$ref": "#\/definitions\/Player"
+                }
+            }
+        },
+        "GamesAPIListGamesResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "payload": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/Game"
+                    }
+                },
+                "paginator": {
+                    "$ref": "#\/definitions\/Paginator"
+                }
+            }
+        },
+        "GamesAPICreateGameResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "payload": {
+                    "$ref": "#\/definitions\/Team"
+                }
+            }
+        },
+        "GamesAPIUpdateGameResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "payload": {
+                    "$ref": "#\/definitions\/Team"
+                }
+            }
+        },
+        "ScoresAPIListScoresPerGameResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "payload": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/Score"
+                    }
+                },
+                "paginator": {
+                    "$ref": "#\/definitions\/Paginator"
+                }
+            }
+        },
+        "ScoresAPICreateScoreResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "payload": {
+                    "$ref": "#\/definitions\/Score"
                 }
             }
         },

@@ -1,0 +1,14 @@
+{
+    "payload": {
+        "uuid": "c1e7d9ce-f32b-428f-94bd-0e20a2bb87b6",
+        "last_name": null,
+        "email": "apps+user@elegantmedia.com.au",
+        "email_verified_at": null,
+        "avatar_url": "http:\/\/boost.test\/storage\/avatars\/1\/x3TVa1Ps8Y5dKhjlZoeKfbhlN1dTpqZSlj5x3h7C.jpg",
+        "timezone": "Australia\/Melbourne",
+        "first_name": "Peter Parker (REGULAR USER)",
+        "full_name": "Peter Parker (REGULAR USER)"
+    },
+    "message": "",
+    "result": true
+}

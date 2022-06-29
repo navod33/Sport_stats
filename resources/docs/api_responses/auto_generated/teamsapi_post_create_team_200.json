@@ -1,0 +1,22 @@
+{
+    "payload": {
+        "name": "Dare-Kovacek",
+        "team_number": 13,
+        "player_count": 13,
+        "uuid": "989148b4-1c5a-4bfe-bbfe-db7daac23762",
+        "id": 23,
+        "owner_id": "1",
+        "owner": {
+            "uuid": "c1e7d9ce-f32b-428f-94bd-0e20a2bb87b6",
+            "last_name": null,
+            "email": "apps+user@elegantmedia.com.au",
+            "email_verified_at": null,
+            "avatar_url": null,
+            "timezone": "Australia\/Melbourne",
+            "first_name": "Peter Parker (REGULAR USER)",
+            "full_name": "Peter Parker (REGULAR USER)"
+        }
+    },
+    "message": "",
+    "result": true
+}

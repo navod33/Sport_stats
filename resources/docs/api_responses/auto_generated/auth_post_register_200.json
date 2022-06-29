@@ -1,0 +1,11 @@
+{
+    "payload": {
+        "email": "vconroy@example.net",
+        "uuid": "abfe791b-fe2f-4d2d-b25d-819cedce41c7",
+        "first_name": null,
+        "full_name": "",
+        "access_token": "1656469765HWbZYFGtj3bq3omTEFEqigyASo07ywGviaT"
+    },
+    "message": "",
+    "result": true
+}

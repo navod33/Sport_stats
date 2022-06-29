@@ -1,0 +1,13 @@
+{
+    "payload": {
+        "game_id": 10,
+        "player_id": 1,
+        "position": "Center",
+        "time_segment": "Q1",
+        "score": 10,
+        "uuid": "51e134a5-c674-4f32-8125-a2923c62266c",
+        "id": 58
+    },
+    "message": "",
+    "result": true
+}

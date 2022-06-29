@@ -1,0 +1,91 @@
+{
+    "payload": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 15,
+                "uuid": "ddb7a57f-d10e-44e7-b515-4a4a52108ea8",
+                "team_id": 3,
+                "image_uuid": null,
+                "name": "Dr. Nico Toy",
+                "email": "orice@yahoo.com",
+                "positions": "AB,CD,EF",
+                "metadata": null,
+                "performance_notes": "Minima ex et unde rerum."
+            },
+            {
+                "id": 14,
+                "uuid": "f91c3d5b-c27d-4b0f-ae4a-85311c097e6c",
+                "team_id": 3,
+                "image_uuid": null,
+                "name": "Adaline Collins",
+                "email": "milford86@hotmail.com",
+                "positions": "AB,CD,EF",
+                "metadata": null,
+                "performance_notes": "Excepturi ullam optio molestiae explicabo."
+            },
+            {
+                "id": 13,
+                "uuid": "ee850d5c-4c7b-418e-8454-3d5e1b0f23bb",
+                "team_id": 3,
+                "image_uuid": null,
+                "name": "Hector Ferry DVM",
+                "email": "muller.molly@yahoo.com.au",
+                "positions": "AB,CD,EF",
+                "metadata": null,
+                "performance_notes": "Consectetur vero laboriosam quia deserunt assumenda placeat sed quo."
+            },
+            {
+                "id": 12,
+                "uuid": "d8fcee7f-7934-41cc-ac44-913fa241291a",
+                "team_id": 3,
+                "image_uuid": null,
+                "name": "Taylor Torphy DVM",
+                "email": "lkirlin@yahoo.com.au",
+                "positions": "AB,CD,EF",
+                "metadata": null,
+                "performance_notes": "Expedita quae voluptatem nesciunt numquam."
+            },
+            {
+                "id": 11,
+                "uuid": "3b827982-a4b5-41e8-9615-a670cb4e7a4a",
+                "team_id": 3,
+                "image_uuid": null,
+                "name": "Marlene Collins PhD",
+                "email": "jaclyn07@mcclure.com",
+                "positions": "AB,CD,EF",
+                "metadata": null,
+                "performance_notes": "Quibusdam expedita aspernatur quis."
+            }
+        ],
+        "first_page_url": "http:\/\/boost.test\/api\/v1\/players?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http:\/\/boost.test\/api\/v1\/players?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/boost.test\/api\/v1\/players?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &raquo;",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http:\/\/boost.test\/api\/v1\/players",
+        "per_page": 50,
+        "prev_page_url": null,
+        "to": 5,
+        "total": 5
+    },
+    "message": "",
+    "result": true
+}

@@ -1,0 +1,11 @@
+{
+    "message": "The team id field is required.",
+    "payload": {
+        "errors": {
+            "team_id": [
+                "The team id field is required."
+            ]
+        }
+    },
+    "result": false
+}
