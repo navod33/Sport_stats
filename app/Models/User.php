@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Entities\Teams\Team;
 use EMedia\Oxygen\Entities\Traits\OxygenUserTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -115,5 +116,10 @@ class User extends Authenticatable implements MustVerifyEmail
 			'access_token',
 		];
 	}
+
+    public function teams()
+    {
+        return $this->hasMany(Team::class, 'owner_id');
+    }
 
 }

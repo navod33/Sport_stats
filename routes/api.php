@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\API\V1\GamesAPIController;
+use App\Http\Controllers\API\V1\PlayersAPIController;
+use App\Http\Controllers\API\V1\ScoresAPIController;
+use App\Http\Controllers\API\V1\SeasonsAPIController;
+use App\Http\Controllers\API\V1\TeamsAPIController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -43,7 +48,31 @@ Route::group([
 			Route::post('/avatar', 'Auth\ProfileController@updateAvatar');
 			Route::post('/password/edit', 'Auth\ResetPasswordController@updatePassword');
 
-			// TODO: add other logged-in user routes
+			Route::get('/seasons', [SeasonsAPIController::class, 'index']);
+			Route::post('/files', [\App\Http\Controllers\API\V1\FilesAPIController::class, 'store']);
+
+			Route::get('/teams', [TeamsAPIController::class, 'index']);
+            Route::post('/teams', [TeamsAPIController::class, 'store']);
+            Route::put('/teams/{uuid}', [TeamsAPIController::class, 'update']);
+            Route::delete('/teams/{uuid}', [TeamsAPIController::class, 'destroy']);
+
+            Route::get('/players', [PlayersAPIController::class, 'index']);
+            Route::post('/players', [PlayersAPIController::class, 'store']);
+            Route::put('/players/{uuid}', [PlayersAPIController::class, 'update']);
+            Route::delete('/players/{uuid}', [PlayersAPIController::class, 'destroy']);
+
+            // routes for games
+            Route::get('/games', [GamesAPIController::class, 'index']);
+            Route::post('/games', [GamesAPIController::class, 'store']);
+            Route::put('/games/{uuid}', [GamesAPIController::class, 'update']);
+            Route::delete('/games/{uuid}', [GamesAPIController::class, 'destroy']);
+
+            // https://projects.invisionapp.com/share/KN12QOVVETSY#/screens/467309959
+
+            // scores
+            Route::get('/games/{gameUuid}/scores', [ScoresAPIController::class, 'index']);
+            Route::post('/games/{gameUuid}/scores', [ScoresAPIController::class, 'store']);
+            Route::delete('/games/{gameUuid}/scores/{uuid}', [ScoresAPIController::class, 'destroy']);
 		});
 	}
 });
