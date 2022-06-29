@@ -27,6 +27,13 @@ class DatabaseSeeder extends Seeder
 		if (!app()->environment('production')) {
 			$this->call(UsersTableSeeder::class);
 			$this->call(UserRolesTableSeeder::class);
+			$this->call(FilesSeeder::class);
+
+			$this->call(SeasonsSeeder::class);
+			$this->call(TeamsSeeder::class);
+			$this->call(PlayersSeeder::class);
+			$this->call(GamesSeeder::class);
+			$this->call(ScoresSeeder::class);
 		}
 
 		/*
