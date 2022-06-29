@@ -184,13 +184,19 @@ class AuthController extends \EMedia\Oxygen\Http\Controllers\API\V1\Auth\AuthCon
         });
 
         $user = DeviceAuthenticator::getUserByAccessToken();
-
         $user->confirmation_code = mt_rand(1000, 9999);
+        $responseMessage = 'A verification code has been sent to your email.';
+
+        if (!app()->environment('production')) {
+            $user->confirmation_code = 0000;
+            $responseMessage .= ' Test environment code is always ' . $user->confirmation_code;
+        }
+
         $user->save();
-//dd($user->confirmation_code);
+
         // Send Email verification code
         event(new Registered($user));
 
-        return response()->apiSuccess(null, 'A verification code has been sent to your email.');
+        return response()->apiSuccess(null, $responseMessage);
     }
 }
