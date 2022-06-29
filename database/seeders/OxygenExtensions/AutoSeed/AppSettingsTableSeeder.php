@@ -87,6 +87,22 @@ class AppSettingsTableSeeder extends \Illuminate\Database\Seeder
 				'is_key_editable' => false,
 				'setting_group_id' => $group->id,
 			],
+            [
+                'setting_key' => 'LINKEDIN_URL',
+                'setting_data_type' => 'string',
+                'setting_value' => 'http://www.linkedin.com/' . Str::kebab(config('app.name')),
+                'description' => 'Official LinkedIn URL',
+                'is_key_editable' => false,
+                'setting_group_id' => $group->id,
+            ],
+            [
+                'setting_key' => 'CALL_US_NUMBER',
+                'setting_data_type' => 'string',
+                'setting_value' => '031234234',
+                'description' => 'Contact number',
+                'is_key_editable' => false,
+                'setting_group_id' => $group->id,
+            ],
 		];
 
 		$this->seedWithoutDuplicates($data, Setting::class, 'setting_key', 'setting_key');
