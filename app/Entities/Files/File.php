@@ -30,14 +30,15 @@ class File extends Model
 
 	protected $appends = [
 		// uncomment permalink if you want it to be available with the response
-		// 'permalink',
+		'permalink',
 	];
 
 	protected $visible = [
 		'uuid',
 		'key',
 		'original_filename',
-		'public_url',
+        'public_url',
+		'file_url',
 		'permalink',
 	];
 
@@ -149,6 +150,9 @@ class File extends Model
 			if ($this->file_disk === 'public') {
 				return Storage::disk('public')->url($this->file_path);
 			}
+            // if ($this->file_disk === 'user_uploads') {
+            //     return Storage::disk('user_uploads')->url($this->file_path);
+            // }
 		}
 
 		return null;
