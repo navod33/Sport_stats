@@ -1,4 +1,8 @@
-# OxygenProject
+# Boost (SportStats)
+
+## Terms
+
+Seasons - All App users share the same season names.
 
 ## Deployment Instructions
 
