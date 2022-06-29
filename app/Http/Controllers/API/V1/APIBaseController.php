@@ -10,5 +10,6 @@ class APIBaseController extends Controller
 {
 
 	use ModifyValidationFailedApiResponse;
+    use GetFiles;
 
 }

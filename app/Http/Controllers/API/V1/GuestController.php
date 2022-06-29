@@ -53,6 +53,11 @@ class GuestController extends APIBaseController
 			'PRIVACY_POLICY',
 			'TERMS_AND_CONDITIONS',
 			'WEBSITE_URL',
+			'FACEBOOK_URL',
+			'TWITTER_URL',
+			'LINKEDIN_URL',
+			'INSTAGRAM_URL',
+			'CALL_US_NUMBER',
 		];
 
 		foreach ($settingKeys as $settingKey) {
