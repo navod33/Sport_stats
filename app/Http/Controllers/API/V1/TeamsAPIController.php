@@ -38,11 +38,14 @@ class TeamsAPIController extends APIBaseController
 
         // limit results to logged in user
         $filter->where('owner_id', $request->user()->id);
-        $filter->orderBy('name');
+        $items= $filter->orderBy('name');
 
-		$items = $this->repo->search($filter);
+        if($request->filled('q')){
+            $items = $filter->where('name', 'like', ''.$request->q.'%');
+        }
 
-		return response()->apiSuccess($items);
+
+		return response()->apiSuccessPaginated($items->paginate());
 	}
 
     /**
