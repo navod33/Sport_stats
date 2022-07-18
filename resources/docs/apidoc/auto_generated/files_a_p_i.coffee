@@ -9,6 +9,7 @@
 @api {POST} api/v1/files Upload files
 @apiGroup FilesAPI
 @apiParam {String} file Image file to upload. Upload as a form field.
+@apiParam {String} allow_public_access Pass True to enable public access, else false
 @apiUse default_headers
 @apiSuccessExample {json} Success-Response / HTTP 200 OK
 {

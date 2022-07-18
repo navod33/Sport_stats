@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
     title: 'Boost App API'
-    version: 1.0.0.20220629
+    version: 1.0.0.20220718
 host: '{{host}}'
 schemes:
     - '{{scheme}}'
@@ -748,6 +748,12 @@ paths:
                     in: formData
                     required: true
                     description: 'Image file to upload. Upload as a form field.'
+                    type: string
+                -
+                    name: allow_public_access
+                    in: formData
+                    required: true
+                    description: 'Pass True to enable public access, else false'
                     type: string
                 -
                     name: Accept
