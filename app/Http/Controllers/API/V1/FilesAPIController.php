@@ -55,14 +55,15 @@ class FilesAPIController extends APIBaseController
         	    ->setName('Upload files')
         	    ->setDescription('Use this endpoint to upload all files, including player images. You must use the `uuid` that gets returned, and use it to attach the file to other objects.')
         	    ->setParams([
-                    (new Param('file'))->setDescription('Image file to upload. Upload as a form field.'),
-                    (new Param('allow_public_access'))->setDescription('Pass True to enable public access, else false'),
+                    (new Param('file'))->setDescription('Image file to upload. Upload as a form field.')->dataType('File'),
+                    (new Param('allow_public_access'))->setDescription('post true if public access allowed, else false.')->dataType('Bool'),
                 ])
                 ->setSuccessObject(File::class);
         });
 
         $this->validate($request, [
             'file' => 'required|file',
+            'allow_public_access' => 'required|boolean',
             // 'key' => 'required|unique:files,key',
             // 'key' => 'required',
         ]);

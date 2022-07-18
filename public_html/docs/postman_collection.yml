@@ -748,13 +748,13 @@ paths:
                     in: formData
                     required: true
                     description: 'Image file to upload. Upload as a form field.'
-                    type: string
+                    type: file
                 -
                     name: allow_public_access
                     in: formData
                     required: true
-                    description: 'Pass True to enable public access, else false'
-                    type: string
+                    description: 'post true if public access allowed, else false.'
+                    type: bool
                 -
                     name: Accept
                     in: header
