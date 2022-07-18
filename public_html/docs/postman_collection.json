@@ -972,7 +972,7 @@
                         "in": "formData",
                         "required": true,
                         "description": "post true if public access allowed, else false.",
-                        "type": "bool"
+                        "type": "boolean"
                     },
                     {
                         "name": "Accept",

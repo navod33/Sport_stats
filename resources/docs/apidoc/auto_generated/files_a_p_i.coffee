@@ -9,7 +9,7 @@
 @api {POST} api/v1/files Upload files
 @apiGroup FilesAPI
 @apiParam {File} file Image file to upload. Upload as a form field.
-@apiParam {Bool} allow_public_access post true if public access allowed, else false.
+@apiParam {Boolean} allow_public_access post true if public access allowed, else false.
 @apiUse default_headers
 @apiSuccessExample {json} Success-Response / HTTP 200 OK
 {
