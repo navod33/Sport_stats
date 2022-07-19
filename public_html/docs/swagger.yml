@@ -1797,8 +1797,8 @@ definitions:
                 type: string
             performance_notes:
                 type: string
-            permalink:
-                type: string
+            image:
+                $ref: '#/definitions/File'
     Player:
         type: object
         properties:
