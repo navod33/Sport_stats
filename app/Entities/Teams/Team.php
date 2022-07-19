@@ -10,6 +10,7 @@ use EMedia\Formation\Entities\GeneratesFields;
 use ElegantMedia\SimpleRepository\Search\Eloquent\SearchableLike;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Team extends Model
 {
@@ -50,6 +51,11 @@ class Team extends Model
 	//     'image',
     // ];
 
+    protected $appends = [
+		// uncomment permalink if you want it to be available with the response
+		'permalink',
+	];
+    
 	protected $searchable = [
 		'name'
 	];
@@ -116,6 +122,28 @@ class Team extends Model
     {
         return [];
     }
+
+    public function getPermalinkAttribute()
+	{
+		return route('files.show', [
+			'uuid' => $this->uuid,
+			'fileName' => $this->original_filename,
+		]);
+	}
+
+    public function getPublicUrlAttribute()
+	{
+		if ($this->file_disk) {
+			if ($this->file_disk === 'public') {
+				return Storage::disk('public')->url($this->file_path);
+			}
+            // if ($this->file_disk === 'user_uploads') {
+            //     return Storage::disk('user_uploads')->url($this->file_path);
+            // }
+		}
+
+		return null;
+	}
 
     public function owner()
     {

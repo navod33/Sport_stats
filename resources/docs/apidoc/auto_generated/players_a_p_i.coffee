@@ -116,7 +116,7 @@
 @apiParam {String} [email] String
 @apiParam {String} positions List of positions as a comma seperated list. The API does NOT validate the data. It is upto the client to store and fetch this field
 @apiParam {String} [image_uuid] UUID for the team profile picture. Get a UUID from file upload endpoint
-@apiParam {String} team_id Team ID
+@apiParam {String} [team_id] Team ID
 @apiUse default_headers
 @apiSuccessExample {json} Success-Response / HTTP 200 OK
 {

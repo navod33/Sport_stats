@@ -1495,7 +1495,7 @@
                     {
                         "name": "team_id",
                         "in": "formData",
-                        "required": true,
+                        "required": false,
                         "description": "Team ID",
                         "type": "string"
                     },
