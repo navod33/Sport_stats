@@ -64,7 +64,7 @@ class Team extends Model
         'deleted_at',
     ];
 
-    protected $casts = [ 'owner_id' => 'integer' ];
+    protected $casts = [ 'owner_id' => 'integer' , 'player_count' => 'integer' ];
     /**
      *
      * Add any update only validation rules for this model
