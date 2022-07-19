@@ -47,6 +47,9 @@ class Team extends Model
 		'metadata',
 	];
 
+    protected $visible = [
+		'permalink',
+	];
 	// protected $appends = [
 	//     'image',
     // ];
