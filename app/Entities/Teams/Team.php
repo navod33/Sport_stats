@@ -47,9 +47,9 @@ class Team extends Model
 		'metadata',
 	];
 
-    protected $visible = [
-		'permalink',
-	];
+    // protected $visible = [
+	// 	'permalink',
+	// ];
 	// protected $appends = [
 	//     'image',
     // ];
@@ -163,4 +163,8 @@ class Team extends Model
         return $this->hasMany(Player::class);
     }
 
+    public function attachable()
+	{
+		return $this->morphTo();
+	}
 }
