@@ -2062,6 +2062,8 @@ definitions:
                 type: string
             performance_notes:
                 type: string
+            permalink:
+                type: string
     Player:
         type: object
         properties:
