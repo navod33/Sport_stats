@@ -1779,7 +1779,23 @@ definitions:
     Team:
         type: object
         properties:
-            permalink:
+            id:
+                type: string
+            uuid:
+                type: string
+            owner_id:
+                type: string
+            image_uuid:
+                type: string
+            player_count:
+                type: integer
+            name:
+                type: string
+            team_number:
+                type: string
+            metadata:
+                type: string
+            performance_notes:
                 type: string
     Player:
         type: object
