@@ -126,6 +126,13 @@ class Team extends Model
         return [];
     }
 
+    public function getExtraApiFields()
+    {
+        return [
+            'permalink'=>['type' => 'string'],
+        ];
+    }
+
     public function getPermalinkAttribute()
 	{
 		return route('files.show', [

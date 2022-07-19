@@ -2625,6 +2625,9 @@
                 },
                 "performance_notes": {
                     "type": "string"
+                },
+                "permalink": {
+                    "type": "string"
                 }
             }
         },
