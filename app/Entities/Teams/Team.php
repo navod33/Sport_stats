@@ -64,6 +64,7 @@ class Team extends Model
         'deleted_at',
     ];
 
+    protected $casts = [ 'owner_id' => 'integer' ];
     /**
      *
      * Add any update only validation rules for this model
@@ -118,7 +119,7 @@ class Team extends Model
 
     public function owner()
     {
-        return $this->belongsTo(User::class, 'owner_id');
+        return $this->belongsTo(User::class, 'owner_id','id');
     }
 
     public function image()
