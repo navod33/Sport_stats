@@ -2626,8 +2626,8 @@
                 "performance_notes": {
                     "type": "string"
                 },
-                "permalink": {
-                    "type": "string"
+                "image": {
+                    "$ref": "#\/definitions\/File"
                 }
             }
         },

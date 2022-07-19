@@ -56,7 +56,8 @@ class Team extends Model
 
     protected $appends = [
 		// uncomment permalink if you want it to be available with the response
-		'permalink',
+		// 'permalink',
+        // 'Public_url'
 	];
     
 	protected $searchable = [
@@ -129,32 +130,12 @@ class Team extends Model
     public function getExtraApiFields()
     {
         return [
-            'permalink'=>['type' => 'string'],
+            'image' => ['type' => 'object', 'items' => 'File'],
         ];
+        
     }
 
-    public function getPermalinkAttribute()
-	{
-		return route('files.show', [
-			'uuid' => $this->uuid,
-			'fileName' => $this->original_filename,
-		]);
-	}
-
-    public function getPublicUrlAttribute()
-	{
-		if ($this->file_disk) {
-			if ($this->file_disk === 'public') {
-				return Storage::disk('public')->url($this->file_path);
-			}
-            // if ($this->file_disk === 'user_uploads') {
-            //     return Storage::disk('user_uploads')->url($this->file_path);
-            // }
-		}
-
-		return null;
-	}
-
+    protected $with = ['image'];
     public function owner()
     {
         return $this->belongsTo(User::class, 'owner_id','id');
