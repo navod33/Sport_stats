@@ -66,7 +66,7 @@ class PlayersAPIController extends APIBaseController
                     'email|String|optional',
                     'positions|String|List of positions as a comma seperated list. The API does NOT validate the data. It is upto the client to store and fetch this field',
                     'image_uuid|UUID for the team profile picture. Get a UUID from file upload endpoint|optional',
-                    'team_id|Team ID',
+                    'team_id|Team ID|optional',
                 ])
                 ->setSuccessObject(Player::class);
         });
