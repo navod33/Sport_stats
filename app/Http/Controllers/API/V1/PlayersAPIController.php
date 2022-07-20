@@ -100,6 +100,7 @@ class PlayersAPIController extends APIBaseController
             return (new APICall())
                 ->setName('Update Player')
                 ->setParams([
+                    (new Param('uuid'))->setDescription('uuid of the Player to update')->setLocation(Param::LOCATION_PATH),
                     'name|String|Player name',
                     'email|String|optional',
                     'positions|String|List of positions as a comma seperated list. The API does NOT validate the data. It is upto the client to store and fetch this field',

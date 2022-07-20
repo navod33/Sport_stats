@@ -28,6 +28,9 @@ class ScoresAPIController extends APIBaseController
                 	    ->setName('List Scores per Game')
                 	    ->setDescription('Get a list of scores for a game. Pagination is supported.')
                 	    ->setParams([
+                            (new Param('gameUuid'))
+                        ->setLocation(Param::LOCATION_PATH)
+                        ->setDescription('Game UUID'),
                 	        'page|Page number',
                         ])
                         ->setSuccessPaginatedObject(Score::class);
@@ -130,6 +133,9 @@ class ScoresAPIController extends APIBaseController
                     (new Param('uuid'))
                         ->setLocation(Param::LOCATION_PATH)
                         ->setDescription('Score UUID'),
+                        (new Param('gameUuid'))
+                        ->setLocation(Param::LOCATION_PATH)
+                        ->setDescription('Game UUID'),
                 ]);
         });
 

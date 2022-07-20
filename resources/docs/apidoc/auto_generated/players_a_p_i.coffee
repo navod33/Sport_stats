@@ -170,6 +170,7 @@
 @apiVersion 1.0.0
 @api {PUT} api/v1/players/{uuid} Update Player
 @apiGroup PlayersAPI
+@apiParam {String} uuid uuid of the Player to update
 @apiParam {String} name Player name
 @apiParam {String} [email] String
 @apiParam {String} positions List of positions as a comma seperated list. The API does NOT validate the data. It is upto the client to store and fetch this field
