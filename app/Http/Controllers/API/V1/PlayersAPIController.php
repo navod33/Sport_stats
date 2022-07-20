@@ -42,13 +42,14 @@ class PlayersAPIController extends APIBaseController
 
         $filter = $this->repo->newSearchFilter();
 
-        $filter->where('owner_id', $request->user()->id);
-        $filter->where('team_id', $request->team_id);
-        $filter->orderBy('name');
+        $items = $filter->where('owner_id', $request->user()->id);
+        $items = $filter->where('team_id', $request->team_id);
+        $items = $filter->orderBy('name');
 
-		$items = $this->repo->search($filter);
+		//$items = $this->repo->search($filter);
 
-		return response()->apiSuccess($items);
+		//return response()->apiSuccess($items);
+        return response()->apiSuccessPaginated($items->paginate());
 	}
 
     /**
