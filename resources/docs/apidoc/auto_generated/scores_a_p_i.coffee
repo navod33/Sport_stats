@@ -8,6 +8,7 @@
 @apiVersion 1.0.0
 @api {GET} api/v1/games/{gameUuid}/scores List Scores per Game
 @apiGroup ScoresAPI
+@apiParam {String} gameUuid Game UUID
 @apiParam {String} page Page number
 @apiUse default_headers
 @apiSuccessExample {json} Success-Response / HTTP 200 OK
@@ -190,6 +191,7 @@
 @api {DELETE} api/v1/games/{gameUuid}/scores/{uuid} Delete Score
 @apiGroup ScoresAPI
 @apiParam {String} uuid Score UUID
+@apiParam {String} gameUuid Game UUID
 @apiUse default_headers
 @apiSuccessExample {json} Success-Response / HTTP 200 OK
 {

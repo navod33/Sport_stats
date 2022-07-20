@@ -58,6 +58,7 @@ class FilesAPIController extends APIBaseController
                     (new Param('file'))->setDescription('Image file to upload. Upload as a form field.')->dataType('File'),
                     (new Param('allow_public_access'))->setDescription('post true if public access allowed, else false.')->dataType('boolean'),
                 ])
+                ->setConsumes(['multipart/form-data'])
                 ->setSuccessObject(File::class);
         });
 

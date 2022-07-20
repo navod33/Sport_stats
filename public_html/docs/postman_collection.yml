@@ -736,8 +736,7 @@ paths:
                 - FilesAPI
             summary: 'Upload files'
             consumes:
-                - application/json
-                - application/x-www-form-urlencoded
+                - multipart/form-data
             produces:
                 - application/json
             operationId: filesapi_post_upload_files
@@ -1229,6 +1228,12 @@ paths:
             description: ''
             parameters:
                 -
+                    name: uuid
+                    in: path
+                    required: true
+                    description: 'uuid of the Player to update'
+                    type: string
+                -
                     name: name
                     in: formData
                     required: true
@@ -1682,6 +1687,12 @@ paths:
             description: 'Get a list of scores for a game. Pagination is supported.'
             parameters:
                 -
+                    name: gameUuid
+                    in: path
+                    required: true
+                    description: 'Game UUID'
+                    type: string
+                -
                     name: page
                     in: query
                     required: true
@@ -1821,6 +1832,12 @@ paths:
                     in: path
                     required: true
                     description: 'Score UUID'
+                    type: string
+                -
+                    name: gameUuid
+                    in: path
+                    required: true
+                    description: 'Game UUID'
                     type: string
                 -
                     name: Accept
