@@ -43,7 +43,7 @@ class Team extends Model
 		'team_number',
 		'player_count',
 		'performance_notes',
-		// 'image_id',
+		'image_uuid',
 		'metadata',
 	];
 
