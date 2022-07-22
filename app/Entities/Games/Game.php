@@ -43,6 +43,7 @@ class Game extends Model
 		'tournament_name',
 		'played_at',
 		'location',
+        'team_a_id',
 		'season_id',
 		'team_a_image_uuid',
 		'team_b_name',
@@ -66,8 +67,10 @@ class Game extends Model
         'created_at',
         'updated_at',
         'deleted_at',
+        'team_b_id',
     ];
 
+    protected $casts = [ 'season_id' => 'integer' , 'team_a_id' => 'integer','owner_id'=> 'integer'];
     /**
      *
      * Add any update only validation rules for this model
@@ -80,7 +83,7 @@ class Game extends Model
             'team_a_id' => 'required|integer',
             'team_b_name' => 'required',
             'season_id' => 'integer',
-            'played_at' => 'required|date|date_format:'.\DateTimeInterface::ATOM,
+            'played_at' => 'required|date|date_format:Y-m-d H:i:s|after_or_equal:today',
         ];
     }
 
@@ -122,6 +125,19 @@ class Game extends Model
         return [];
     }
 
+    public function getExtraApiFields()
+    {
+        return [
+            'team_a_image' => ['type' => 'object', 'items' => 'File'],
+            'team_b_image' => ['type' => 'object', 'items' => 'File'],
+            'team_a' => ['type' => 'object', 'items' => 'Team'],
+            'season' => ['type' => 'object', 'items' => 'Season'],
+        ];
+        
+    }
+
+    protected $with = ['team_a_image','team_b_image','team_a','season'];
+
     public function owner()
     {
         return $this->belongsTo(User::class, 'owner_id');
@@ -129,12 +145,12 @@ class Game extends Model
 
     public function team_a()
     {
-        return $this->belongsTo(Team::class, 'team_a_id');
+        return $this->belongsTo(Team::class, 'team_a_id','id');
     }
 
     public function season()
     {
-        return $this->belongsTo(Season::class);
+        return $this->belongsTo(Season::class,'season_id','id');
     }
 
     public function team_a_image()

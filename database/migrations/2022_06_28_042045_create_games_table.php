@@ -33,8 +33,8 @@ class CreateGamesTable extends Migration
             // position
             // score
 
-            $table->unsignedBigInteger('team_a_image_uuid')->nullable()->references('uuid')->on('files');
-            $table->unsignedBigInteger('team_b_image_uuid')->nullable()->references('uuid')->on('files');
+            $table->string('team_a_image_uuid')->nullable()->references('uuid')->on('files');
+            $table->string('team_b_image_uuid')->nullable()->references('uuid')->on('files');
 
             $table->timestamps();
         });

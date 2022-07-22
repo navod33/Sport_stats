@@ -38,37 +38,39 @@ class GamesAPIController extends APIBaseController
 
 		// return a list of my games
 		$filter = $this->repo->newSearchFilter(false);
-		$filter->where('owner_id', $request->user()->id);
+		$items = $filter->where('owner_id', $request->user()->id);
 
 		$period = $request->input('period', 'from_today');
 		if ($period == 'past') {
             $filter->where('played_at', '<', now()->subDay());
-            $filter->orderBy('played_at', 'desc');
+            $items = $filter->orderBy('played_at', 'desc');
         } else if ($period == 'future') {
             $filter->where('played_at', '>', now());
-            $filter->orderBy('played_at', 'asc');
+            $items = $filter->orderBy('played_at', 'asc');
         } else {
             // everything from today - default
             $filter->where('played_at', '>=', now()->subDay());
-            $filter->orderBy('played_at', 'asc');
+            $items = $filter->orderBy('played_at', 'asc');
         }
 
         // filter by order
         if ($request->input('order') == 'desc') {
-            $filter->orderBy('played_at', 'desc');
+            $items = $filter->orderBy('played_at', 'desc');
         } else {
-            $filter->orderBy('played_at', 'asc');
+            $items = $filter->orderBy('played_at', 'asc');
         }
 
-		$filter->with([
+		$items = $filter->with([
 		    'team_a.image',
             // 'team_b',
             'season',
+            'team_a_image',
         ]);
 
-		$items = $this->repo->search($filter);
+		//$items = $this->repo->search($filter);
 
-		return response()->apiSuccess($items);
+        return response()->apiSuccessPaginated($items->paginate());
+		//return response()->apiSuccess($items);
 	}
 
 
@@ -84,8 +86,8 @@ class GamesAPIController extends APIBaseController
                 ->setName('Create Game')
                 ->setParams([
                     'tournament_name|String|Tournament name',
-                    'played_at|String|Date and time of the game in ATOM format. Example: 2022-07-01T13:20:26.000000Z|required',
-                    'location|String|Location of the game. Example: "The Palace"|optional',
+                    (new Param('played_at'))->setDescription('Date and time of the game Ex "2023-01-31 23:00:00"'),
+                    'location|String|Location of the game Ex "The Palace"|optional',
                     'season_id|Integer|Season ID|optional',
                     'team_a_id|Integer|Team A ID|required',
                     'team_a_image_uuid|UUID for the team A profile picture. Get a UUID from file upload endpoint. Only use this to override the default team A image.|optional',
@@ -168,12 +170,17 @@ class GamesAPIController extends APIBaseController
             return response()->apiError('Invalid file UUID. Try uploading the file again.');
         }
 
-        $model = $this->repo->create($request->all());
-        if ($imageA) $model->team_a_image()->associate($imageA);
-        if ($imageB) $model->team_b_image()->associate($imageB);
+        $model = $this->repo->update($model,$request->all());
+        // if ($imageA) $model->team_a_image()->associate($imageA);
+        // if ($imageB) $model->team_b_image()->associate($imageB);
 
-        $model->save();
-        return response()->apiSuccess($model);
+        $filter = $this->repo->newSearchFilter();
+
+        $items = $filter->where('uuid', $uuid);
+
+        return response()->apiSuccessPaginated($items->paginate());
+        // $model->save();
+        // return response()->apiSuccess($model);
     }
 
     /**
