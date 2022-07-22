@@ -43,10 +43,12 @@ class Player extends Model
 		'positions',
 		'metadata',
 		'team_id',
+        'image_uuid',
+        'metadata',
 	];
 
 	protected $searchable = [
-		'name'
+		'uuid'
 	];
 
 	protected $editable = [
@@ -112,9 +114,19 @@ class Player extends Model
         return [];
     }
 
+    public function getExtraApiFields()
+    {
+        return [
+            'image' => ['type' => 'object', 'items' => 'File'],
+        ];
+        
+    }
+
+    protected $with = ['image'];
+
     public function owner()
     {
-        return $this->belongsTo(User::class, 'owner_id');
+        return $this->belongsTo(User::class, 'owner_id' , 'id');
     }
 
     public function team()
@@ -126,4 +138,5 @@ class Player extends Model
     {
         return $this->belongsTo(File::class, 'image_uuid', 'uuid');
     }
+    
 }

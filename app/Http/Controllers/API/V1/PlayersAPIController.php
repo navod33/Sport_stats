@@ -94,7 +94,7 @@ class PlayersAPIController extends APIBaseController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request)
+    public function update(Request $request, $uuid)
     {
         document(function () {
             return (new APICall())
@@ -109,8 +109,13 @@ class PlayersAPIController extends APIBaseController
                 ->setSuccessObject(Player::class);
         });
 
-
+        
         $this->validate($request, $this->repo->getModel()->getUpdateRules());
+
+        $model = $this->repo->findByUuid($uuid);
+        if (!$model) {
+            return response()->apiError();
+        }
 
         try {
             $image = $this->getImageFromRequest($request);
@@ -118,12 +123,21 @@ class PlayersAPIController extends APIBaseController
             return response()->apiError('Invalid file UUID. Try uploading the file again.');
         }
 
-        $model = $this->repo->create($request->all());
-        $model->owner()->associate($request->user());
-        if ($image) $model->image()->associate($image);
-        $model->save();
+        $model = $this->repo->update($model,$request->all());
+        //$model->owner()->associate($request->user());
+        //if ($image) $model->image()->associate($image);
+        //$model->save();
+        //$model->fresh();
+        //return response()->apiSuccess($model);
 
-        return response()->apiSuccess($model);
+        $filter = $this->repo->newSearchFilter();
+
+        $items = $filter->where('uuid', $uuid);
+
+		//$items = $this->repo->search($filter);
+
+		//return response()->apiSuccess($items);
+        return response()->apiSuccessPaginated($items->paginate());
     }
 
     /**

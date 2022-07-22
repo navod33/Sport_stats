@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "title": "Boost App API",
-        "version": "1.0.0.20220720"
+        "version": "1.0.0.20220722"
     },
     "host": "boost.test",
     "schemes": [
@@ -2680,6 +2680,9 @@
                 },
                 "performance_notes": {
                     "type": "string"
+                },
+                "image": {
+                    "$ref": "#\/definitions\/File"
                 }
             }
         },
