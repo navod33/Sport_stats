@@ -925,6 +925,53 @@ paths:
                     schema:
                         $ref: '#/definitions/ApiError'
                     description: 'Generic API error. Check `message` for more information.'
+    /player-positions:
+        get:
+            tags:
+                - PlayersAPI
+            summary: 'List Players Positions'
+            consumes:
+                - application/json
+                - application/x-www-form-urlencoded
+            produces:
+                - application/json
+            operationId: playersapi_get_list_players_positions
+            description: ''
+            parameters:
+                -
+                    name: page
+                    in: query
+                    required: true
+                    description: 'Page number'
+                    type: string
+                -
+                    name: Accept
+                    in: header
+                    required: true
+                    description: 'Set to `application/json`'
+                    type: string
+            security:
+                -
+                    apiKey: []
+                -
+                    accessToken: []
+            responses:
+                200:
+                    schema:
+                        $ref: '#/definitions/PlayersAPIListPlayersPositionsResponse'
+                    description: PlayersAPIListPlayersPositionsResponse
+                401:
+                    schema:
+                        $ref: '#/definitions/ApiErrorUnauthorized'
+                    description: 'Authentication failed'
+                403:
+                    schema:
+                        $ref: '#/definitions/ApiErrorAccessDenied'
+                    description: 'Access denied'
+                422:
+                    schema:
+                        $ref: '#/definitions/ApiError'
+                    description: 'Generic API error. Check `message` for more information.'
     /players:
         get:
             tags:
@@ -949,6 +996,12 @@ paths:
                     in: query
                     required: true
                     description: 'Team ID. Send with the request URL as `team_id=xxx`'
+                    type: integer
+                -
+                    name: position_id
+                    in: query
+                    required: false
+                    description: 'Position ID.'
                     type: integer
                 -
                     name: Accept
@@ -1246,13 +1299,13 @@ paths:
                     name: played_at
                     in: formData
                     required: true
-                    description: ' 2022-07-01T13'
+                    description: 'Date and time of the game Ex "2023-01-31 23:00:00"'
                     type: string
                 -
                     name: location
                     in: formData
                     required: false
-                    description: ' "The Palace"'
+                    description: 'Location of the game Ex "The Palace"'
                     type: string
                 -
                     name: season_id
@@ -1852,8 +1905,6 @@ definitions:
                 type: string
             team_a_id:
                 type: string
-            team_b_id:
-                type: string
             team_b_name:
                 type: string
             tournament_name:
@@ -1866,6 +1917,14 @@ definitions:
                 type: string
             team_b_image_uuid:
                 type: string
+            team_a_image:
+                $ref: '#/definitions/File'
+            team_b_image:
+                $ref: '#/definitions/File'
+            team_a:
+                $ref: '#/definitions/Team'
+            season:
+                $ref: '#/definitions/Season'
     Score:
         type: object
         properties:
@@ -1895,6 +1954,13 @@ definitions:
             created_at:
                 type: string
             updated_at:
+                type: string
+    PlayerPosition:
+        type: object
+        properties:
+            id:
+                type: string
+            name:
                 type: string
     SuccessResponse:
         type: object
@@ -2070,6 +2136,20 @@ definitions:
                 default: true
             payload:
                 $ref: '#/definitions/Team'
+    PlayersAPIListPlayersPositionsResponse:
+        type: object
+        properties:
+            message:
+                type: string
+            result:
+                type: boolean
+                default: true
+            payload:
+                type: array
+                items:
+                    $ref: '#/definitions/PlayerPosition'
+            paginator:
+                $ref: '#/definitions/Paginator'
     PlayersAPIListPlayersResponse:
         type: object
         properties:

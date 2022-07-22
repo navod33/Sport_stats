@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\V1;
 
 use App\Entities\Players\Player;
+use App\Entities\PlayerPositions\PlayerPosition;
 use App\Entities\Players\PlayersRepository;
 use App\Entities\Teams\Team;
 use App\Http\Controllers\API\V1\APIBaseController;
@@ -32,6 +33,8 @@ class PlayersAPIController extends APIBaseController
                             (new Param('team_id'))->dataType(Param::TYPE_INT)
                                 ->setDescription('Team ID. Send with the request URL as `team_id=xxx`')
                                 ->setLocation(Param::LOCATION_QUERY),
+                                (new Param('position_id'))->dataType(Param::TYPE_INT)
+                                ->setDescription('Position ID.')->optional(),
                         ])
                         ->setSuccessPaginatedObject(Player::class);
                 });
@@ -44,6 +47,11 @@ class PlayersAPIController extends APIBaseController
 
         $items = $filter->where('owner_id', $request->user()->id);
         $items = $filter->where('team_id', $request->team_id);
+        
+        if(!empty($request->position_id))
+        {
+            $items = $filter->whereRaw("find_in_set('".$request->team_id."',positions)");
+        }
         $items = $filter->orderBy('name');
 
 		//$items = $this->repo->search($filter);
@@ -170,4 +178,19 @@ class PlayersAPIController extends APIBaseController
 
         return response()->apiSuccess();
     }
+
+    protected function ppositions(Request $request)
+	{
+		document(function () {
+                	return (new APICall())
+                	    ->setName('List Players Positions')
+                	    ->setParams([
+                	        // 'q|Search query',
+                	        'page|Page number',
+                        ])
+                        ->setSuccessPaginatedObject(PlayerPosition::class);
+                });
+
+        return response()->apiSuccessPaginated(PlayerPosition::paginate());
+	}
 }

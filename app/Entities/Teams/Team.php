@@ -61,7 +61,7 @@ class Team extends Model
 	];
     
 	protected $searchable = [
-		'name'
+		'id'
 	];
 
 	protected $editable = [

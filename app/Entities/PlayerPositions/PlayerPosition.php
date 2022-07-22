@@ -1,20 +1,18 @@
 <?php
 
-namespace App\Entities\Seasons;
+namespace App\Entities\PlayerPositions;
 
-use ElegantMedia\OxygenFoundation\Database\Eloquent\Traits\AssignsUuid;
-use EMedia\Formation\Entities\GeneratesFields;
-use ElegantMedia\SimpleRepository\Search\Eloquent\SearchableLike;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use EMedia\Formation\Entities\GeneratesFields;
 use Illuminate\Database\Eloquent\Model;
+use ElegantMedia\SimpleRepository\Search\Eloquent\SearchableLike;
 
-class Season extends Model
+class PlayerPosition extends Model
 {
 
     use HasFactory;
 	use SearchableLike;
 	use GeneratesFields;
-	use AssignsUuid;
 
 	// use \Cviebrock\EloquentSluggable\Sluggable;
 
@@ -33,23 +31,23 @@ class Season extends Model
         ];
     }
     */
+    protected $table = "players_position";
 
 	protected $fillable = [
 		'name'
 	];
 
 	protected $searchable = [
-		'id'
+		'name'
 	];
 
 	protected $editable = [
     	'name',
     ];
 
-    protected $visible = [
-        'id',
-        'uuid',
-        'name',
+    protected $hidden = [
+        'created_at',
+        'updated_at',
     ];
 
     /**

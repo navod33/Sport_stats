@@ -370,8 +370,8 @@
 @api {POST} api/v1/games Create Game
 @apiGroup GamesAPI
 @apiParam {String} tournament_name Tournament name
-@apiParam {String} played_at  2022-07-01T13
-@apiParam {String} [location]  "The Palace"
+@apiParam {String} played_at Date and time of the game Ex "2023-01-31 23:00:00"
+@apiParam {String} [location] Location of the game Ex "The Palace"
 @apiParam {String} [season_id] Season ID
 @apiParam {String} team_a_id Team A ID
 @apiParam {String} [team_a_image_uuid] UUID for the team A profile picture. Get a UUID from file upload endpoint. Only use this to override the default team A image.
