@@ -38,7 +38,7 @@ class Game extends Model
         ];
     }
     */
-
+    public $team_a_score = 0;
 	protected $fillable = [
 		'tournament_name',
 		'played_at',
@@ -136,6 +136,7 @@ class Game extends Model
         
     }
 
+    public $appends = [ 'team_a_score'];
     protected $with = ['team_a_image','team_b_image','team_a','season'];
 
     public function owner()
@@ -165,6 +166,10 @@ class Game extends Model
 
     public function scores()
     {
-        return $this->hasMany(Score::class);
+        return $this->hasMany(Score::class, 'game_id','id');
+    }
+
+    public function getTeamAScoreAttribute() {
+        return $this->scores()->where('team_id',$this->team_a->id)->sum('score'); 
     }
 }

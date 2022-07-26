@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
     title: 'Boost App API'
-    version: 1.0.0.20220722
+    version: 1.0.0.20220726
 host: '{{host}}'
 schemes:
     - '{{scheme}}'
@@ -2191,6 +2191,10 @@ definitions:
                 type: string
             team_b_image_uuid:
                 type: string
+            team_b_score:
+                type: integer
+            team_b_goal_missed:
+                type: integer
             team_a_image:
                 $ref: '#/definitions/File'
             team_b_image:
