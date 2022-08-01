@@ -11,6 +11,8 @@ use EMedia\Api\Docs\APICall;
 use EMedia\Api\Docs\Param;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use DB;
 
 class PlayersAPIController extends APIBaseController
 {
@@ -65,38 +67,145 @@ class PlayersAPIController extends APIBaseController
      *
      * @return \Illuminate\Http\JsonResponse
      */
+    // public function store(Request $request)
+    // {
+    //     document(function () {
+    //         return (new APICall())
+    //             ->setName('Create Player')
+    //             ->setParams([
+    //                 'name|String|Player name',
+    //                 'email|String|optional',
+    //                 'positions|String|List of positions as a comma seperated list. The API does NOT validate the data. It is upto the client to store and fetch this field',
+    //                 'image_uuid|UUID for the team profile picture. Get a UUID from file upload endpoint|optional',
+    //                 'team_id|Team ID|optional',
+    //             ])
+    //             ->setSuccessObject(Player::class);
+    //     });
+
+
+    //     $this->validate($request, $this->repo->getModel()->getCreateRules());
+
+    //     try {
+    //         $image = $this->getImageFromRequest($request);
+    //     } catch (FileNotFoundException $e) {
+    //         return response()->apiError('Invalid file UUID. Try uploading the file again.');
+    //     }
+
+    //     $model = $this->repo->create($request->all());
+    //     $model->owner()->associate($request->user());
+    //     if ($image) $model->image()->associate($image);
+    //     $model->save();
+
+    //     return response()->apiSuccess($model);
+    // }
+
+    protected function getPlayerValidationRules(): array
+    {
+        return [
+            'file' => 'required|file',
+        ];
+    }
+
+    // Store multiple players
     public function store(Request $request)
     {
         document(function () {
             return (new APICall())
-                ->setName('Create Player')
+                ->setName('Create Team and Players')
                 ->setParams([
-                    'name|String|Player name',
-                    'email|String|optional',
-                    'positions|String|List of positions as a comma seperated list. The API does NOT validate the data. It is upto the client to store and fetch this field',
-                    'image_uuid|UUID for the team profile picture. Get a UUID from file upload endpoint|optional',
-                    'team_id|Team ID|optional',
+                    (new Param('Players'))->setDescription('List of Players and Team. Example 
+
+
+                    {
+                        "data":
+                        {
+                           "team_name":"Team A", //team_name reruired
+                           "team_number":"T1",  //team_number - optional
+                           "player_count":10 , //player_count - optional|integer
+                           "team_image_uuid":"e41b5ecc-ca36-4648-abc2-eee71ba06275", //team_image_uuid - optional|string
+                           //players array reruired
+                           "players":
+                               [
+                                    {
+                                        "name":"wije", //player name required
+                                        "positions":"1,2", //player positions as comma separated string - optional
+                                        "image_uuid":"e41b5ecc-ca36-4648-abc2-eee71ba06275", //uuid of the image - optional
+                                        "email":"abc.emedia@gmail.com", //email address - optional
+                                    },
+                                    {
+                                        "name":"arjun",
+                                        "positions":"1"
+                                    }
+                                ] 
+                        }
+                     }'
+                    ),
                 ])
                 ->setSuccessObject(Player::class);
         });
+        
+        $this->validate($request, $this->repo->getModel()->getCreateRules(),$this->repo->getModel()->getCreateValidationMessages());
+        
+        $playersdata=[];
+        $team=[];
+        $items=null;
+        $team_uuid = Str::uuid();
+        $team_name=$request->data['team_name'];
+        $team_number=$request->data['team_number'] ?? null;
+        $team_player_count=$request->data['player_count'] ?? null;
+        $team_image_uuid=$request->data['team_image_uuid'] ?? null;
+        $datetimenow=now();
 
+        $team['uuid'] = $team_uuid;
+        $team['owner_id'] = $request->user()->id;
+        $team['image_uuid'] = $team_image_uuid;
+        $team['player_count'] = $team_player_count;
+        $team['name'] = $team_name;
+        $team['team_number'] = $team_number;
+        $team['created_at'] = $datetimenow;
+        $team['updated_at'] = $datetimenow;
 
-        $this->validate($request, $this->repo->getModel()->getCreateRules());
-
-        try {
-            $image = $this->getImageFromRequest($request);
-        } catch (FileNotFoundException $e) {
-            return response()->apiError('Invalid file UUID. Try uploading the file again.');
+        //$res_team = Team::insert($team);
+        $res_team_id = DB::table('teams')->insertGetId($team);
+        
+        if(!($res_team_id>0))
+        {
+            return response()->apiError();
         }
 
-        $model = $this->repo->create($request->all());
-        $model->owner()->associate($request->user());
-        if ($image) $model->image()->associate($image);
-        $model->save();
+        foreach($request->data['players'] as $alldata)
+        {
+            
+            $player=[];
+            $uuid = Str::uuid();
+            
+            $player['uuid'] = $uuid;
+            $player['owner_id'] = $request->user()->id;
+            $player['image_uuid'] = $alldata['image_uuid'] ?? null;
+            $player['name'] = $alldata['name'];
+            $player['email'] = $alldata['email'] ?? null;
+            $player['positions'] = $alldata['positions'] ?? null;
+            $player['team_id'] = $res_team_id;
+            $player['created_at'] = $datetimenow;
+            $player['updated_at'] = $datetimenow;
 
-        return response()->apiSuccess($model);
+            $playersdata[]=$player;
+            
+        }
+        $res = Player::insert($playersdata);
+        if($res)
+        {            
+            $items = Team::with(['players','image'])
+                        ->where('owner_id', $request->user()->id)
+                        ->where('id', $res_team_id)
+                        ->orderBy('name');  
+        }
+        else
+        {
+            return response()->apiError();
+        }
+        return response()->apiSuccessPaginated($items->paginate());
     }
-
     /**
      * @param Request $request
      *
