@@ -2119,6 +2119,8 @@ definitions:
                 type: string
             image:
                 $ref: '#/definitions/File'
+            players:
+                $ref: '#/definitions/Player'
     Player:
         type: object
         properties:
@@ -2427,7 +2429,7 @@ definitions:
                 type: boolean
                 default: true
             payload:
-                $ref: '#/definitions/Player'
+                $ref: '#/definitions/Team'
     PlayersAPIUpdatePlayerResponse:
         type: object
         properties:

@@ -2554,6 +2554,9 @@
                 },
                 "image": {
                     "$ref": "#\/definitions\/File"
+                },
+                "players": {
+                    "$ref": "#\/definitions\/Player"
                 }
             }
         },
@@ -3019,7 +3022,7 @@
                     "default": true
                 },
                 "payload": {
-                    "$ref": "#\/definitions\/Player"
+                    "$ref": "#\/definitions\/Team"
                 }
             }
         },

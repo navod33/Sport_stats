@@ -141,7 +141,7 @@ class PlayersAPIController extends APIBaseController
                      }'
                     ),
                 ])
-                ->setSuccessObject(Player::class);
+                ->setSuccessObject(Team::class);
         });
         
         $this->validate($request, $this->repo->getModel()->getCreateRules(),$this->repo->getModel()->getCreateValidationMessages());
