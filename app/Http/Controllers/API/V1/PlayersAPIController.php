@@ -99,11 +99,8 @@ class PlayersAPIController extends APIBaseController
     //     return response()->apiSuccess($model);
     // }
 
-    protected function getPlayerValidationRules(): array
-    {
-        return [
-            'file' => 'required|file',
-        ];
+    protected function validEmail($str) {
+        return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? FALSE : TRUE;
     }
 
     // Store multiple players
@@ -123,9 +120,6 @@ class PlayersAPIController extends APIBaseController
                                 ->setDescription('Team Image')->optional(),
                     (new Param('Players'))->setDescription('List of Players. Example 
 
-
-                    {
-                           "players":
                                [
                                     {
                                         "name":"wije", //player name required
@@ -137,15 +131,29 @@ class PlayersAPIController extends APIBaseController
                                         "name":"arjun",
                                         "positions":"1"
                                     }
-                                ] 
-                     }'
+                                ] '
                     ),
                 ])
                 ->setSuccessObject(Team::class);
         });
         
         $this->validate($request, $this->repo->getModel()->getCreateRules(),$this->repo->getModel()->getCreateValidationMessages());
-        
+        $data = json_decode($request->players);
+        //$this->validate($data, $this->repo->getModel()->getPlayerRules(),$this->repo->getModel()->getPlayerValidationMessages());
+        foreach( $data as $key => $alldata)
+        {
+            if(empty($alldata -> name))
+            {
+                return response()->apiError('Player name required');
+            }
+            if(!empty($alldata -> email))
+            {
+                if(!self::validEmail($alldata -> email)){
+                    return response()->apiError('Players email must be a valid email');
+                }
+            }
+        }
+
         $playersdata=[];
         $team=[];
         $items=null;
@@ -172,8 +180,9 @@ class PlayersAPIController extends APIBaseController
         {
             return response()->apiError();
         }
-
-        foreach($request->players as $alldata)
+        
+       
+        foreach( $data as $key => $alldata)
         {
             
             $player=[];
@@ -181,10 +190,10 @@ class PlayersAPIController extends APIBaseController
             
             $player['uuid'] = $uuid;
             $player['owner_id'] = $request->user()->id;
-            $player['image_uuid'] = $alldata['image_uuid'] ?? null;
-            $player['name'] = $alldata['name'];
-            $player['email'] = $alldata['email'] ?? null;
-            $player['positions'] = $alldata['positions'] ?? null;
+            $player['image_uuid'] = $alldata -> image_uuid ?? null;
+            $player['name'] = $alldata -> name;
+            $player['email'] = $alldata ->email ?? null;
+            $player['positions'] = $alldata ->positions ?? null;
             $player['team_id'] = $res_team_id;
             $player['created_at'] = $datetimenow;
             $player['updated_at'] = $datetimenow;
