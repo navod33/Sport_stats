@@ -82,11 +82,15 @@ class Player extends Model
     public function getCreateRules()
     {
         return [
+            'team_name' => 'required|string',
+            'team_number' => 'string',
+            'player_count' => 'integer',
+            'team_image_uuid' => 'string',
             'data' => 'present|array',
-            'data.team_name' => 'required | string',
-            'data.team_number' => 'string',
-            'data.player_count' => 'integer',
-            'data.team_image_uuid' => 'string',
+            // 'data.team_name' => 'required | string',
+            // 'data.team_number' => 'string',
+            // 'data.player_count' => 'integer',
+            // 'data.team_image_uuid' => 'string',
             'data.players' => 'present|array',
             'data.players.*.name' => 'required | string',
             'data.players.*.positions' => 'string',
@@ -117,10 +121,14 @@ class Player extends Model
     public function getCreateValidationMessages()
     {
         return [
-            'data.team_name.required' => 'Team Name is required',
-            'data.team_number.string' => 'Team number must be a string',
-            'data.player_count.integer' => 'Player count must be an integer',
-            'data.team_image_uuid.string' => 'Team Image uuid must be a string',
+            // 'data.team_name.required' => 'Team Name is required',
+            // 'data.team_number.string' => 'Team number must be a string',
+            // 'data.player_count.integer' => 'Player count must be an integer',
+            // 'data.team_image_uuid.string' => 'Team Image uuid must be a string',
+            'team_name' => 'Team Name is required',
+            'team_number.string' => 'Team number must be a string',
+            'player_count.integer' => 'Player count must be an integer',
+            'team_image_uuid.string' => 'Team Image uuid must be a string',
             'data.players.required' => 'Playes array required',
             'data.players.*.name.required' => 'Name of the players required',
             'data.players.*.positions.string' => 'Players positions must be a comma separated string',

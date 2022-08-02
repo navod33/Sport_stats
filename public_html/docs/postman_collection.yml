@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
     title: 'Boost App API'
-    version: 1.0.0.20220801
+    version: 1.0.0.20220802
 host: '{{host}}'
 schemes:
     - '{{scheme}}'
@@ -1210,10 +1210,34 @@ paths:
             description: ''
             parameters:
                 -
+                    name: team_name
+                    in: formData
+                    required: true
+                    description: 'Team Name'
+                    type: string
+                -
+                    name: team_number
+                    in: formData
+                    required: false
+                    description: 'Team Number'
+                    type: string
+                -
+                    name: player_count
+                    in: formData
+                    required: false
+                    description: 'Team Player Count'
+                    type: integer
+                -
+                    name: team_image_uuid
+                    in: formData
+                    required: false
+                    description: 'Team Image'
+                    type: string
+                -
                     name: Players
                     in: formData
                     required: true
-                    description: "List of Players and Team. Example \r\n\r\n\r\n                    {\r\n                        \"data\":\r\n                        {\r\n                           \"team_name\":\"Team A\", //team_name reruired\r\n                           \"team_number\":\"T1\",  //team_number - optional\r\n                           \"player_count\":10 , //player_count - optional|integer\r\n                           \"team_image_uuid\":\"e41b5ecc-ca36-4648-abc2-eee71ba06275\", //team_image_uuid - optional|string\r\n                           //players array reruired\r\n                           \"players\":\r\n                               [\r\n                                    {\r\n                                        \"name\":\"wije\", //player name required\r\n                                        \"positions\":\"1,2\", //player positions as comma separated string - optional\r\n                                        \"image_uuid\":\"e41b5ecc-ca36-4648-abc2-eee71ba06275\", //uuid of the image - optional\r\n                                        \"email\":\"abc.emedia@gmail.com\", //email address - optional\r\n                                    },\r\n                                    {\r\n                                        \"name\":\"arjun\",\r\n                                        \"positions\":\"1\"\r\n                                    }\r\n                                ] \r\n                        }\r\n                     }"
+                    description: "List of Players. Example \r\n\r\n\r\n                    {\r\n                        \"data\":\r\n                        {\r\n                           \"players\":\r\n                               [\r\n                                    {\r\n                                        \"name\":\"wije\", //player name required\r\n                                        \"positions\":\"1,2\", //player positions as comma separated string - optional\r\n                                        \"image_uuid\":\"e41b5ecc-ca36-4648-abc2-eee71ba06275\", //uuid of the image - optional\r\n                                        \"email\":\"abc.emedia@gmail.com\", //email address - optional\r\n                                    },\r\n                                    {\r\n                                        \"name\":\"arjun\",\r\n                                        \"positions\":\"1\"\r\n                                    }\r\n                                ] \r\n                        }\r\n                     }"
                     type: string
                 -
                     name: Accept

@@ -113,17 +113,20 @@ class PlayersAPIController extends APIBaseController
             return (new APICall())
                 ->setName('Create Team and Players')
                 ->setParams([
-                    (new Param('Players'))->setDescription('List of Players and Team. Example 
+                    (new Param('team_name'))->dataType(Param::TYPE_STRING)
+                                ->setDescription('Team Name'),
+                    (new Param('team_number'))->dataType(Param::TYPE_STRING)
+                                ->setDescription('Team Number')->optional(),
+                    (new Param('player_count'))->dataType(Param::TYPE_INT)
+                                ->setDescription('Team Player Count')->optional(),
+                    (new Param('team_image_uuid'))->dataType(Param::TYPE_STRING)
+                                ->setDescription('Team Image')->optional(),
+                    (new Param('Players'))->setDescription('List of Players. Example 
 
 
                     {
                         "data":
                         {
-                           "team_name":"Team A", //team_name reruired
-                           "team_number":"T1",  //team_number - optional
-                           "player_count":10 , //player_count - optional|integer
-                           "team_image_uuid":"e41b5ecc-ca36-4648-abc2-eee71ba06275", //team_image_uuid - optional|string
-                           //players array reruired
                            "players":
                                [
                                     {
@@ -150,10 +153,10 @@ class PlayersAPIController extends APIBaseController
         $team=[];
         $items=null;
         $team_uuid = Str::uuid();
-        $team_name=$request->data['team_name'];
-        $team_number=$request->data['team_number'] ?? null;
-        $team_player_count=$request->data['player_count'] ?? null;
-        $team_image_uuid=$request->data['team_image_uuid'] ?? null;
+        $team_name=$request->team_name;
+        $team_number=$request->team_number ?? null;
+        $team_player_count=$request->player_count ?? null;
+        $team_image_uuid=$request->team_image_uuid ?? null;
         $datetimenow=now();
 
         $team['uuid'] = $team_uuid;
