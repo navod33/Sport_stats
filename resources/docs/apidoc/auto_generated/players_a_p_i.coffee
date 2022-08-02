@@ -133,8 +133,6 @@
 
 
                     {
-                        "data":
-                        {
                            "players":
                                [
                                     {
@@ -148,7 +146,6 @@
                                         "positions":"1"
                                     }
                                 ] 
-                        }
                      }
 @apiUse default_headers
 ###
