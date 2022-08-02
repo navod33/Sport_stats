@@ -125,8 +125,6 @@ class PlayersAPIController extends APIBaseController
 
 
                     {
-                        "data":
-                        {
                            "players":
                                [
                                     {
@@ -140,7 +138,6 @@ class PlayersAPIController extends APIBaseController
                                         "positions":"1"
                                     }
                                 ] 
-                        }
                      }'
                     ),
                 ])
@@ -176,7 +173,7 @@ class PlayersAPIController extends APIBaseController
             return response()->apiError();
         }
 
-        foreach($request->data['players'] as $alldata)
+        foreach($request->players as $alldata)
         {
             
             $player=[];
