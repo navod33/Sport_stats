@@ -125,17 +125,16 @@
 @apiVersion 1.0.0
 @api {POST} api/v1/players Create Team and Players
 @apiGroup PlayersAPI
-@apiParam {String} Players List of Players and Team. Example 
+@apiParam {String} team_name Team Name
+@apiParam {String} [team_number] Team Number
+@apiParam {Integer} [player_count] Team Player Count
+@apiParam {String} [team_image_uuid] Team Image
+@apiParam {String} Players List of Players. Example 
 
 
                     {
                         "data":
                         {
-                           "team_name":"Team A", //team_name reruired
-                           "team_number":"T1",  //team_number - optional
-                           "player_count":10 , //player_count - optional|integer
-                           "team_image_uuid":"e41b5ecc-ca36-4648-abc2-eee71ba06275", //team_image_uuid - optional|string
-                           //players array reruired
                            "players":
                                [
                                     {
