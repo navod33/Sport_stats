@@ -131,9 +131,6 @@
 @apiParam {String} [team_image_uuid] Team Image
 @apiParam {String} Players List of Players. Example 
 
-
-                    {
-                           "players":
                                [
                                     {
                                         "name":"wije", //player name required
@@ -146,7 +143,6 @@
                                         "positions":"1"
                                     }
                                 ] 
-                     }
 @apiUse default_headers
 ###
 # ******************************************************** #

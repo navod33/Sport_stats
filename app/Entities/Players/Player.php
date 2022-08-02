@@ -91,11 +91,21 @@ class Player extends Model
             // 'data.team_number' => 'string',
             // 'data.player_count' => 'integer',
             // 'data.team_image_uuid' => 'string',
-            'players' => 'present|array',
+            'players' => 'required | string',
             'players.*.name' => 'required | string',
             'players.*.positions' => 'string',
             'players.*.image_uuid' => 'string',
             'players.*.email' => 'email',
+        ];
+    }
+    public function getPlayerRules()
+    {
+        return [
+            'data' => 'present|array',
+            'name' => 'required | string',
+            'positions' => 'string',
+            'image_uuid' => 'string',
+            'email' => 'email',
         ];
     }
     /**
@@ -129,11 +139,21 @@ class Player extends Model
             'team_number.string' => 'Team number must be a string',
             'player_count.integer' => 'Player count must be an integer',
             'team_image_uuid.string' => 'Team Image uuid must be a string',
-            'players.required' => 'Playes array required',
+            'players.required' => 'Players array required',
             'players.*.name.required' => 'Name of the players required',
             'players.*.positions.string' => 'Players positions must be a comma separated string',
             'players.*.email.email' => 'Players email must be a correct email',
             'players.*.image_uuid.string' => 'Players Image uuid must be a string',
+        ];
+    }
+
+    public function getPlayerValidationMessages()
+    {
+        return [
+            'name.required' => 'Name of the players required',
+            'positions.string' => 'Players positions must be a comma separated string',
+            'email.email' => 'Players email must be a correct email',
+            'image_uuid.string' => 'Players Image uuid must be a string',
         ];
     }
 
