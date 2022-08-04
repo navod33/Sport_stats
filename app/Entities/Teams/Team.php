@@ -131,7 +131,7 @@ class Team extends Model
     {
         return [
             'image' => ['type' => 'object', 'items' => 'File'],
-            'players' => ['type' => 'object', 'items' => 'Player'],
+            // 'players' => ['type' => 'object', 'items' => 'Player'],
         ];
         
     }
