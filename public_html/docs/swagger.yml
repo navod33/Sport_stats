@@ -1869,8 +1869,6 @@ definitions:
                 type: string
             image:
                 $ref: '#/definitions/File'
-            players:
-                $ref: '#/definitions/Player'
     Player:
         type: object
         properties:

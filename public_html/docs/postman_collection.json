@@ -2726,9 +2726,6 @@
                 },
                 "image": {
                     "$ref": "#\/definitions\/File"
-                },
-                "players": {
-                    "$ref": "#\/definitions\/Player"
                 }
             }
         },
