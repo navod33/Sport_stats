@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\V1\GamesAPIController;
+use App\Http\Controllers\API\V1\MatchSetupsAPIController;
 use App\Http\Controllers\API\V1\PlayersAPIController;
 use App\Http\Controllers\API\V1\ScoresAPIController;
 use App\Http\Controllers\API\V1\SeasonsAPIController;
@@ -75,6 +76,9 @@ Route::group([
             Route::get('/games/{gameUuid}/scores', [ScoresAPIController::class, 'index']);
             Route::post('/games/{gameUuid}/scores', [ScoresAPIController::class, 'store']);
             Route::delete('/games/{gameUuid}/scores/{uuid}', [ScoresAPIController::class, 'destroy']);
+
+			//match setup
+			Route::post('/match', [MatchSetupsAPIController::class, 'store']);
 		});
 	}
 });

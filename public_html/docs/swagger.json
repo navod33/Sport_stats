@@ -2308,6 +2308,87 @@
                 }
             }
         },
+        "\/match": {
+            "post": {
+                "tags": [
+                    "MatchSetupsAPI"
+                ],
+                "summary": "Match Setup",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "matchsetupsapi_post_match_setup",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "game_id",
+                        "in": "formData",
+                        "required": true,
+                        "description": "Game ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "team_id",
+                        "in": "formData",
+                        "required": true,
+                        "description": "Team ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "players",
+                        "in": "formData",
+                        "required": true,
+                        "description": "players array. player id required. position required. \r\n\t\t\t\t\t\t(get the position id from the List Players Positions API end point). time_segment required. if the time segment is Quater 1. then, just send 1.\r\n\r\n\r\n\t\t\t\t\t\t[\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"player_id\" : 1,\r\n\t\t\t\t\t\t\t\"position\" : 2,\r\n\t\t\t\t\t\t\t\"time_segment\" : 1,\r\n\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"player_id\" : 2,\r\n\t\t\t\t\t\t\t\"position\" : 5,\r\n\t\t\t\t\t\t\t\"time_segment\" : 1,\r\n\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"player_id\" : 1,\r\n\t\t\t\t\t\t\t\"position\" : 5,\r\n\t\t\t\t\t\t\t\"time_segment\" : 2,\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t]\r\n\t\t\t\t\t\t",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/SuccessResponse"
+                        },
+                        "description": "SuccessResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            }
+        },
         "\/settings": {
             "get": {
                 "tags": [
@@ -2699,6 +2780,41 @@
                 },
                 "score": {
                     "type": "integer"
+                }
+            }
+        },
+        "MatchSetup": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "uuid": {
+                    "type": "string"
+                },
+                "game_id": {
+                    "type": "string"
+                },
+                "team_id": {
+                    "type": "string"
+                },
+                "time_segment": {
+                    "type": "string"
+                },
+                "position": {
+                    "type": "string"
+                },
+                "player_id": {
+                    "type": "string"
+                },
+                "score": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
                 }
             }
         },
