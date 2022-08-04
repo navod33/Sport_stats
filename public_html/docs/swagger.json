@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "title": "Boost App API",
-        "version": "1.0.0.20220802"
+        "version": "1.0.0.20220804"
     },
     "host": "boost.test",
     "schemes": [
@@ -1474,7 +1474,7 @@
                         "type": "string"
                     },
                     {
-                        "name": "Players",
+                        "name": "players",
                         "in": "formData",
                         "required": true,
                         "description": "List of Players. Example \r\n\r\n                               [\r\n                                    {\r\n                                        \"name\":\"wije\", \/\/player name required\r\n                                        \"positions\":\"1,2\", \/\/player positions as comma separated string - optional\r\n                                        \"image_uuid\":\"e41b5ecc-ca36-4648-abc2-eee71ba06275\", \/\/uuid of the image - optional\r\n                                        \"email\":\"abc.emedia@gmail.com\", \/\/email address - optional\r\n                                    },\r\n                                    {\r\n                                        \"name\":\"arjun\",\r\n                                        \"positions\":\"1\"\r\n                                    }\r\n                                ] ",
@@ -2732,6 +2732,9 @@
                     "type": "string"
                 },
                 "name": {
+                    "type": "string"
+                },
+                "short_name": {
                     "type": "string"
                 }
             }
