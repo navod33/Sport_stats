@@ -150,9 +150,9 @@ class File extends Model
 			if ($this->file_disk === 'public') {
 				return Storage::disk('public')->url($this->file_path);
 			}
-            // if ($this->file_disk === 'user_uploads') {
-            //     return Storage::disk('user_uploads')->url($this->file_path);
-            // }
+            if ($this->file_disk === 'user_uploads') {
+                return Storage::disk('user_uploads')->url($this->file_path);
+            }
 		}
 
 		return null;
