@@ -118,7 +118,7 @@ class PlayersAPIController extends APIBaseController
                                 ->setDescription('Team Player Count')->optional(),
                     (new Param('team_image_uuid'))->dataType(Param::TYPE_STRING)
                                 ->setDescription('Team Image')->optional(),
-                    (new Param('Players'))->setDescription('List of Players. Example 
+                    (new Param('players'))->setDescription('List of Players. Example 
 
                                [
                                     {

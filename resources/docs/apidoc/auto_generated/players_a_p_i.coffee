@@ -129,7 +129,7 @@
 @apiParam {String} [team_number] Team Number
 @apiParam {Integer} [player_count] Team Player Count
 @apiParam {String} [team_image_uuid] Team Image
-@apiParam {String} Players List of Players. Example 
+@apiParam {String} players List of Players. Example 
 
                                [
                                     {

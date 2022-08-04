@@ -17,12 +17,13 @@ class PlayerPositionsSeeder extends Seeder
     public function run()
     {
         $data = [
-            ['name' => 'Goal Keeper'],
-            ['name' => 'Goal Defence'],
-            ['name' => 'Wing Defence'],
-            ['name' => 'Wing Attack'],
-            ['name' => 'Goal Attack'],
-            ['name' => 'Goal Shooter'],
+            ['name' => 'Goal Keeper','short_name' => 'GK'],
+            ['name' => 'Goal Defence','short_name' => 'GD'],
+            ['name' => 'Wing Defence','short_name' => 'WD'],
+            ['name' => 'Wing Attack','short_name' => 'WA'],
+            ['name' => 'Goal Attack','short_name' => 'GA'],
+            ['name' => 'Goal Shooter','short_name' => 'GS'],
+            ['name' => 'Center','short_name' => 'C'],
         ];
 
         $this->seedWithoutDuplicates($data, PlayerPosition::class, 'name', 'name');
