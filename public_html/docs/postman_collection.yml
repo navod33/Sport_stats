@@ -2455,7 +2455,11 @@ definitions:
                 type: boolean
                 default: true
             payload:
-                $ref: '#/definitions/Team'
+                type: array
+                items:
+                    $ref: '#/definitions/Team'
+            paginator:
+                $ref: '#/definitions/Paginator'
     PlayersAPIUpdatePlayerResponse:
         type: object
         properties:
