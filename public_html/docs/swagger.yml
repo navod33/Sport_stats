@@ -2179,11 +2179,7 @@ definitions:
                 type: boolean
                 default: true
             payload:
-                type: array
-                items:
-                    $ref: '#/definitions/Team'
-            paginator:
-                $ref: '#/definitions/Paginator'
+                $ref: '#/definitions/Team'
     PlayersAPIUpdatePlayerResponse:
         type: object
         properties:

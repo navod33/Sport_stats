@@ -147,10 +147,10 @@ class Team extends Model
         return $this->belongsTo(File::class, 'image_uuid', 'uuid');
     }
 
-    public function players()
-    {
-        return $this->hasMany(Player::class);
-    }
+    // public function players()
+    // {
+    //     return $this->hasMany(Player::class);
+    // }
 
     public function attachable()
 	{

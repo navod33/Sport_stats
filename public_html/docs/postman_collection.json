@@ -3194,13 +3194,7 @@
                     "default": true
                 },
                 "payload": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#\/definitions\/Team"
-                    }
-                },
-                "paginator": {
-                    "$ref": "#\/definitions\/Paginator"
+                    "$ref": "#\/definitions\/Team"
                 }
             }
         },
