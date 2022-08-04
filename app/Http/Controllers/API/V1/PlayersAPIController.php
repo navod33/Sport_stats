@@ -134,7 +134,7 @@ class PlayersAPIController extends APIBaseController
                                 ] '
                     ),
                 ])
-                ->setSuccessObject(Team::class);
+                ->setSuccessPaginatedObject(Team::class);
         });
         
         $this->validate($request, $this->repo->getModel()->getCreateRules(),$this->repo->getModel()->getCreateValidationMessages());
@@ -204,7 +204,7 @@ class PlayersAPIController extends APIBaseController
         $res = Player::insert($playersdata);
         if($res)
         {            
-            $items = Team::with(['players','image'])
+            $items = Team::with(['image'])
                         ->where('owner_id', $request->user()->id)
                         ->where('id', $res_team_id)
                         ->orderBy('name');  
