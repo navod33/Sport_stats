@@ -248,20 +248,10 @@ class PlayersAPIController extends APIBaseController
         }
 
         $model = $this->repo->update($model,$request->all());
-        //$model->owner()->associate($request->user());
-        //if ($image) $model->image()->associate($image);
-        //$model->save();
-        //$model->fresh();
-        //return response()->apiSuccess($model);
 
-        $filter = $this->repo->newSearchFilter();
+        $items = Player::where('uuid', $uuid)->first();
 
-        $items = $filter->where('uuid', $uuid);
-
-		//$items = $this->repo->search($filter);
-
-		//return response()->apiSuccess($items);
-        return response()->apiSuccessPaginated($items->paginate());
+        return response()->apiSuccess($items);
     }
 
     /**
