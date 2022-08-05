@@ -170,6 +170,6 @@ class Game extends Model
     }
 
     public function getTeamAScoreAttribute() {
-        return $this->scores()->where('team_id',$this->team_a->id ?? 0)->sum('score'); 
+        return $this->scores()->where('team_id',$this->team_a->id ?? null)->sum('score'); 
     }
 }
