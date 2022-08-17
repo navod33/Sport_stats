@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
     title: 'Boost App API'
-    version: 1.0.0.20220804
+    version: 1.0.0.20220817
 host: '{{host}}'
 schemes:
     - '{{scheme}}'
@@ -2006,6 +2006,73 @@ paths:
                     schema:
                         $ref: '#/definitions/ApiError'
                     description: 'Generic API error. Check `message` for more information.'
+        get:
+            tags:
+                - MatchSetupsAPI
+            summary: 'Current Match'
+            consumes:
+                - application/json
+                - application/x-www-form-urlencoded
+            produces:
+                - application/json
+            operationId: matchsetupsapi_get_current_match
+            description: 'Get a match details for a time segment'
+            parameters:
+                -
+                    name: game_id
+                    in: query
+                    required: true
+                    description: 'Game ID'
+                    type: integer
+                -
+                    name: team_id
+                    in: query
+                    required: true
+                    description: 'Team ID'
+                    type: integer
+                -
+                    name: time_segment
+                    in: query
+                    required: true
+                    description: 'If the time segment is Quater 1. then, just send 1.'
+                    type: integer
+                -
+                    name: Accept
+                    in: header
+                    required: true
+                    description: 'Set to `application/json`'
+                    type: string
+                    schema:
+                        type: string
+                        example: application/json
+                -
+                    type: string
+                    name: x-access-token
+                    in: header
+                    description: 'Unique user authentication token'
+                    schema:
+                        type: string
+                        example: '{{x-access-token}}'
+            security:
+                -
+                    apiKey: []
+            responses:
+                200:
+                    schema:
+                        $ref: '#/definitions/MatchSetupsAPICurrentMatchResponse'
+                    description: MatchSetupsAPICurrentMatchResponse
+                401:
+                    schema:
+                        $ref: '#/definitions/ApiErrorUnauthorized'
+                    description: 'Authentication failed'
+                403:
+                    schema:
+                        $ref: '#/definitions/ApiErrorAccessDenied'
+                    description: 'Access denied'
+                422:
+                    schema:
+                        $ref: '#/definitions/ApiError'
+                    description: 'Generic API error. Check `message` for more information.'
     /settings:
         get:
             tags:
@@ -2288,6 +2355,21 @@ definitions:
                 type: string
             score:
                 type: integer
+            player:
+                $ref: '#/definitions/Player'
+    Setting:
+        type: object
+        properties:
+            id:
+                type: integer
+            key:
+                type: string
+            value:
+                type: string
+            created_at:
+                type: string
+            updated_at:
+                type: string
     MatchSetup:
         type: object
         properties:
@@ -2307,19 +2389,6 @@ definitions:
                 type: string
             score:
                 type: integer
-            created_at:
-                type: string
-            updated_at:
-                type: string
-    Setting:
-        type: object
-        properties:
-            id:
-                type: integer
-            key:
-                type: string
-            value:
-                type: string
             created_at:
                 type: string
             updated_at:
@@ -2604,6 +2673,16 @@ definitions:
             paginator:
                 $ref: '#/definitions/Paginator'
     ScoresAPICreateScoreResponse:
+        type: object
+        properties:
+            message:
+                type: string
+            result:
+                type: boolean
+                default: true
+            payload:
+                $ref: '#/definitions/Score'
+    MatchSetupsAPICurrentMatchResponse:
         type: object
         properties:
             message:

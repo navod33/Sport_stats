@@ -59,6 +59,13 @@ class Score extends Model
         'deleted_at',
     ];
 
+    public function getExtraApiFields()
+    {
+        return [
+            'player' => ['type' => 'object', 'items' => 'Player'],
+        ];
+        
+    }
     /**
      *
      * Add any update only validation rules for this model
