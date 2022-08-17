@@ -70,7 +70,13 @@ class Game extends Model
         'team_b_id',
     ];
 
-    protected $casts = [ 'season_id' => 'integer' , 'team_a_id' => 'integer','owner_id'=> 'integer'];
+    protected $casts = [ 
+        'season_id' => 'integer' , 
+        'team_a_id' => 'integer',
+        'owner_id'=> 'integer',
+        'team_a_score'=> 'integer',
+        'team_b_score'=> 'integer',
+    ];
     /**
      *
      * Add any update only validation rules for this model

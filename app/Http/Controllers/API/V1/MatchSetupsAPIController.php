@@ -6,6 +6,7 @@ use App\Http\Controllers\API\V1\APIBaseController;
 use App\Entities\MatchSetups\MatchSetupsRepository;
 use App\Entities\MatchSetups\MatchSetup;
 use App\Entities\Scores\Score;
+use App\Entities\Scores\ScoresRepository;
 use EMedia\Api\Docs\APICall;
 use Illuminate\Http\Request;
 use EMedia\Api\Docs\Param;
@@ -16,7 +17,7 @@ class MatchSetupsAPIController extends APIBaseController
 
 	protected $repo;
 
-	public function __construct(MatchSetupsRepository $repo)
+	public function __construct(ScoresRepository $repo)
 	{
 		$this->repo = $repo;
 	}
@@ -25,16 +26,36 @@ class MatchSetupsAPIController extends APIBaseController
 	{
 		document(function () {
                 	return (new APICall())
+						->setName('Current Match')
+                	    ->setDescription('Get a match details for a time segment')
                 	    ->setParams([
-                	        'q|Search query',
-                	        'page|Page number',
+							(new Param('game_id'))->dataType(Param::TYPE_INT)
+						->setDescription('Game ID'),
+							(new Param('team_id'))->dataType(Param::TYPE_INT)
+						->setDescription('Team ID'),
+                	        (new Param('time_segment'))->dataType(Param::TYPE_INT)
+						->setDescription('If the time segment is Quater 1. then, just send 1.'),
                         ])
+						->setSuccessObject(Score::class);
                         ;
                 });
 
-		$items = $this->repo->search();
+				$this->validate($request, [
+					'team_id' => 'required | integer',
+					'game_id' => 'required | integer',
+					'time_segment' => 'required | integer',
+				]);
 
-		return response()->apiSuccess($items);
+				$filter = $this->repo->newSearchFilter(false);
+				$filter->where('game_id', $request->game_id)
+								->where('team_id', $request->team_id)
+								->where('time_segment','like', '%'.$request->time_segment);
+								$items = $filter->with([
+									'player',
+									// 'game',
+								])->get();
+				
+				return response()->apiSuccess($items);
 	}
 
 	protected function store(Request $request)

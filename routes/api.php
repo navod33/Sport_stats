@@ -79,6 +79,7 @@ Route::group([
 
 			//match setup
 			Route::post('/match', [MatchSetupsAPIController::class, 'store']);
+			Route::get('/match', [MatchSetupsAPIController::class, 'index']);
 		});
 	}
 });
