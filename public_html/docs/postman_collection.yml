@@ -2649,7 +2649,7 @@ definitions:
                 type: boolean
                 default: true
             payload:
-                $ref: '#/definitions/Team'
+                $ref: '#/definitions/Game'
     GamesAPIUpdateGameResponse:
         type: object
         properties:
