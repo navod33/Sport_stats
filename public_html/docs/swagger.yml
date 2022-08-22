@@ -2048,6 +2048,8 @@ definitions:
                 $ref: '#/definitions/Team'
             season:
                 $ref: '#/definitions/Season'
+            team_a_score:
+                type: integer
     Score:
         type: object
         properties:
@@ -2367,7 +2369,7 @@ definitions:
                 type: boolean
                 default: true
             payload:
-                $ref: '#/definitions/Team'
+                $ref: '#/definitions/Game'
     ScoresAPIListScoresPerGameResponse:
         type: object
         properties:
