@@ -126,7 +126,7 @@ class GamesAPIController extends APIBaseController
             // 'team_b',
             'season',
             'team_a_image',
-        ])->get();
+        ])->first();
 
         return response()->apiSuccess($items);
     }
