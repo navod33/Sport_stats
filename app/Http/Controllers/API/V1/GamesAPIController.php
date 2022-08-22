@@ -117,7 +117,7 @@ class GamesAPIController extends APIBaseController
         if ($imageB) $model->team_b_image()->associate($imageB);
 
         $model->save();
-        
+
         $filter = $this->repo->newSearchFilter(false);
 		$items = $filter->where('owner_id', $request->user()->id)
         ->where('id',$model->id);
@@ -126,9 +126,9 @@ class GamesAPIController extends APIBaseController
             // 'team_b',
             'season',
             'team_a_image',
-        ]);
+        ])->get();
 
-        return response()->apiSuccessPaginated($items->paginate());
+        return response()->apiSuccess($items);
     }
 
     /**
