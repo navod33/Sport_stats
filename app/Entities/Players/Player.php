@@ -3,6 +3,7 @@
 namespace App\Entities\Players;
 
 use App\Entities\Files\File;
+use App\Entities\PlayerPositions\PlayerPosition;
 use App\Entities\Teams\Team;
 use App\Models\User;
 use ElegantMedia\OxygenFoundation\Database\Eloquent\Traits\AssignsUuid;
@@ -62,6 +63,7 @@ class Player extends Model
         'updated_at',
         'deleted_at',
     ];
+
 
     /**
      *
@@ -172,10 +174,11 @@ class Player extends Model
     {
         return [
             'image' => ['type' => 'object', 'items' => 'File'],
+            'prefered_positions' => ['type' => 'object', 'items' => 'PlayerPosition'],
         ];
         
     }
-
+    public $appends = [ 'prefered_positions'];
     protected $with = ['image'];
 
     public function owner()
@@ -193,4 +196,10 @@ class Player extends Model
         return $this->belongsTo(File::class, 'image_uuid', 'uuid');
     }
     
+    public function getPreferedPositionsAttribute()
+    {
+        $string_positions = $this->positions;
+        $positions_arr = explode (",", $string_positions);
+        return PlayerPosition::whereIn('id',$positions_arr)->get();
+    }
 }
