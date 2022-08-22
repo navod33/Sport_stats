@@ -31,8 +31,7 @@ class SeasonsAPIController extends APIBaseController
                 });
 
 		$items = $this->repo->search();
-
-		return response()->apiSuccess($items);
+		return response()->apiSuccessPaginated($items);
 	}
 
 }
