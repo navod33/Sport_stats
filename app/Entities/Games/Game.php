@@ -138,6 +138,7 @@ class Game extends Model
             'team_b_image' => ['type' => 'object', 'items' => 'File'],
             'team_a' => ['type' => 'object', 'items' => 'Team'],
             'season' => ['type' => 'object', 'items' => 'Season'],
+            'team_a_score' => 'integer',
         ];
         
     }

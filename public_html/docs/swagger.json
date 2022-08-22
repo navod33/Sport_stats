@@ -2836,6 +2836,9 @@
                 },
                 "season": {
                     "$ref": "#\/definitions\/Season"
+                },
+                "team_a_score": {
+                    "type": "integer"
                 }
             }
         },
@@ -3317,7 +3320,7 @@
                     "default": true
                 },
                 "payload": {
-                    "$ref": "#\/definitions\/Team"
+                    "$ref": "#\/definitions\/Game"
                 }
             }
         },
