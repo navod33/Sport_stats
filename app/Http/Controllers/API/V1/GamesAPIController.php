@@ -94,7 +94,7 @@ class GamesAPIController extends APIBaseController
                     'team_b_image_uuid|UUID for the team B profile picture. Get a UUID from file upload endpoint.|optional',
                     'team_b_name|String|required',
                 ])
-                ->setSuccessObject(Team::class);
+                ->setSuccessObject(Game::class);
         });
 
         $this->validate($request, $this->repo->getModel()->getCreateRules());

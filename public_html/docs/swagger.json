@@ -3302,7 +3302,7 @@
                     "default": true
                 },
                 "payload": {
-                    "$ref": "#\/definitions\/Team"
+                    "$ref": "#\/definitions\/Game"
                 }
             }
         },
