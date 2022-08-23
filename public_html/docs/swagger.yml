@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
     title: 'Boost App API'
-    version: 1.0.0.20220822
+    version: 1.0.0.20220823
 host: boost.test
 schemes:
     - http
@@ -1089,6 +1089,77 @@ paths:
                     schema:
                         $ref: '#/definitions/PlayersAPICreateTeamAndPlayersResponse'
                     description: PlayersAPICreateTeamAndPlayersResponse
+                401:
+                    schema:
+                        $ref: '#/definitions/ApiErrorUnauthorized'
+                    description: 'Authentication failed'
+                403:
+                    schema:
+                        $ref: '#/definitions/ApiErrorAccessDenied'
+                    description: 'Access denied'
+                422:
+                    schema:
+                        $ref: '#/definitions/ApiError'
+                    description: 'Generic API error. Check `message` for more information.'
+    /player:
+        post:
+            tags:
+                - PlayersAPI
+            summary: 'Create Player'
+            consumes:
+                - application/json
+                - application/x-www-form-urlencoded
+            produces:
+                - application/json
+            operationId: playersapi_post_create_player
+            description: ''
+            parameters:
+                -
+                    name: name
+                    in: formData
+                    required: true
+                    description: 'Player name'
+                    type: string
+                -
+                    name: email
+                    in: formData
+                    required: false
+                    description: String
+                    type: string
+                -
+                    name: positions
+                    in: formData
+                    required: true
+                    description: 'List of positions as a comma seperated list. The API does NOT validate the data. It is upto the client to store and fetch this field'
+                    type: string
+                -
+                    name: image_uuid
+                    in: formData
+                    required: false
+                    description: 'UUID for the team profile picture. Get a UUID from file upload endpoint'
+                    type: string
+                -
+                    name: team_id
+                    in: formData
+                    required: false
+                    description: 'Team ID'
+                    type: string
+                -
+                    name: Accept
+                    in: header
+                    required: true
+                    description: 'Set to `application/json`'
+                    type: string
+            security:
+                -
+                    apiKey: []
+                -
+                    accessToken: []
+            responses:
+                200:
+                    schema:
+                        $ref: '#/definitions/PlayersAPICreatePlayerResponse'
+                    description: PlayersAPICreatePlayerResponse
                 401:
                     schema:
                         $ref: '#/definitions/ApiErrorUnauthorized'
@@ -2326,6 +2397,16 @@ definitions:
                 default: true
             payload:
                 $ref: '#/definitions/Team'
+    PlayersAPICreatePlayerResponse:
+        type: object
+        properties:
+            message:
+                type: string
+            result:
+                type: boolean
+                default: true
+            payload:
+                $ref: '#/definitions/Player'
     PlayersAPIUpdatePlayerResponse:
         type: object
         properties:

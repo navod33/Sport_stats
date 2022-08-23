@@ -61,6 +61,7 @@ Route::group([
 
             Route::get('/players', [PlayersAPIController::class, 'index']);
             Route::post('/players', [PlayersAPIController::class, 'store']);
+			Route::post('/player', [PlayersAPIController::class, 'storeplayer']);
             Route::put('/players/{uuid}', [PlayersAPIController::class, 'update']);
             Route::delete('/players/{uuid}', [PlayersAPIController::class, 'destroy']);
 
