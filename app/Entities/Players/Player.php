@@ -64,7 +64,9 @@ class Player extends Model
         'deleted_at',
     ];
 
-
+    protected $casts = [ 
+        'id' => 'integer' , 
+    ];
     /**
      *
      * Add any update only validation rules for this model
@@ -175,6 +177,7 @@ class Player extends Model
         return [
             'image' => ['type' => 'object', 'items' => 'File'],
             'prefered_positions' => ['type' => 'object', 'items' => 'PlayerPosition'],
+            'id' => 'integer',
         ];
         
     }
