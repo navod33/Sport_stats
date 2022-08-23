@@ -65,7 +65,8 @@ class Player extends Model
     ];
 
     protected $casts = [ 
-        'id' => 'integer' , 
+        'id' => 'integer' ,
+        'team_id' => 'integer' , 
     ];
     /**
      *
@@ -178,6 +179,7 @@ class Player extends Model
             'image' => ['type' => 'object', 'items' => 'File'],
             'prefered_positions' => ['type' => 'object', 'items' => 'PlayerPosition'],
             'id' => 'integer',
+            'team_id' => 'integer',
         ];
         
     }
