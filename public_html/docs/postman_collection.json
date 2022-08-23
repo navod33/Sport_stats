@@ -3006,7 +3006,7 @@
                     "type": "string"
                 },
                 "team_id": {
-                    "type": "string"
+                    "type": "integer"
                 },
                 "image_uuid": {
                     "type": "string"
