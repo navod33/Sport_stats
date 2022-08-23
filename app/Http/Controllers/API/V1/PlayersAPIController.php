@@ -67,37 +67,40 @@ class PlayersAPIController extends APIBaseController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    // public function store(Request $request)
-    // {
-    //     document(function () {
-    //         return (new APICall())
-    //             ->setName('Create Player')
-    //             ->setParams([
-    //                 'name|String|Player name',
-    //                 'email|String|optional',
-    //                 'positions|String|List of positions as a comma seperated list. The API does NOT validate the data. It is upto the client to store and fetch this field',
-    //                 'image_uuid|UUID for the team profile picture. Get a UUID from file upload endpoint|optional',
-    //                 'team_id|Team ID|optional',
-    //             ])
-    //             ->setSuccessObject(Player::class);
-    //     });
+    public function storeplayer(Request $request)
+    {
+        document(function () {
+            return (new APICall())
+                ->setName('Create Player')
+                ->setParams([
+                    'name|String|Player name',
+                    'email|String|optional',
+                    'positions|String|List of positions as a comma seperated list. The API does NOT validate the data. It is upto the client to store and fetch this field',
+                    'image_uuid|UUID for the team profile picture. Get a UUID from file upload endpoint|optional',
+                    'team_id|Team ID|optional',
+                ])
+                ->setSuccessObject(Player::class);
+        });
 
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'email',
+        ]);
+        //$this->validate($request, $this->repo->getModel()->getCreateRules());
 
-    //     $this->validate($request, $this->repo->getModel()->getCreateRules());
+        try {
+            $image = $this->getImageFromRequest($request);
+        } catch (FileNotFoundException $e) {
+            return response()->apiError('Invalid file UUID. Try uploading the file again.');
+        }
 
-    //     try {
-    //         $image = $this->getImageFromRequest($request);
-    //     } catch (FileNotFoundException $e) {
-    //         return response()->apiError('Invalid file UUID. Try uploading the file again.');
-    //     }
+        $model = $this->repo->create($request->all());
+        $model->owner()->associate($request->user());
+        if ($image) $model->image()->associate($image);
+        $model->save();
 
-    //     $model = $this->repo->create($request->all());
-    //     $model->owner()->associate($request->user());
-    //     if ($image) $model->image()->associate($image);
-    //     $model->save();
-
-    //     return response()->apiSuccess($model);
-    // }
+        return response()->apiSuccess($model);
+    }
 
     protected function validEmail($str) {
         return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? FALSE : TRUE;
