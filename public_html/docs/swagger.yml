@@ -2061,7 +2061,7 @@ definitions:
         type: object
         properties:
             id:
-                type: string
+                type: integer
             uuid:
                 type: string
             team_id:

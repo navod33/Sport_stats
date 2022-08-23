@@ -2844,7 +2844,7 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "type": "string"
+                    "type": "integer"
                 },
                 "uuid": {
                     "type": "string"
