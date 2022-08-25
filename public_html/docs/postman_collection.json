@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "title": "Boost App API",
-        "version": "1.0.0.20220823"
+        "version": "1.0.0.20220825"
     },
     "host": "boost.test",
     "schemes": [
@@ -2711,6 +2711,77 @@
                 }
             }
         },
+        "\/contact-us": {
+            "post": {
+                "tags": [
+                    "contact-us"
+                ],
+                "summary": "contact-us",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "contact-us_post_contact-us",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "message",
+                        "in": "formData",
+                        "required": true,
+                        "description": "Description",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string",
+                        "schema": {
+                            "type": "string",
+                            "example": "application\/json"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/Contact-usContact-usResponse"
+                        },
+                        "description": "Contact-usContact-usResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            }
+        },
         "\/settings": {
             "get": {
                 "tags": [
@@ -3119,6 +3190,26 @@
                 },
                 "player": {
                     "$ref": "#\/definitions\/Player"
+                }
+            }
+        },
+        "Contactus": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "message_by": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
                 }
             }
         },
@@ -3638,6 +3729,21 @@
                 },
                 "payload": {
                     "$ref": "#\/definitions\/Score"
+                }
+            }
+        },
+        "Contact-usContact-usResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "payload": {
+                    "$ref": "#\/definitions\/Contactus"
                 }
             }
         },
