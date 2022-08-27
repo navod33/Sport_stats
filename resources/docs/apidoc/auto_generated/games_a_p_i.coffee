@@ -9,8 +9,8 @@
 @api {GET} api/v1/games List Games
 @apiGroup GamesAPI
 @apiParam {String} page Page number
-@apiParam {String} [period] Period can be `past`, `future`, `from_today`. The default is `from_today`.
-@apiParam {String} [order] Order can be `asc`, `desc`. The default is `asc`.
+@apiParam {String} [period] Period can be `past`, `future` future games except today, `from_today` future games with today. The default is all games desc by game id.
+@apiParam {String} [order] Order can be `asc`, `desc`.
 @apiUse default_headers
 @apiSuccessExample {json} Success-Response / HTTP 200 OK
 {

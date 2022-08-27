@@ -27,6 +27,7 @@ class GuestController extends APIBaseController
 					(new Param('Accept', 'String', '`application/json`'))->setDefaultValue('application/json'),
 					(new Param('x-api-key', 'String', 'API Key'))->setDefaultValue('123123123123'),
 				]);
+				
 		});
 
 		$data = [];
