@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
     title: 'Boost App API'
-    version: 1.0.0.20220825
+    version: 1.0.0.20220827
 host: boost.test
 schemes:
     - http
@@ -1312,13 +1312,13 @@ paths:
                     name: period
                     in: query
                     required: false
-                    description: 'Period can be `past`, `future`, `from_today`. The default is `from_today`.'
+                    description: 'Period can be `past`, `future` future games except today, `from_today` future games with today. The default is all games desc by game id.'
                     type: string
                 -
                     name: order
                     in: query
                     required: false
-                    description: 'Order can be `asc`, `desc`. The default is `asc`.'
+                    description: 'Order can be `asc`, `desc`.'
                     type: string
                 -
                     name: Accept
@@ -2158,6 +2158,10 @@ definitions:
                 type: integer
             team_b_goal_missed:
                 type: integer
+            game_finished:
+                type: boolean
+            game_finished_at:
+                type: string
             team_a_image:
                 $ref: '#/definitions/File'
             team_b_image:
@@ -2168,6 +2172,8 @@ definitions:
                 $ref: '#/definitions/Season'
             team_a_score:
                 type: integer
+            game_status:
+                type: string
     Score:
         type: object
         properties:

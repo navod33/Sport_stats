@@ -30,8 +30,8 @@ class GamesAPIController extends APIBaseController
                 	    ->setParams([
                 	        // 'q|Search query',
                 	        'page|Page number',
-                            'period|String|optional|Period can be `past`, `future`, `from_today`. The default is `from_today`.',
-                            'order|String|optional|Order can be `asc`, `desc`. The default is `asc`.',
+                            'period|String|optional|Period can be `past`, `future` future games except today, `from_today` future games with today. The default is all games desc by game id.',
+                            'order|String|optional|Order can be `asc`, `desc`.',
                         ])
                         ->setSuccessPaginatedObject(Game::class);
                 });
@@ -40,17 +40,20 @@ class GamesAPIController extends APIBaseController
 		$filter = $this->repo->newSearchFilter(false);
 		$items = $filter->where('owner_id', $request->user()->id);
 
-		$period = $request->input('period', 'from_today');
+		$period = $request->input('period');
 		if ($period == 'past') {
             $filter->where('played_at', '<', now()->subDay());
             $items = $filter->orderBy('played_at', 'desc');
         } else if ($period == 'future') {
             $filter->where('played_at', '>', now());
             $items = $filter->orderBy('played_at', 'asc');
-        } else {
-            // everything from today - default
+        } else if ($period == 'from_today'){
+            // everything from today
             $filter->where('played_at', '>=', now()->subDay());
             $items = $filter->orderBy('played_at', 'asc');
+        }
+        else{
+            $items = $filter->orderBy('id', 'desc');
         }
 
         // filter by order

@@ -7,6 +7,7 @@ use App\Entities\Scores\Score;
 use App\Entities\Seasons\Season;
 use App\Entities\Teams\Team;
 use App\Models\User;
+use Carbon\Carbon;
 use ElegantMedia\OxygenFoundation\Database\Eloquent\Traits\AssignsUuid;
 use EMedia\Formation\Entities\GeneratesFields;
 use ElegantMedia\SimpleRepository\Search\Eloquent\SearchableLike;
@@ -48,6 +49,8 @@ class Game extends Model
 		'team_a_image_uuid',
 		'team_b_name',
 		'team_b_image_uuid',
+        'game_finished',
+        'game_finished_at'
 	];
 
 	protected $searchable = [
@@ -139,11 +142,12 @@ class Game extends Model
             'team_a' => ['type' => 'object', 'items' => 'Team'],
             'season' => ['type' => 'object', 'items' => 'Season'],
             'team_a_score' => 'integer',
+            'game_status' => 'string',
         ];
         
     }
 
-    public $appends = [ 'team_a_score'];
+    public $appends = [ 'team_a_score','game_status'];
     protected $with = ['team_a_image','team_b_image','team_a','season'];
 
     public function owner()
@@ -178,5 +182,18 @@ class Game extends Model
 
     public function getTeamAScoreAttribute() {
         return (int) $this->scores()->where('team_id',$this->team_a->id ?? null)->sum('score'); 
+    }
+
+    public function getGameStatusAttribute() {
+        $plan_date =  $this->attributes['played_at']; 
+        $current_date = Carbon::now();
+        if ($plan_date>=$current_date) 
+        {
+            return 'Upcoming';
+        }
+        else
+        {
+            return 'Played';
+        }
     }
 }
