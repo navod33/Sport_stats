@@ -80,6 +80,7 @@ Route::group([
 
 			//match setup
 			Route::post('/match', [MatchSetupsAPIController::class, 'store']);
+			Route::put('/match', [MatchSetupsAPIController::class, 'update']);
 			Route::get('/match', [MatchSetupsAPIController::class, 'index']);
 
 			Route::post('/contact-us', 'ContactusesAPIController@store');

@@ -39,10 +39,13 @@ class Score extends Model
 
 	protected $fillable = [
 		'game_id',
+        'team_id',
 		'player_id',
 		'position',
 		'score',
 		'time_segment',
+        'active_player',
+        'uuid',
 	];
 
 	protected $searchable = [
