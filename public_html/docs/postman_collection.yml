@@ -2086,6 +2086,73 @@ paths:
                     schema:
                         $ref: '#/definitions/ApiError'
                     description: 'Generic API error. Check `message` for more information.'
+        put:
+            tags:
+                - MatchSetupsAPI
+            summary: 'Match Setup Update'
+            consumes:
+                - application/json
+                - application/x-www-form-urlencoded
+            produces:
+                - application/json
+            operationId: matchsetupsapi_put_match_setup_update
+            description: ''
+            parameters:
+                -
+                    name: game_id
+                    in: formData
+                    required: true
+                    description: 'Game ID'
+                    type: integer
+                -
+                    name: team_id
+                    in: formData
+                    required: true
+                    description: 'Team ID'
+                    type: integer
+                -
+                    name: players
+                    in: formData
+                    required: true
+                    description: "players array. player id required. position required. \r\n\t\t\t\t\t\t(get the position id from the List Players Positions API end point). time_segment required. if the time segment is Quater 1. then, just send 1.\r\n\r\n\r\n\t\t\t\t\t\t[\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"player_id\" : 1,\r\n\t\t\t\t\t\t\t\"position\" : 2,\r\n\t\t\t\t\t\t\t\"time_segment\" : 1\r\n\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"player_id\" : 2,\r\n\t\t\t\t\t\t\t\"position\" : 5,\r\n\t\t\t\t\t\t\t\"time_segment\" : 1\r\n\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"player_id\" : 1,\r\n\t\t\t\t\t\t\t\"position\" : 5,\r\n\t\t\t\t\t\t\t\"time_segment\" : 2\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t]\r\n\t\t\t\t\t\t"
+                    type: string
+                -
+                    name: Accept
+                    in: header
+                    required: true
+                    description: 'Set to `application/json`'
+                    type: string
+                    schema:
+                        type: string
+                        example: application/json
+                -
+                    type: string
+                    name: x-access-token
+                    in: header
+                    description: 'Unique user authentication token'
+                    schema:
+                        type: string
+                        example: '{{x-access-token}}'
+            security:
+                -
+                    apiKey: []
+            responses:
+                200:
+                    schema:
+                        $ref: '#/definitions/SuccessResponse'
+                    description: SuccessResponse
+                401:
+                    schema:
+                        $ref: '#/definitions/ApiErrorUnauthorized'
+                    description: 'Authentication failed'
+                403:
+                    schema:
+                        $ref: '#/definitions/ApiErrorAccessDenied'
+                    description: 'Access denied'
+                422:
+                    schema:
+                        $ref: '#/definitions/ApiError'
+                    description: 'Generic API error. Check `message` for more information.'
         get:
             tags:
                 - MatchSetupsAPI
@@ -2501,6 +2568,8 @@ definitions:
                 type: string
             score:
                 type: integer
+            active_player:
+                type: boolean
             player:
                 $ref: '#/definitions/Player'
             position_obj:
@@ -2554,6 +2623,8 @@ definitions:
                 type: string
             updated_at:
                 type: string
+            active_player:
+                type: boolean
     PlayerPosition:
         type: object
         properties:

@@ -22,7 +22,7 @@ class CreateScoresTable extends Migration
             $table->string('time_segment');
             $table->string('position');
             $table->unsignedBigInteger('player_id')->nullable()->references('id')->on('players');
-            $table->integer('score');
+            $table->integer('score')->default(0);
 
             $table->timestamps();
         });
