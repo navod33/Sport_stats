@@ -43,16 +43,18 @@ class MatchSetupsAPIController extends APIBaseController
 				$this->validate($request, [
 					'team_id' => 'required | integer',
 					'game_id' => 'required | integer',
-					'time_segment' => 'required | integer',
+					'time_segment' => 'integer',
 				]);
 
 				$filter = $this->repo->newSearchFilter(false);
 				$filter->where('game_id', $request->game_id)
-								->where('team_id', $request->team_id)
-								->where('time_segment','like', '%'.$request->time_segment);
-								$items = $filter->with([
+								->where('team_id', $request->team_id);
+						if ($request->time_segment !='') {
+							$filter->where('time_segment','like', '%'.$request->time_segment);
+						}
+				$items = $filter->with([
 									'player',
-									// 'game',
+									'position_obj',
 								])->get();
 				
 				return response()->apiSuccess($items);
@@ -104,23 +106,23 @@ class MatchSetupsAPIController extends APIBaseController
 		$data = json_decode($request->players);
 		$i=0;
 		
-		foreach( $data as $key => $alldata)
-        {
-			$i++;
+		// foreach( $data as $key => $alldata)
+        // {
+		// 	$i++;
 			
-            if(empty($alldata -> player_id))
-            {
-                return response()->apiError('Player ID required');
-            }
-            if(empty($alldata -> position))
-            {
-                return response()->apiError('Player position required'.$i);
-            }
-			if(empty($alldata -> time_segment))
-            {
-                return response()->apiError('Time segment required');
-            }
-        }
+        //     if(empty($alldata -> player_id))
+        //     {
+        //         return response()->apiError('Player ID required');
+        //     }
+        //     if(empty($alldata -> position))
+        //     {
+        //         return response()->apiError('Player position required'.$i);
+        //     }
+		// 	if(empty($alldata -> time_segment))
+        //     {
+        //         return response()->apiError('Time segment required');
+        //     }
+        // }
 
 		
 		$datetimenow=now();
