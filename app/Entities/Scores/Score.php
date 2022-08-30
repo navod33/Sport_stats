@@ -3,6 +3,7 @@
 namespace App\Entities\Scores;
 
 use App\Entities\Games\Game;
+use App\Entities\PlayerPositions\PlayerPosition;
 use App\Entities\Players\Player;
 use ElegantMedia\OxygenFoundation\Database\Eloquent\Traits\AssignsUuid;
 use EMedia\Formation\Entities\GeneratesFields;
@@ -63,6 +64,7 @@ class Score extends Model
     {
         return [
             'player' => ['type' => 'object', 'items' => 'Player'],
+            'position_obj' => ['type' => 'object', 'items' => 'PlayerPosition'],
         ];
         
     }
@@ -130,4 +132,8 @@ class Score extends Model
         return $this->belongsTo(Player::class);
     }
 
+    public function position_obj()
+    {
+        return $this->belongsTo(PlayerPosition::class,'position');
+    }
 }

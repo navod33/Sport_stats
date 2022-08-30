@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
     title: 'Boost App API'
-    version: 1.0.0.20220827
+    version: 1.0.0.20220830
 host: boost.test
 schemes:
     - http
@@ -2193,6 +2193,8 @@ definitions:
                 type: integer
             player:
                 $ref: '#/definitions/Player'
+            position_obj:
+                $ref: '#/definitions/PlayerPosition'
     Contactus:
         type: object
         properties:
