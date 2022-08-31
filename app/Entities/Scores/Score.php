@@ -148,6 +148,7 @@ class Score extends Model
     {   
         return $res = Player::where('positions','like','%'. $this->position .'%')
                         ->where('team_id',$this->team_id)
+                        ->where('id','!=',$this->player_id)
                         ->get();
                         
     }
