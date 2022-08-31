@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "title": "Boost App API",
-        "version": "1.0.0.20220830"
+        "version": "1.0.0.20220831"
     },
     "host": "boost.test",
     "schemes": [
@@ -3124,6 +3124,12 @@
                 },
                 "position_obj": {
                     "$ref": "#\/definitions\/PlayerPosition"
+                },
+                "positionPreferedPlayers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/Player"
+                    }
                 }
             }
         },

@@ -49,7 +49,7 @@ class Score extends Model
 	];
 
 	protected $searchable = [
-		'name'
+		'position'
 	];
 
 	protected $editable = [
@@ -68,9 +68,11 @@ class Score extends Model
         return [
             'player' => ['type' => 'object', 'items' => 'Player'],
             'position_obj' => ['type' => 'object', 'items' => 'PlayerPosition'],
+            'positionPreferedPlayers' => ['type' => 'array', 'items' => 'Player'],    
         ];
         
     }
+
     /**
      *
      * Add any update only validation rules for this model
@@ -139,4 +141,16 @@ class Score extends Model
     {
         return $this->belongsTo(PlayerPosition::class,'position');
     }
+
+    public $appends = [ 'positionPreferedPlayers'];
+
+    public function getPositionPreferedPlayersAttribute()
+    {   
+        return $res = Player::where('positions','like','%'. $this->position .'%')
+                        ->where('team_id',$this->team_id)
+                        ->get();
+                        
+    }
+
+    
 }
