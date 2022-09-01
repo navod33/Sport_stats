@@ -50,7 +50,9 @@ class Game extends Model
 		'team_b_name',
 		'team_b_image_uuid',
         'game_finished',
-        'game_finished_at'
+        'game_finished_at',
+        'game_started',
+        'game_actually_started_at',
 	];
 
 	protected $searchable = [

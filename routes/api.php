@@ -76,13 +76,14 @@ Route::group([
             // scores
             Route::get('/games/{gameUuid}/scores', [ScoresAPIController::class, 'index']);
             Route::post('/games/{gameUuid}/scores', [ScoresAPIController::class, 'store']);
-            Route::delete('/games/{gameUuid}/scores/{uuid}', [ScoresAPIController::class, 'destroy']);
+            //Route::delete('/games/{gameUuid}/scores/{uuid}', [ScoresAPIController::class, 'destroy']);
 			Route::post('/games/scores/teamb', [ScoresAPIController::class, 'teambscore']);
 
 			//match setup
 			Route::post('/match', [MatchSetupsAPIController::class, 'store']);
 			Route::put('/match', [MatchSetupsAPIController::class, 'update']);
 			Route::get('/match', [MatchSetupsAPIController::class, 'index']);
+			Route::post('/match-start', [MatchSetupsAPIController::class, 'start']);
 
 			Route::post('/contact-us', 'ContactusesAPIController@store');
 		});
