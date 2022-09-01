@@ -90,8 +90,9 @@
 # ******************************************************** #
 ###
 @apiVersion 1.0.0
-@api {POST} api/v1/match-start Start Match
+@api {POST} api/v1/match-start Start-End Match
 @apiGroup MatchSetupsAPI
 @apiParam {Integer} game_id Game ID
+@apiParam {String} req_type `Start`,`End`
 @apiUse default_headers
 ###

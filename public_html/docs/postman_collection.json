@@ -2799,7 +2799,7 @@
                 "tags": [
                     "MatchSetupsAPI"
                 ],
-                "summary": "Start Match",
+                "summary": "Start-End Match",
                 "consumes": [
                     "application\/json",
                     "application\/x-www-form-urlencoded"
@@ -2807,7 +2807,7 @@
                 "produces": [
                     "application\/json"
                 ],
-                "operationId": "matchsetupsapi_post_start_match",
+                "operationId": "matchsetupsapi_post_start-end_match",
                 "description": "",
                 "parameters": [
                     {
@@ -2816,6 +2816,13 @@
                         "required": true,
                         "description": "Game ID",
                         "type": "integer"
+                    },
+                    {
+                        "name": "req_type",
+                        "in": "formData",
+                        "required": true,
+                        "description": "`Start`,`End`",
+                        "type": "string"
                     },
                     {
                         "name": "Accept",
