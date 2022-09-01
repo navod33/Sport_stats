@@ -1956,68 +1956,6 @@ paths:
                     schema:
                         $ref: '#/definitions/ApiError'
                     description: 'Generic API error. Check `message` for more information.'
-    '/games/{gameUuid}/scores/{uuid}':
-        delete:
-            tags:
-                - ScoresAPI
-            summary: 'Delete Score'
-            consumes:
-                - application/json
-                - application/x-www-form-urlencoded
-            produces:
-                - application/json
-            operationId: scoresapi_delete_delete_score
-            description: 'Delete a score record.'
-            parameters:
-                -
-                    name: uuid
-                    in: path
-                    required: true
-                    description: 'Score UUID'
-                    type: string
-                -
-                    name: gameUuid
-                    in: path
-                    required: true
-                    description: 'Game UUID'
-                    type: string
-                -
-                    name: Accept
-                    in: header
-                    required: true
-                    description: 'Set to `application/json`'
-                    type: string
-                    schema:
-                        type: string
-                        example: application/json
-                -
-                    type: string
-                    name: x-access-token
-                    in: header
-                    description: 'Unique user authentication token'
-                    schema:
-                        type: string
-                        example: '{{x-access-token}}'
-            security:
-                -
-                    apiKey: []
-            responses:
-                200:
-                    schema:
-                        $ref: '#/definitions/SuccessResponse'
-                    description: SuccessResponse
-                401:
-                    schema:
-                        $ref: '#/definitions/ApiErrorUnauthorized'
-                    description: 'Authentication failed'
-                403:
-                    schema:
-                        $ref: '#/definitions/ApiErrorAccessDenied'
-                    description: 'Access denied'
-                422:
-                    schema:
-                        $ref: '#/definitions/ApiError'
-                    description: 'Generic API error. Check `message` for more information.'
     /games/scores/teamb:
         post:
             tags:
@@ -2270,6 +2208,62 @@ paths:
                     schema:
                         $ref: '#/definitions/MatchSetupsAPICurrentMatchResponse'
                     description: MatchSetupsAPICurrentMatchResponse
+                401:
+                    schema:
+                        $ref: '#/definitions/ApiErrorUnauthorized'
+                    description: 'Authentication failed'
+                403:
+                    schema:
+                        $ref: '#/definitions/ApiErrorAccessDenied'
+                    description: 'Access denied'
+                422:
+                    schema:
+                        $ref: '#/definitions/ApiError'
+                    description: 'Generic API error. Check `message` for more information.'
+    /match-start:
+        post:
+            tags:
+                - MatchSetupsAPI
+            summary: 'Start Match'
+            consumes:
+                - application/json
+                - application/x-www-form-urlencoded
+            produces:
+                - application/json
+            operationId: matchsetupsapi_post_start_match
+            description: ''
+            parameters:
+                -
+                    name: game_id
+                    in: formData
+                    required: true
+                    description: 'Game ID'
+                    type: integer
+                -
+                    name: Accept
+                    in: header
+                    required: true
+                    description: 'Set to `application/json`'
+                    type: string
+                    schema:
+                        type: string
+                        example: application/json
+                -
+                    type: string
+                    name: x-access-token
+                    in: header
+                    description: 'Unique user authentication token'
+                    schema:
+                        type: string
+                        example: '{{x-access-token}}'
+            security:
+                -
+                    apiKey: []
+            responses:
+                200:
+                    schema:
+                        $ref: '#/definitions/SuccessResponse'
+                    description: SuccessResponse
                 401:
                     schema:
                         $ref: '#/definitions/ApiErrorUnauthorized'
@@ -2600,6 +2594,10 @@ definitions:
             game_finished:
                 type: boolean
             game_finished_at:
+                type: string
+            game_started:
+                type: boolean
+            game_actually_started_at:
                 type: string
             team_a_image:
                 $ref: '#/definitions/File'

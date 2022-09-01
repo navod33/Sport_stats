@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API\V1;
 
+use App\Entities\Games\Game;
 use App\Http\Controllers\API\V1\APIBaseController;
 use App\Entities\MatchSetups\MatchSetupsRepository;
 use App\Entities\MatchSetups\MatchSetup;
@@ -269,4 +270,36 @@ class MatchSetupsAPIController extends APIBaseController
 		return response()->apiSuccess("success");
 	}
 
+	protected function start(Request $request)
+	{
+		document(function () {
+			return (new APICall())
+				->setName('Start Match')
+				->setParams([
+					(new Param('game_id'))->dataType(Param::TYPE_INT)
+						->setDescription('Game ID')
+				]);
+				// ->setSuccessPaginatedObject(Player::class);
+		});
+		$this->validate($request, [
+			'game_id' => 'required | integer',
+        ]);
+		$datetimenow=now();
+		$datetimenow1 =date_format($datetimenow, 'Y-m-d');
+		$game = Game::where('id',$request->game_id)
+					->where('game_started',0)
+					->where('game_finished',0)
+					->where('played_at','like',$datetimenow1 .'%')
+					->first();
+					
+		if(!$game)
+		{
+			return response()->apiError('Game not found.', 404);
+		}	
+
+			$game->game_started = true;
+			$game->game_actually_started_at = $datetimenow;
+			$game->save();
+			return response()->apiSuccess("success");
+	}
 }
