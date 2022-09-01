@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
     title: 'Boost App API'
-    version: 1.0.0.20220831
+    version: 1.0.0.20220901
 host: '{{host}}'
 schemes:
     - '{{scheme}}'
@@ -1887,7 +1887,7 @@ paths:
             produces:
                 - application/json
             operationId: scoresapi_post_create_score
-            description: 'Create a new score for a player. Each record will be unique by `gameUuid`, `player_id`, `position` and `time_segment`. If the record already exists, it will be updated. If a score record must be deleted, you should send a null score value or use delete endpoint.'
+            description: 'Create a new score for a player. Each record will be unique by `gameUuid`, `player_id`, `position` and `time_segment`. If the record already exists, it will be updated. '
             parameters:
                 -
                     name: gameUuid
@@ -1914,10 +1914,10 @@ paths:
                     description: 'Time segment on game. Examples `Quarter 1`, `Quarter 2`, `Quarter 3`, `Quarter 4`, `Overtime`, `Shootout`'
                     type: string
                 -
-                    name: score
+                    name: score_type
                     in: formData
                     required: true
-                    description: 'To delete a record, send a score of `null`. '
+                    description: " `goal_in`,`goal_missed`, `error_record`,\r\n                    `contract`,\r\n                    `center_pass`,\r\n                    `intercept`,\r\n                    `tip`,\r\n                    `rebound`,\r\n                    `goal_in_reverse`,\r\n                    `goal_missed_reverse`,\r\n                    `error_record_reverse`,\r\n                    `contract_reverse`,\r\n                    `center_pass_reverse`,\r\n                    `intercept_reverse`,\r\n                    `tip_reverse`,\r\n                    `rebound_reverse`"
                     type: string
                 -
                     name: Accept
@@ -2570,6 +2570,20 @@ definitions:
                 type: integer
             active_player:
                 type: boolean
+            error_record:
+                type: integer
+            contract:
+                type: integer
+            center_pass:
+                type: integer
+            intercept:
+                type: integer
+            tip:
+                type: integer
+            rebound:
+                type: integer
+            goal_missed:
+                type: integer
             player:
                 $ref: '#/definitions/Player'
             position_obj:
@@ -2629,6 +2643,20 @@ definitions:
                 type: string
             active_player:
                 type: boolean
+            error_record:
+                type: integer
+            contract:
+                type: integer
+            center_pass:
+                type: integer
+            intercept:
+                type: integer
+            tip:
+                type: integer
+            rebound:
+                type: integer
+            goal_missed:
+                type: integer
     PlayerPosition:
         type: object
         properties:

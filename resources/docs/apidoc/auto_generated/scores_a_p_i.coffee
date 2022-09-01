@@ -155,7 +155,7 @@
 #    Create your files in `resources/docs/apidoc/manual`   #
 # ******************************************************** #
 ###
-@apiDescription Create a new score for a player. Each record will be unique by `gameUuid`, `player_id`, `position` and `time_segment`. If the record already exists, it will be updated. If a score record must be deleted, you should send a null score value or use delete endpoint.
+@apiDescription Create a new score for a player. Each record will be unique by `gameUuid`, `player_id`, `position` and `time_segment`. If the record already exists, it will be updated. 
 @apiVersion 1.0.0
 @api {POST} api/v1/games/{gameUuid}/scores Create Score
 @apiGroup ScoresAPI
@@ -163,7 +163,20 @@
 @apiParam {String} player_id Player ID
 @apiParam {String} position Position of the player in the game
 @apiParam {String} time_segment Time segment on game. Examples `Quarter 1`, `Quarter 2`, `Quarter 3`, `Quarter 4`, `Overtime`, `Shootout`
-@apiParam {String} score To delete a record, send a score of `null`. 
+@apiParam {String} score_type  `goal_in`,`goal_missed`, `error_record`,
+                    `contract`,
+                    `center_pass`,
+                    `intercept`,
+                    `tip`,
+                    `rebound`,
+                    `goal_in_reverse`,
+                    `goal_missed_reverse`,
+                    `error_record_reverse`,
+                    `contract_reverse`,
+                    `center_pass_reverse`,
+                    `intercept_reverse`,
+                    `tip_reverse`,
+                    `rebound_reverse`
 @apiUse default_headers
 @apiSuccessExample {json} Success-Response / HTTP 200 OK
 {

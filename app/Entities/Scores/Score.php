@@ -46,6 +46,13 @@ class Score extends Model
 		'time_segment',
         'active_player',
         'uuid',
+        'error_record',
+        'contract',
+        'center_pass',
+        'intercept',
+        'tip',
+        'rebound',
+        'goal_missed',
 	];
 
 	protected $searchable = [
@@ -151,7 +158,5 @@ class Score extends Model
                         ->where('id','!=',$this->player_id)
                         ->get();
                         
-    }
-
-    
+    }   
 }
