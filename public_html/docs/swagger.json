@@ -2403,6 +2403,80 @@
                 }
             }
         },
+        "\/games\/scores\/teamb": {
+            "post": {
+                "tags": [
+                    "ScoresAPI"
+                ],
+                "summary": "Create Team B Score",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "scoresapi_post_create_team_b_score",
+                "description": "Create a new score for team B.",
+                "parameters": [
+                    {
+                        "name": "gameUuid",
+                        "in": "formData",
+                        "required": true,
+                        "description": "Game UUID",
+                        "type": "string"
+                    },
+                    {
+                        "name": "score_type",
+                        "in": "formData",
+                        "required": true,
+                        "description": " `goal_in`,`goal_missed`,`goal_in_reverse`,`goal_missed_reverse`",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ScoresAPICreateTeamBScoreResponse"
+                        },
+                        "description": "ScoresAPICreateTeamBScoreResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            }
+        },
         "\/match": {
             "post": {
                 "tags": [
@@ -3699,6 +3773,21 @@
                 },
                 "payload": {
                     "$ref": "#\/definitions\/Score"
+                }
+            }
+        },
+        "ScoresAPICreateTeamBScoreResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "payload": {
+                    "$ref": "#\/definitions\/Game"
                 }
             }
         },
