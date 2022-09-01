@@ -274,4 +274,54 @@ class ScoresAPIController extends APIBaseController
         return response()->apiSuccess();
     }
 
+    protected function teambscore(Request $request)
+    {
+        document(function () {
+            return (new APICall())
+                ->setName('Create Team B Score')
+                ->setDescription('Create a new score for team B.')
+                ->setParams([
+                    (new Param('gameUuid'))
+                        ->setDescription('Game UUID')->required(),
+                    'score_type|String|required| `goal_in`,`goal_missed`,`goal_in_reverse`,`goal_missed_reverse`'
+                ])
+                ->setSuccessObject(Game::class);
+        });
+
+        $game = Game::where('uuid', $request->gameUuid)->first();
+        if (!$game) {
+            return response()->apiError('Game not found.', 404);
+        }
+
+        $scoreValue = $request->input('score_type');
+
+        if ($scoreValue == 'goal_in') {
+            $game->team_b_score = $game->team_b_score+1;
+            $game->save();
+        }
+
+        else if ($scoreValue == 'goal_missed') {
+            $game->team_b_goal_missed = $game->team_b_goal_missed+1;
+            $game->save();
+        }
+
+        else if ($scoreValue == 'goal_in_reverse') {
+            if($game->team_b_score >0)
+            {
+            $game->team_b_score = $game->team_b_score-1;
+            $game->save();
+            }
+        }
+
+        else if ($scoreValue == 'goal_missed_reverse') {
+            if($game->team_b_goal_missed >0)
+            {
+            $game->team_b_goal_missed = $game->team_b_goal_missed-1;
+            $game->save();
+            }
+        }
+
+        return response()->apiSuccess($game);
+    }
+   
 }
