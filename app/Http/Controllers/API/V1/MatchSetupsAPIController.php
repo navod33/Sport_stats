@@ -274,32 +274,63 @@ class MatchSetupsAPIController extends APIBaseController
 	{
 		document(function () {
 			return (new APICall())
-				->setName('Start Match')
+				->setName('Start-End Match')
 				->setParams([
 					(new Param('game_id'))->dataType(Param::TYPE_INT)
-						->setDescription('Game ID')
+						->setDescription('Game ID'),
+					(new Param('req_type'))->dataType(Param::TYPE_STRING)
+						->setDescription('`Start`,`End`')
 				]);
 				// ->setSuccessPaginatedObject(Player::class);
 		});
 		$this->validate($request, [
 			'game_id' => 'required | integer',
+			'req_type' => 'required | string',
         ]);
 		$datetimenow=now();
 		$datetimenow1 =date_format($datetimenow, 'Y-m-d');
-		$game = Game::where('id',$request->game_id)
-					->where('game_started',0)
-					->where('game_finished',0)
-					->where('played_at','like',$datetimenow1 .'%')
-					->first();
-					
-		if(!$game)
+
+		if($request->req_type == 'Start')
 		{
-			return response()->apiError('Game not found.', 404);
-		}	
+			$game = Game::where('id',$request->game_id)
+			->where('game_started',0)
+			->where('game_finished',0)
+			->where('played_at','like',$datetimenow1 .'%')
+			->first();
+			
+			if(!$game)
+			{
+				return response()->apiError('Game not found.', 404);
+			}	
 
 			$game->game_started = true;
 			$game->game_actually_started_at = $datetimenow;
 			$game->save();
 			return response()->apiSuccess("success");
+		}
+
+		else if($request->req_type == 'End')
+		{
+			$game = Game::where('id',$request->game_id)
+			->where('game_started',1)
+			->where('game_finished',0)
+			->where('played_at','like',$datetimenow1 .'%')
+			->first();
+			
+			if(!$game)
+			{
+				return response()->apiError('Game not found.', 404);
+			}	
+
+			$game->game_finished = true;
+			$game->game_finished_at = $datetimenow;
+			$game->save();
+			return response()->apiSuccess("success");
+		}
+		
+		else
+		{
+			return response()->apiError('Request type not found.', 404);
+		}
 	}
 }
