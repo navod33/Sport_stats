@@ -187,11 +187,22 @@ class Game extends Model
     }
 
     public function getGameStatusAttribute() {
-        $plan_date =  $this->attributes['played_at']; 
+        $plan_date =  $this->attributes['played_at'];
+        $started =  $this->attributes['game_started'];
+        //$started_date =  $this->attributes['game_actually_started_at']; 
+        $finished =  $this->attributes['game_finished'];
         $current_date = Carbon::now();
         if ($plan_date>=$current_date) 
         {
-            return 'Upcoming';
+            if($started==1 && $finished==0)
+            {
+                return 'Ongoing';
+            } 
+            
+            else 
+            {
+                return 'Upcoming';
+            }
         }
         else
         {
