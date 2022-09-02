@@ -300,7 +300,7 @@ class MatchSetupsAPIController extends APIBaseController
 			
 			if(!$game)
 			{
-				return response()->apiError('Game not found.', 404);
+				return response()->apiError('you can only start games which scheduled for today.', 404);
 			}	
 
 			$game->game_started = true;
@@ -314,12 +314,11 @@ class MatchSetupsAPIController extends APIBaseController
 			$game = Game::where('id',$request->game_id)
 			->where('game_started',1)
 			->where('game_finished',0)
-			->where('played_at','like',$datetimenow1 .'%')
 			->first();
 			
 			if(!$game)
 			{
-				return response()->apiError('Game not found.', 404);
+				return response()->apiError('you can only finish games which already start.', 404);
 			}	
 
 			$game->game_finished = true;
