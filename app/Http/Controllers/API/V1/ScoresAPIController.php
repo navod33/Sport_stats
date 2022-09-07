@@ -33,7 +33,7 @@ class ScoresAPIController extends APIBaseController
                         ->setDescription('Game UUID'),
                 	        'page|Page number',
                         ])
-                        ->setSuccessPaginatedObject(Score::class);
+                        ->setSuccessObject(Score::class);
                 });
 
         //$filter = $this->repo->newSearchFilter(false);
@@ -42,9 +42,9 @@ class ScoresAPIController extends APIBaseController
         })->with([
             'player',
         	'position_obj',
-        ]);
+        ])->get();
 		 
-		return response()->apiSuccessPaginated($items->paginate());
+		return response()->apiSuccess($items);
 	}
 
 
