@@ -41,7 +41,7 @@ class ScoresAPIController extends APIBaseController
         	$q->where('uuid', $gameUuid);
         })->with([
             'player',
-        	// 'game',
+        	'position_obj',
         ]);
 		 
 		return response()->apiSuccessPaginated($items->paginate());
