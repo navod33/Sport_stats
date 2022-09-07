@@ -36,17 +36,15 @@ class ScoresAPIController extends APIBaseController
                         ->setSuccessPaginatedObject(Score::class);
                 });
 
-        $filter = $this->repo->newSearchFilter(false);
-        $filter->whereHas('game', function ($q) use ($gameUuid) {
+        //$filter = $this->repo->newSearchFilter(false);
+        $items = Score::whereHas('game', function ($q) use ($gameUuid) {
         	$q->where('uuid', $gameUuid);
-        });
-        $filter->with([
+        })->with([
             'player',
         	// 'game',
         ]);
-		$items = $this->repo->search($filter);
-
-		return response()->apiSuccess($items);
+		 
+		return response()->apiSuccessPaginated($items->paginate());
 	}
 
 
