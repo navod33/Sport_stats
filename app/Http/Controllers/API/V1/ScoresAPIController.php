@@ -32,8 +32,12 @@ class ScoresAPIController extends APIBaseController
                         ->setLocation(Param::LOCATION_PATH)
                         ->setDescription('Game UUID'),
                 	        'page|Page number',
+                            (new Param('time_segment'))
+                        ->dataType(Param::TYPE_INT)
+                        ->setDescription('Time segment. if quater 1, then send 1.')
+                        ->optional()
                         ])
-                        ->setSuccessObject(Score::class);
+                        ->setSuccessPaginatedObject(Score::class);
                 });
 
         //$filter = $this->repo->newSearchFilter(false);
@@ -42,9 +46,17 @@ class ScoresAPIController extends APIBaseController
         })->with([
             'player',
         	'position_obj',
-        ])->get();
+        ])->when(request('time_segment'), function ($query) {
+            
+                $query->where('time_segment', 'like', '%' . request('time_segment'));
+            
+        })->when(!request('time_segment'), function ($query) {
+            
+            $query->where('time_segment', 'Quarter 1');
+        
+    });
 		 
-		return response()->apiSuccess($items);
+		return response()->apiSuccessPaginated($items->paginate());
 	}
 
 

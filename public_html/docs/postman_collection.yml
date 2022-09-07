@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
     title: 'Boost App API'
-    version: 1.0.0.20220901
+    version: 1.0.0.20220907
 host: '{{host}}'
 schemes:
     - '{{scheme}}'
@@ -1840,6 +1840,12 @@ paths:
                     required: true
                     description: 'Page number'
                     type: string
+                -
+                    name: time_segment
+                    in: query
+                    required: false
+                    description: 'Time segment. if quater 1, then send 1.'
+                    type: integer
                 -
                     name: Accept
                     in: header
