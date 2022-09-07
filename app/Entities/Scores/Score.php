@@ -70,6 +70,9 @@ class Score extends Model
         'deleted_at',
     ];
 
+    protected $with =[
+        'position_obj',
+    ];
     public function getExtraApiFields()
     {
         return [
@@ -147,6 +150,7 @@ class Score extends Model
     public function position_obj()
     {
         return $this->belongsTo(PlayerPosition::class,'position');
+        dd();
     }
 
     public $appends = [ 'positionPreferedPlayers'];
