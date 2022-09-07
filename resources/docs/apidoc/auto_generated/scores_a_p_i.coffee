@@ -10,6 +10,7 @@
 @apiGroup ScoresAPI
 @apiParam {String} gameUuid Game UUID
 @apiParam {String} page Page number
+@apiParam {Integer} [time_segment] Time segment. if quater 1, then send 1.
 @apiUse default_headers
 @apiSuccessExample {json} Success-Response / HTTP 200 OK
 {
