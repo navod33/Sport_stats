@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\V1\GamesAPIController;
 use App\Http\Controllers\API\V1\MatchSetupsAPIController;
+use App\Http\Controllers\API\V1\PDFSharesAPIController;
 use App\Http\Controllers\API\V1\PlayersAPIController;
 use App\Http\Controllers\API\V1\ScoresAPIController;
 use App\Http\Controllers\API\V1\SeasonsAPIController;
@@ -56,6 +57,11 @@ Route::group([
             Route::post('/teams', [TeamsAPIController::class, 'store']);
             Route::put('/teams/{uuid}', [TeamsAPIController::class, 'update']);
             Route::delete('/teams/{uuid}', [TeamsAPIController::class, 'destroy']);
+			Route::get('/team-performance', [TeamsAPIController::class, 'performance']);
+			Route::get('/team-performance-pdf', [PDFSharesAPIController::class, 'teamperformance']);
+			Route::get('/player-performance', [TeamsAPIController::class, 'playerperformance']);
+			Route::post('/team-performance-comment', [TeamsAPIController::class, 'teamperformancecomment']);
+			Route::post('/player-performance-comment', [TeamsAPIController::class, 'playerperformancecomment']);
 
 			Route::get('/player-positions', [PlayersAPIController::class, 'ppositions']);
 
