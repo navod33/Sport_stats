@@ -177,7 +177,7 @@ class Player extends Model
     {
         return [
             'image' => ['type' => 'object', 'items' => 'File'],
-            'prefered_positions' => ['type' => 'object', 'items' => 'PlayerPosition'],
+            'prefered_positions' => ['type' => 'array', 'items' => 'PlayerPosition'],
             'id' => 'integer',
             'team_id' => 'integer',
         ];

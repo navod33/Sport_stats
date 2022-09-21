@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "title": "Boost App API",
-        "version": "1.0.0.20220907"
+        "version": "1.0.0.20220921"
     },
     "host": "boost.test",
     "schemes": [
@@ -1321,6 +1321,389 @@
                         "in": "path",
                         "required": true,
                         "description": "uuid of the Team to delete",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string",
+                        "schema": {
+                            "type": "string",
+                            "example": "application\/json"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/SuccessResponse"
+                        },
+                        "description": "SuccessResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            }
+        },
+        "\/team-performance": {
+            "get": {
+                "tags": [
+                    "Performance"
+                ],
+                "summary": "Team Performance",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "performance_get_team_performance",
+                "description": "Get the team porformance",
+                "parameters": [
+                    {
+                        "name": "team_id",
+                        "in": "query",
+                        "required": true,
+                        "description": "Team ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string",
+                        "schema": {
+                            "type": "string",
+                            "example": "application\/json"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/PerformanceTeamPerformanceResponse"
+                        },
+                        "description": "PerformanceTeamPerformanceResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            }
+        },
+        "\/team-performance-pdf": {
+            "get": {
+                "tags": [
+                    "Performance"
+                ],
+                "summary": "Team Performance PDF",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "performance_get_team_performance_pdf",
+                "description": "Get the team porformance PDF link from permalink param of the response",
+                "parameters": [
+                    {
+                        "name": "team_id",
+                        "in": "query",
+                        "required": true,
+                        "description": "Team ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string",
+                        "schema": {
+                            "type": "string",
+                            "example": "application\/json"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/PerformanceTeamPerformancePDFResponse"
+                        },
+                        "description": "PerformanceTeamPerformancePDFResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            }
+        },
+        "\/player-performance": {
+            "get": {
+                "tags": [
+                    "Performance"
+                ],
+                "summary": "Player Performance",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "performance_get_player_performance",
+                "description": "Get the player porformance",
+                "parameters": [
+                    {
+                        "name": "team_id",
+                        "in": "query",
+                        "required": true,
+                        "description": "Team ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "player_id",
+                        "in": "query",
+                        "required": true,
+                        "description": "Player ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string",
+                        "schema": {
+                            "type": "string",
+                            "example": "application\/json"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/PerformancePlayerPerformanceResponse"
+                        },
+                        "description": "PerformancePlayerPerformanceResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            }
+        },
+        "\/team-performance-comment": {
+            "post": {
+                "tags": [
+                    "Performance"
+                ],
+                "summary": "Team Performance Comment",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "performance_post_team_performance_comment",
+                "description": "Store the tesm porformance comment",
+                "parameters": [
+                    {
+                        "name": "team_id",
+                        "in": "formData",
+                        "required": true,
+                        "description": "Team ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "formData",
+                        "required": true,
+                        "description": "performance comment",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string",
+                        "schema": {
+                            "type": "string",
+                            "example": "application\/json"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/SuccessResponse"
+                        },
+                        "description": "SuccessResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            }
+        },
+        "\/player-performance-comment": {
+            "post": {
+                "tags": [
+                    "Performance"
+                ],
+                "summary": "Player Performance Comment",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "performance_post_player_performance_comment",
+                "description": "Store the player porformance comment",
+                "parameters": [
+                    {
+                        "name": "player_id",
+                        "in": "formData",
+                        "required": true,
+                        "description": "player id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "team_id",
+                        "in": "formData",
+                        "required": true,
+                        "description": "Team ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "formData",
+                        "required": true,
+                        "description": "performance comment",
                         "type": "string"
                     },
                     {
@@ -3269,7 +3652,10 @@
                     "$ref": "#\/definitions\/File"
                 },
                 "prefered_positions": {
-                    "$ref": "#\/definitions\/PlayerPosition"
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/PlayerPosition"
+                    }
                 }
             }
         },
@@ -3508,6 +3894,47 @@
                 }
             }
         },
+        "PlayerPerformancemodel": {
+            "type": "object",
+            "properties": {
+                "conversion": {
+                    "type": "integer"
+                },
+                "goal_in": {
+                    "type": "integer"
+                },
+                "goal_missed": {
+                    "type": "integer"
+                },
+                "error_record": {
+                    "type": "integer"
+                },
+                "contract": {
+                    "type": "integer"
+                },
+                "center_pass": {
+                    "type": "integer"
+                },
+                "intercept": {
+                    "type": "integer"
+                },
+                "tip": {
+                    "type": "integer"
+                },
+                "rebound": {
+                    "type": "integer"
+                },
+                "team_id": {
+                    "type": "integer"
+                },
+                "player_id": {
+                    "type": "integer"
+                },
+                "comment": {
+                    "type": "string"
+                }
+            }
+        },
         "PlayerPosition": {
             "type": "object",
             "properties": {
@@ -3518,6 +3945,50 @@
                     "type": "string"
                 },
                 "short_name": {
+                    "type": "string"
+                }
+            }
+        },
+        "TeamPerformancemodel": {
+            "type": "object",
+            "properties": {
+                "team_conversion": {
+                    "type": "integer"
+                },
+                "opposition_conversion": {
+                    "type": "integer"
+                },
+                "center_pass_conversion": {
+                    "type": "integer"
+                },
+                "goal_in": {
+                    "type": "integer"
+                },
+                "goal_missed": {
+                    "type": "integer"
+                },
+                "error_record": {
+                    "type": "integer"
+                },
+                "contract": {
+                    "type": "integer"
+                },
+                "center_pass": {
+                    "type": "integer"
+                },
+                "intercept": {
+                    "type": "integer"
+                },
+                "tip": {
+                    "type": "integer"
+                },
+                "rebound": {
+                    "type": "integer"
+                },
+                "team_id": {
+                    "type": "integer"
+                },
+                "comment": {
                     "type": "string"
                 }
             }
@@ -3780,6 +4251,51 @@
                 },
                 "payload": {
                     "$ref": "#\/definitions\/Team"
+                }
+            }
+        },
+        "PerformanceTeamPerformanceResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "payload": {
+                    "$ref": "#\/definitions\/TeamPerformancemodel"
+                }
+            }
+        },
+        "PerformanceTeamPerformancePDFResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "payload": {
+                    "$ref": "#\/definitions\/File"
+                }
+            }
+        },
+        "PerformancePlayerPerformanceResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "payload": {
+                    "$ref": "#\/definitions\/PlayerPerformancemodel"
                 }
             }
         },

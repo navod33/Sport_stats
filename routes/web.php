@@ -41,10 +41,10 @@ Route::get('/faqs', 'Common\PagesController@faqs')->name('pages.faqs');
 
 // Contact Us...
 Route::get('/contact-us', 'Common\PagesController@contactUs')->name('contact-us');
-Route::post('/contact-us', 'Common\PagesController@postContactUs');
+//Route::get('/team-performance/{team_id}', 'SharePDFController@team');
 
 // Add Other Custom Pages Here...
-
+Route::post('/contact-us', 'Common\PagesController@postContactUs');
 
 Route::group(['middleware' => config('fortify.middleware', ['web'])], function () {
 	// Email Verification...

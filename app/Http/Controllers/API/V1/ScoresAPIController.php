@@ -151,6 +151,7 @@ class ScoresAPIController extends APIBaseController
         else if ($scoreValue == 'center_pass')
         {
             $score->center_pass = $score->center_pass+1;
+            $score->score = $score->score+1;
             $score->save();
         }
 
@@ -204,6 +205,7 @@ class ScoresAPIController extends APIBaseController
             if($score->center_pass >0)
             {
             $score->center_pass = $score->center_pass-1;
+            $score->score = $score->score-1;
             $score->save();
             }
         }
