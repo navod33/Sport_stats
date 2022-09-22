@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
     title: 'Boost App API'
-    version: 1.0.0.20220921
+    version: 1.0.0.20220922
 host: '{{host}}'
 schemes:
     - '{{scheme}}'
@@ -1235,6 +1235,68 @@ paths:
                     schema:
                         $ref: '#/definitions/PerformancePlayerPerformanceResponse'
                     description: PerformancePlayerPerformanceResponse
+                401:
+                    schema:
+                        $ref: '#/definitions/ApiErrorUnauthorized'
+                    description: 'Authentication failed'
+                403:
+                    schema:
+                        $ref: '#/definitions/ApiErrorAccessDenied'
+                    description: 'Access denied'
+                422:
+                    schema:
+                        $ref: '#/definitions/ApiError'
+                    description: 'Generic API error. Check `message` for more information.'
+    /player-performance-pdf:
+        get:
+            tags:
+                - Performance
+            summary: 'Player Performance PDF'
+            consumes:
+                - application/json
+                - application/x-www-form-urlencoded
+            produces:
+                - application/json
+            operationId: performance_get_player_performance_pdf
+            description: 'Get the Player porformance PDF link from permalink param of the response'
+            parameters:
+                -
+                    name: team_id
+                    in: query
+                    required: true
+                    description: 'Team ID'
+                    type: integer
+                -
+                    name: player_id
+                    in: query
+                    required: true
+                    description: 'Player ID'
+                    type: integer
+                -
+                    name: Accept
+                    in: header
+                    required: true
+                    description: 'Set to `application/json`'
+                    type: string
+                    schema:
+                        type: string
+                        example: application/json
+                -
+                    type: string
+                    name: x-access-token
+                    in: header
+                    description: 'Unique user authentication token'
+                    schema:
+                        type: string
+                        example: '{{x-access-token}}'
+            security:
+                -
+                    apiKey: []
+            responses:
+                200:
+                    schema:
+                        $ref: '#/definitions/PerformancePlayerPerformancePDFResponse'
+                    description: PerformancePlayerPerformancePDFResponse
                 401:
                     schema:
                         $ref: '#/definitions/ApiErrorUnauthorized'
@@ -3304,6 +3366,16 @@ definitions:
                 default: true
             payload:
                 $ref: '#/definitions/PlayerPerformancemodel'
+    PerformancePlayerPerformancePDFResponse:
+        type: object
+        properties:
+            message:
+                type: string
+            result:
+                type: boolean
+                default: true
+            payload:
+                $ref: '#/definitions/File'
     PlayersAPIListPlayersPositionsResponse:
         type: object
         properties:

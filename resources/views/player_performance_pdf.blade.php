@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
-    <title>Team Performance</title>
+    <title>Player Performance</title>
     <style>
         span{
             color: #646868;
@@ -20,28 +20,18 @@
     <div style="background-color: #191a1a;">
     <img  src="{{ public_path('images/logo.png') }}" 
     alt="logo" style="width:10%;position:absolute;margin-top:10px;margin-left:20px;">
-    <center><h5 style="color: white;padding:5px;">Overall Team Performance</h5>
-    <h6 style="color: #cbcdcd">{{$performance->team_name}} </h6></center>
+    <center><h5 style="color: white;padding:5px;">Player Performance</h5>
+    <h6 style="color: #cbcdcd">{{$performance->player_name}} </h6></center>
     <h6 style="color: rgb(225, 221, 221);position:absolute;right:20px;top:40px;font-size:14px;">Date : <?php echo Date("Y-m-d"); ?></h6>
     </div>
     <br>
 
-    <span>Team Conversion</span> <span class="float-right"> {{$performance->team_conversion}}%</span>
+    <span>Conversion</span> <span class="float-right"> {{$performance->conversion}}%</span>
     <div class="progress mt-2" style="height: 10px;">
-        <div class="progress-bar" role="progressbar" style="width: {{$performance->team_conversion}}%;height:100%" aria-valuenow="{{$performance->team_conversion}}" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar" role="progressbar" style="width: {{$performance->conversion}}%;height:100%" aria-valuenow="{{$performance->conversion}}" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
     <br>
 
-    <span>Opposition Conversion </span><span class="float-right"> {{$performance->opposition_conversion}}%</span>
-    <div class="progress mt-2" style="height: 10px;">
-        <div class="progress-bar" role="progressbar" style="width: {{$performance->opposition_conversion}}%;height:100%" aria-valuenow="{{$performance->opposition_conversion}}" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
-    <br>
-
-    <span>Center Pass Conversion </span><span class="float-right"> {{$performance->center_pass_conversion}}%</span>
-    <div class="progress mt-2" style="height: 10px;">
-        <div class="progress-bar" role="progressbar" style="width: {{$performance->center_pass_conversion}}%;height:100%" aria-valuenow="{{$performance->center_pass_conversion}}" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
     <hr>
         <table width="100%">
         

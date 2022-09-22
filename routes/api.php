@@ -60,6 +60,7 @@ Route::group([
 			Route::get('/team-performance', [TeamsAPIController::class, 'performance']);
 			Route::get('/team-performance-pdf', [PDFSharesAPIController::class, 'teamperformance']);
 			Route::get('/player-performance', [TeamsAPIController::class, 'playerperformance']);
+			Route::get('/player-performance-pdf', [PDFSharesAPIController::class, 'playerperformance']);
 			Route::post('/team-performance-comment', [TeamsAPIController::class, 'teamperformancecomment']);
 			Route::post('/player-performance-comment', [TeamsAPIController::class, 'playerperformancecomment']);
 

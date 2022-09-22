@@ -42,6 +42,7 @@ Route::get('/faqs', 'Common\PagesController@faqs')->name('pages.faqs');
 // Contact Us...
 Route::get('/contact-us', 'Common\PagesController@contactUs')->name('contact-us');
 //Route::get('/team-performance/{team_id}', 'SharePDFController@team');
+//Route::get('/player-performance/{team_id}/{player_id}', 'SharePDFController@player');
 
 // Add Other Custom Pages Here...
 Route::post('/contact-us', 'Common\PagesController@postContactUs');
