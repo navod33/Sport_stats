@@ -1237,6 +1237,65 @@ paths:
                     schema:
                         $ref: '#/definitions/ApiError'
                     description: 'Generic API error. Check `message` for more information.'
+    /player-game-time:
+        get:
+            tags:
+                - Performance
+            summary: 'Player game time'
+            consumes:
+                - application/json
+                - application/x-www-form-urlencoded
+            produces:
+                - application/json
+            operationId: performance_get_player_game_time
+            description: 'player game time'
+            parameters:
+                -
+                    name: game_id
+                    in: query
+                    required: true
+                    description: 'Game ID'
+                    type: integer
+                -
+                    name: team_id
+                    in: query
+                    required: true
+                    description: 'Team ID'
+                    type: integer
+                -
+                    name: player_id
+                    in: query
+                    required: true
+                    description: 'Player ID'
+                    type: integer
+                -
+                    name: Accept
+                    in: header
+                    required: true
+                    description: 'Set to `application/json`'
+                    type: string
+            security:
+                -
+                    apiKey: []
+                -
+                    accessToken: []
+            responses:
+                200:
+                    schema:
+                        $ref: '#/definitions/PerformancePlayerGameTimeResponse'
+                    description: PerformancePlayerGameTimeResponse
+                401:
+                    schema:
+                        $ref: '#/definitions/ApiErrorUnauthorized'
+                    description: 'Authentication failed'
+                403:
+                    schema:
+                        $ref: '#/definitions/ApiErrorAccessDenied'
+                    description: 'Access denied'
+                422:
+                    schema:
+                        $ref: '#/definitions/ApiError'
+                    description: 'Generic API error. Check `message` for more information.'
     /player-positions:
         get:
             tags:
@@ -2994,6 +3053,20 @@ definitions:
                 default: true
             payload:
                 $ref: '#/definitions/File'
+    PerformancePlayerGameTimeResponse:
+        type: object
+        properties:
+            message:
+                type: string
+            result:
+                type: boolean
+                default: true
+            payload:
+                type: array
+                items:
+                    $ref: '#/definitions/Score'
+            paginator:
+                $ref: '#/definitions/Paginator'
     PlayersAPIListPlayersPositionsResponse:
         type: object
         properties:

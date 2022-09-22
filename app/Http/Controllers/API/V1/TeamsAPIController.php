@@ -409,4 +409,150 @@ class TeamsAPIController extends APIBaseController
 
         return response()->apiSuccess('success');
     }
+
+    protected function gametime(Request $request)
+    {
+        document(function () {
+            return (new APICall())
+                ->setGroup('Performance')
+                ->setName('Player game time')
+                ->setDescription('player game time')
+                ->setSuccessPaginatedObject(Score::class)
+                ->setSuccessExample('
+                {
+                    "payload": [
+                        {
+                            "id": 1,
+                            "uuid": "c279f77d-85de-4bfe-b249-73fe96c288dc",
+                            "game_id": 1,
+                            "time_segment": "Quarter 1",
+                            "position": "2",
+                            "player_id": 1,
+                            "score": 5,
+                            "active_player": 1,
+                            "error_record": 0,
+                            "contract": 0,
+                            "center_pass": 0,
+                            "intercept": 0,
+                            "tip": 0,
+                            "rebound": 0,
+                            "goal_missed": 2,
+                            "positionPreferedPlayers": [
+                                {
+                                    "id": 2,
+                                    "uuid": "20ee2fe7-9a73-401a-be23-795ef8aa5c78",
+                                    "team_id": 1,
+                                    "image_uuid": null,
+                                    "name": "asdcdd",
+                                    "email": "nb@gmail.com",
+                                    "positions": "1,2,3",
+                                    "metadata": null,
+                                    "performance_notes": null,
+                                    "prefered_positions": [
+                                        {
+                                            "id": 1,
+                                            "name": "Goal Keeper",
+                                            "short_name": "GK"
+                                        },
+                                        {
+                                            "id": 2,
+                                            "name": "Goal Defence",
+                                            "short_name": "GD"
+                                        },
+                                        {
+                                            "id": 3,
+                                            "name": "Wing Defence",
+                                            "short_name": "WD"
+                                        }
+                                    ],
+                                    "image": null
+                                },
+                                {
+                                    "id": 3,
+                                    "uuid": "b0b15d02-4e33-40f3-9bbd-3a9fe647921f",
+                                    "team_id": 1,
+                                    "image_uuid": null,
+                                    "name": "asdcdd",
+                                    "email": "nb@gmail.com",
+                                    "positions": "1,2,3",
+                                    "metadata": null,
+                                    "performance_notes": null,
+                                    "prefered_positions": [
+                                        {
+                                            "id": 1,
+                                            "name": "Goal Keeper",
+                                            "short_name": "GK"
+                                        },
+                                        {
+                                            "id": 2,
+                                            "name": "Goal Defence",
+                                            "short_name": "GD"
+                                        },
+                                        {
+                                            "id": 3,
+                                            "name": "Wing Defence",
+                                            "short_name": "WD"
+                                        }
+                                    ],
+                                    "image": null
+                                }
+                            ],
+                            "position_obj": {
+                                "id": 2,
+                                "name": "Goal Defence",
+                                "short_name": "GD"
+                            }
+                        },
+                        {
+                            "id": 2,
+                            "uuid": "8e96f352-65fc-4f9a-a3dc-08dac6474a61",
+                            "game_id": 1,
+                            "time_segment": "Quarter 1",
+                            "position": "5",
+                            "player_id": 1,
+                            "score": 2,
+                            "active_player": 0,
+                            "error_record": 0,
+                            "contract": 0,
+                            "center_pass": 0,
+                            "intercept": 0,
+                            "tip": 0,
+                            "rebound": 0,
+                            "goal_missed": 0,
+                            "positionPreferedPlayers": [],
+                            "position_obj": {
+                                "id": 5,
+                                "name": "Goal Attack",
+                                "short_name": "GA"
+                            }
+                        }
+                    ],
+                    "message": "",
+                    "result": true
+                }
+                ')
+                ->setParams([
+                    (new Param('game_id'))->dataType(Param::TYPE_INT)->setDescription('Game ID'),
+                    (new Param('team_id'))->dataType(Param::TYPE_INT)->setDescription('Team ID'),
+                    (new Param('player_id'))->dataType(Param::TYPE_INT)->setDescription('Player ID'),
+                ]);
+        });
+
+        $this->validate($request, [
+            'team_id' => 'required | integer',
+            'game_id' => 'required | integer',
+            'player_id' => 'required | integer',
+        ]);
+
+        $team = Score::where('game_id',$request->game_id)
+                        ->where('team_id',$request->team_id)
+                        ->where('player_id',$request->player_id)
+                        ->get();
+
+        if (!$team) {
+            return response()->apiError('player not found.');
+        }
+
+        return response()->apiSuccess($team);
+    }
 }
