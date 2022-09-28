@@ -236,15 +236,19 @@ class GamesAPIController extends APIBaseController
                 	    ->setName('List Finished Games')
                 	    ->setDescription('Get a list of finished games created by user. Pagination is supported. Played at time is in UTC. Convert to your timezone before using.')
                 	    ->setParams([
-                	        // 'q|Search query',
+                	        (new Param('team_id'))->dataType(Param::TYPE_INT)->setDescription('Team ID'),
                 	        'page|Page number',
                         ])
                         ->setSuccessPaginatedObject(Game::class);
                 });
 
+                $this->validate($request, [
+                    'team_id' => 'required | integer',
+                ]);
 		// return a list of my games
 		$filter = $this->repo->newSearchFilter(false);
 		$items = $filter->where('owner_id', $request->user()->id)
+                        ->where('team_a_id', $request->team_id)
                         ->where('game_started', true)
                         ->where('game_finished', true)
                         ->orderBy('id', 'desc');

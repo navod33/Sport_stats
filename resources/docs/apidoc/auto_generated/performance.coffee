@@ -396,6 +396,7 @@
 @apiVersion 1.0.0
 @api {GET} api/v1/game-finished List Finished Games
 @apiGroup Performance
+@apiParam {Integer} team_id Team ID
 @apiParam {String} page Page number
 @apiUse default_headers
 ###
