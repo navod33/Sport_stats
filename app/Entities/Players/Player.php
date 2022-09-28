@@ -4,6 +4,7 @@ namespace App\Entities\Players;
 
 use App\Entities\Files\File;
 use App\Entities\PlayerPositions\PlayerPosition;
+use App\Entities\Scores\Score;
 use App\Entities\Teams\Team;
 use App\Models\User;
 use ElegantMedia\OxygenFoundation\Database\Eloquent\Traits\AssignsUuid;
@@ -180,6 +181,7 @@ class Player extends Model
             'prefered_positions' => ['type' => 'array', 'items' => 'PlayerPosition'],
             'id' => 'integer',
             'team_id' => 'integer',
+            'score' => ['type' => 'array', 'items' => 'score'],
         ];
         
     }
@@ -206,5 +208,10 @@ class Player extends Model
         $string_positions = $this->positions;
         $positions_arr = explode (",", $string_positions);
         return PlayerPosition::whereIn('id',$positions_arr)->get();
+    }
+
+    public function score()
+    {
+        return $this->hasMany(Score::class, 'player_id', 'id');
     }
 }

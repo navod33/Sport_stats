@@ -63,7 +63,9 @@ Route::group([
 			Route::get('/player-performance-pdf', [PDFSharesAPIController::class, 'playerperformance']);
 			Route::post('/team-performance-comment', [TeamsAPIController::class, 'teamperformancecomment']);
 			Route::post('/player-performance-comment', [TeamsAPIController::class, 'playerperformancecomment']);
-			Route::get('/player-game-time', [TeamsAPIController::class, 'gametime']);
+			//Route::get('/player-game-time', [TeamsAPIController::class, 'gametime']);
+			Route::get('/team-players', [TeamsAPIController::class, 'team_players']);
+			Route::get('/game-finished', [GamesAPIController::class, 'finished_games']);
 
 			Route::get('/player-positions', [PlayersAPIController::class, 'ppositions']);
 

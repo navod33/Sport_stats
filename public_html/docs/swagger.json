@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "title": "Boost App API",
-        "version": "1.0.0.20220922"
+        "version": "1.0.0.20220928"
     },
     "host": "boost.test",
     "schemes": [
@@ -1720,12 +1720,12 @@
                 }
             }
         },
-        "\/player-game-time": {
+        "\/team-players": {
             "get": {
                 "tags": [
                     "Performance"
                 ],
-                "summary": "Player game time",
+                "summary": "Team Players with game time",
                 "consumes": [
                     "application\/json",
                     "application\/x-www-form-urlencoded"
@@ -1733,8 +1733,8 @@
                 "produces": [
                     "application\/json"
                 ],
-                "operationId": "performance_get_player_game_time",
-                "description": "player game time",
+                "operationId": "performance_get_team_players_with_game_time",
+                "description": "Team player and game time",
                 "parameters": [
                     {
                         "name": "game_id",
@@ -1748,13 +1748,6 @@
                         "in": "query",
                         "required": true,
                         "description": "Team ID",
-                        "type": "integer"
-                    },
-                    {
-                        "name": "player_id",
-                        "in": "query",
-                        "required": true,
-                        "description": "Player ID",
                         "type": "integer"
                     },
                     {
@@ -1776,9 +1769,76 @@
                 "responses": {
                     "200": {
                         "schema": {
-                            "$ref": "#\/definitions\/PerformancePlayerGameTimeResponse"
+                            "$ref": "#\/definitions\/PerformanceTeamPlayersWithGameTimeResponse"
                         },
-                        "description": "PerformancePlayerGameTimeResponse"
+                        "description": "PerformanceTeamPlayersWithGameTimeResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            }
+        },
+        "\/game-finished": {
+            "get": {
+                "tags": [
+                    "Performance"
+                ],
+                "summary": "List Finished Games",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "performance_get_list_finished_games",
+                "description": "Get a list of finished games created by user. Pagination is supported. Played at time is in UTC. Convert to your timezone before using.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": true,
+                        "description": "Page number",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/PerformanceListFinishedGamesResponse"
+                        },
+                        "description": "PerformanceListFinishedGamesResponse"
                     },
                     "401": {
                         "schema": {
@@ -3585,47 +3645,6 @@
                 }
             }
         },
-        "Player": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "integer"
-                },
-                "uuid": {
-                    "type": "string"
-                },
-                "team_id": {
-                    "type": "integer"
-                },
-                "image_uuid": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "positions": {
-                    "type": "string"
-                },
-                "metadata": {
-                    "type": "string"
-                },
-                "performance_notes": {
-                    "type": "string"
-                },
-                "image": {
-                    "$ref": "#\/definitions\/File"
-                },
-                "prefered_positions": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#\/definitions\/PlayerPosition"
-                    }
-                }
-            }
-        },
         "Game": {
             "type": "object",
             "properties": {
@@ -3697,6 +3716,53 @@
                 },
                 "game_status": {
                     "type": "string"
+                }
+            }
+        },
+        "Player": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "uuid": {
+                    "type": "string"
+                },
+                "team_id": {
+                    "type": "integer"
+                },
+                "image_uuid": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "positions": {
+                    "type": "string"
+                },
+                "metadata": {
+                    "type": "string"
+                },
+                "performance_notes": {
+                    "type": "string"
+                },
+                "image": {
+                    "$ref": "#\/definitions\/File"
+                },
+                "prefered_positions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/PlayerPosition"
+                    }
+                },
+                "score": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/score"
+                    }
                 }
             }
         },
@@ -4281,7 +4347,7 @@
                 }
             }
         },
-        "PerformancePlayerGameTimeResponse": {
+        "PerformanceTeamPlayersWithGameTimeResponse": {
             "type": "object",
             "properties": {
                 "message": {
@@ -4295,6 +4361,27 @@
                     "type": "array",
                     "items": {
                         "$ref": "#\/definitions\/Score"
+                    }
+                },
+                "paginator": {
+                    "$ref": "#\/definitions\/Paginator"
+                }
+            }
+        },
+        "PerformanceListFinishedGamesResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "payload": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/Game"
                     }
                 },
                 "paginator": {
