@@ -1515,6 +1515,12 @@ paths:
             description: 'Get a list of finished games created by user. Pagination is supported. Played at time is in UTC. Convert to your timezone before using.'
             parameters:
                 -
+                    name: team_id
+                    in: query
+                    required: true
+                    description: 'Team ID'
+                    type: integer
+                -
                     name: page
                     in: query
                     required: true
