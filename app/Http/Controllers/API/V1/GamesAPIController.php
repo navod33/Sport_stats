@@ -228,4 +228,38 @@ class GamesAPIController extends APIBaseController
         return response()->apiSuccess();
     }
 
+    protected function finished_games(Request $request)
+	{
+		document(function () {
+                	return (new APICall())
+                        ->setGroup('Performance')
+                	    ->setName('List Finished Games')
+                	    ->setDescription('Get a list of finished games created by user. Pagination is supported. Played at time is in UTC. Convert to your timezone before using.')
+                	    ->setParams([
+                	        // 'q|Search query',
+                	        'page|Page number',
+                        ])
+                        ->setSuccessPaginatedObject(Game::class);
+                });
+
+		// return a list of my games
+		$filter = $this->repo->newSearchFilter(false);
+		$items = $filter->where('owner_id', $request->user()->id)
+                        ->where('game_started', true)
+                        ->where('game_finished', true)
+                        ->orderBy('id', 'desc');
+
+
+		$items = $filter->with([
+		    'team_a.image',
+            // 'team_b',
+            'season',
+            'team_a_image',
+        ]);
+
+		//$items = $this->repo->search($filter);
+
+        return response()->apiSuccessPaginated($items->paginate());
+		//return response()->apiSuccess($items);
+	}
 }
