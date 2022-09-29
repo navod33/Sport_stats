@@ -564,134 +564,45 @@ function print() { __p += __j.call(arguments, '') }
     },
     "message": "",
     "result": true
-}`,type:"json"}]},filename:"auto_generated/guest.coffee",groupTitle:"Guest",name:"GetApiV1Guests"},{description:"<p>Get a match details for a time segment</p>",version:"1.0.0",type:"GET",url:"api/v1/match",title:"Current Match",group:"MatchSetupsAPI",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"game_id",description:"<p>Game ID</p>"},{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"},{group:"Parameter",type:"Integer",optional:!1,field:"time_segment",description:"<p>If the time segment is Quater 1. then, just send 1.</p>"}]}},filename:"auto_generated/match_setups_a_p_i.coffee",groupTitle:"MatchSetupsAPI",name:"GetApiV1Match",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{version:"1.0.0",type:"POST",url:"api/v1/match",title:"Match Setup",group:"MatchSetupsAPI",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"game_id",description:"<p>Game ID</p>"},{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"},{group:"Parameter",type:"String",optional:!1,field:"players",description:"<p>players array. player id required. position required. (get the position id from the List Players Positions API end point). time_segment required. if the time segment is Quater 1. then, just send 1.</p> <p>[ { &quot;player_id&quot; : 1, &quot;position&quot; : 2, &quot;time_segment&quot; : 1, }, { &quot;player_id&quot; : 2, &quot;position&quot; : 5, &quot;time_segment&quot; : 1, }, { &quot;player_id&quot; : 1, &quot;position&quot; : 5, &quot;time_segment&quot; : 2, } ]</p>"}]}},filename:"auto_generated/match_setups_a_p_i.coffee",groupTitle:"MatchSetupsAPI",name:"PostApiV1Match",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{version:"1.0.0",type:"POST",url:"api/v1/match-start",title:"Start-End Match",group:"MatchSetupsAPI",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"game_id",description:"<p>Game ID</p>"},{group:"Parameter",type:"String",optional:!1,field:"req_type",description:"<p><code>Start</code>,<code>End</code></p>"}]}},filename:"auto_generated/match_setups_a_p_i.coffee",groupTitle:"MatchSetupsAPI",name:"PostApiV1MatchStart",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{version:"1.0.0",type:"PUT",url:"api/v1/match",title:"Match Setup Update",group:"MatchSetupsAPI",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"game_id",description:"<p>Game ID</p>"},{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"},{group:"Parameter",type:"String",optional:!1,field:"players",description:"<p>players array. player id required. position required. (get the position id from the List Players Positions API end point). time_segment required. if the time segment is Quater 1. then, just send 1.</p> <p>[ { &quot;player_id&quot; : 1, &quot;position&quot; : 2, &quot;time_segment&quot; : 1 }, { &quot;player_id&quot; : 2, &quot;position&quot; : 5, &quot;time_segment&quot; : 1 }, { &quot;player_id&quot; : 1, &quot;position&quot; : 5, &quot;time_segment&quot; : 2 } ]</p>"}]}},filename:"auto_generated/match_setups_a_p_i.coffee",groupTitle:"MatchSetupsAPI",name:"PutApiV1Match",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{description:"<p>Get a list of finished games created by user. Pagination is supported. Played at time is in UTC. Convert to your timezone before using.</p>",version:"1.0.0",type:"GET",url:"api/v1/game-finished",title:"List Finished Games",group:"Performance",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"},{group:"Parameter",type:"String",optional:!1,field:"page",description:"<p>Page number</p>"}]}},filename:"auto_generated/performance.coffee",groupTitle:"Performance",name:"GetApiV1GameFinished",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{description:"<p>Get the player porformance</p>",version:"1.0.0",type:"GET",url:"api/v1/player-performance",title:"Player Performance",group:"Performance",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"},{group:"Parameter",type:"Integer",optional:!1,field:"player_id",description:"<p>Player ID</p>"}]}},filename:"auto_generated/performance.coffee",groupTitle:"Performance",name:"GetApiV1PlayerPerformance",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{description:"<p>Get the Player porformance PDF link from permalink param of the response</p>",version:"1.0.0",type:"GET",url:"api/v1/player-performance-pdf",title:"Player Performance PDF",group:"Performance",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"},{group:"Parameter",type:"Integer",optional:!1,field:"player_id",description:"<p>Player ID</p>"}]}},filename:"auto_generated/performance.coffee",groupTitle:"Performance",name:"GetApiV1PlayerPerformancePdf",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{description:"<p>Get the team porformance</p>",version:"1.0.0",type:"GET",url:"api/v1/team-performance",title:"Team Performance",group:"Performance",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"}]}},filename:"auto_generated/performance.coffee",groupTitle:"Performance",name:"GetApiV1TeamPerformance",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{description:"<p>Get the team porformance PDF link from permalink param of the response</p>",version:"1.0.0",type:"GET",url:"api/v1/team-performance-pdf",title:"Team Performance PDF",group:"Performance",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"}]}},filename:"auto_generated/performance.coffee",groupTitle:"Performance",name:"GetApiV1TeamPerformancePdf",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{description:"<p>Team player and game time</p>",version:"1.0.0",type:"GET",url:"api/v1/team-players",title:"Team Players with game time",group:"Performance",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"game_id",description:"<p>Game ID</p>"},{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"}]}},success:{examples:[{title:"Success-Response / HTTP 200 OK",content:`{
-                    "payload": [
-                        {
-                            "id": 1,
-                            "uuid": "0a0b846c-3811-46f0-b405-def00f9aef16",
-                            "team_id": 1,
-                            "image_uuid": null,
-                            "name": "Nishshanka B",
-                            "email": null,
-                            "positions": "2",
-                            "metadata": null,
-                            "performance_notes": "second comment",
-                            "prefered_positions": [
-                                {
-                                    "id": 2,
-                                    "name": "Goal Defence",
-                                    "short_name": "GD"
-                                }
-                            ],
-                            "image": null,
-                            "score": [
-                                {
-                                    "id": 1,
-                                    "uuid": "c279f77d-85de-4bfe-b249-73fe96c288dc",
-                                    "game_id": 1,
-                                    "time_segment": "Quarter 1",
-                                    "position": "2",
-                                    "player_id": 1,
-                                    "score": 5,
-                                    "active_player": 1,
-                                    "error_record": 0,
-                                    "contract": 0,
-                                    "center_pass": 0,
-                                    "intercept": 0,
-                                    "tip": 0,
-                                    "rebound": 0,
-                                    "goal_missed": 2,
-                                    "positionPreferedPlayers": [
-                                        {
-                                            "id": 2,
-                                            "uuid": "20ee2fe7-9a73-401a-be23-795ef8aa5c78",
-                                            "team_id": 1,
-                                            "image_uuid": null,
-                                            "name": "asdcdd",
-                                            "email": "nb@gmail.com",
-                                            "positions": "1,2,3",
-                                            "metadata": null,
-                                            "performance_notes": null,
-                                            "prefered_positions": [
-                                                {
-                                                    "id": 1,
-                                                    "name": "Goal Keeper",
-                                                    "short_name": "GK"
-                                                },
-                                                {
-                                                    "id": 2,
-                                                    "name": "Goal Defence",
-                                                    "short_name": "GD"
-                                                },
-                                                {
-                                                    "id": 3,
-                                                    "name": "Wing Defence",
-                                                    "short_name": "WD"
-                                                }
-                                            ],
-                                            "image": null
-                                        },
-                                        {
-                                            "id": 3,
-                                            "uuid": "b0b15d02-4e33-40f3-9bbd-3a9fe647921f",
-                                            "team_id": 1,
-                                            "image_uuid": null,
-                                            "name": "asdcdd",
-                                            "email": "nb@gmail.com",
-                                            "positions": "1,2,3",
-                                            "metadata": null,
-                                            "performance_notes": null,
-                                            "prefered_positions": [
-                                                {
-                                                    "id": 1,
-                                                    "name": "Goal Keeper",
-                                                    "short_name": "GK"
-                                                },
-                                                {
-                                                    "id": 2,
-                                                    "name": "Goal Defence",
-                                                    "short_name": "GD"
-                                                },
-                                                {
-                                                    "id": 3,
-                                                    "name": "Wing Defence",
-                                                    "short_name": "WD"
-                                                }
-                                            ],
-                                            "image": null
-                                        }
-                                    ],
-                                    "position_obj": {
-                                        "id": 2,
-                                        "name": "Goal Defence",
-                                        "short_name": "GD"
-                                    }
-                                },
-                                {
-                                    "id": 2,
-                                    "uuid": "8e96f352-65fc-4f9a-a3dc-08dac6474a61",
-                                    "game_id": 1,
-                                    "time_segment": "Quarter 1",
-                                    "position": "5",
-                                    "player_id": 1,
-                                    "score": 2,
-                                    "active_player": 0,
-                                    "error_record": 0,
-                                    "contract": 0,
-                                    "center_pass": 0,
-                                    "intercept": 0,
-                                    "tip": 0,
-                                    "rebound": 0,
-                                    "goal_missed": 0,
-                                    "positionPreferedPlayers": [],
-                                    "position_obj": {
-                                        "id": 5,
-                                        "name": "Goal Attack",
-                                        "short_name": "GA"
-                                    }
-                                }
-                            ]
-                        },
+}`,type:"json"}]},filename:"auto_generated/guest.coffee",groupTitle:"Guest",name:"GetApiV1Guests"},{description:"<p>Get a match details for a time segment</p>",version:"1.0.0",type:"GET",url:"api/v1/match",title:"Current Match",group:"MatchSetupsAPI",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"game_id",description:"<p>Game ID</p>"},{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"},{group:"Parameter",type:"Integer",optional:!1,field:"time_segment",description:"<p>If the time segment is Quater 1. then, just send 1.</p>"}]}},filename:"auto_generated/match_setups_a_p_i.coffee",groupTitle:"MatchSetupsAPI",name:"GetApiV1Match",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{version:"1.0.0",type:"POST",url:"api/v1/match",title:"Match Setup",group:"MatchSetupsAPI",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"game_id",description:"<p>Game ID</p>"},{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"},{group:"Parameter",type:"String",optional:!1,field:"players",description:"<p>players array. player id required. position required. (get the position id from the List Players Positions API end point). time_segment required. if the time segment is Quater 1. then, just send 1.</p> <p>[ { &quot;player_id&quot; : 1, &quot;position&quot; : 2, &quot;time_segment&quot; : 1, }, { &quot;player_id&quot; : 2, &quot;position&quot; : 5, &quot;time_segment&quot; : 1, }, { &quot;player_id&quot; : 1, &quot;position&quot; : 5, &quot;time_segment&quot; : 2, } ]</p>"}]}},filename:"auto_generated/match_setups_a_p_i.coffee",groupTitle:"MatchSetupsAPI",name:"PostApiV1Match",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{version:"1.0.0",type:"POST",url:"api/v1/match-start",title:"Start-End Match",group:"MatchSetupsAPI",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"game_id",description:"<p>Game ID</p>"},{group:"Parameter",type:"String",optional:!1,field:"req_type",description:"<p><code>Start</code>,<code>End</code></p>"}]}},filename:"auto_generated/match_setups_a_p_i.coffee",groupTitle:"MatchSetupsAPI",name:"PostApiV1MatchStart",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{version:"1.0.0",type:"PUT",url:"api/v1/match",title:"Match Setup Update",group:"MatchSetupsAPI",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"game_id",description:"<p>Game ID</p>"},{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"},{group:"Parameter",type:"String",optional:!1,field:"players",description:"<p>players array. player id required. position required. (get the position id from the List Players Positions API end point). time_segment required. if the time segment is Quater 1. then, just send 1.</p> <p>[ { &quot;player_id&quot; : 1, &quot;position&quot; : 2, &quot;time_segment&quot; : 1 }, { &quot;player_id&quot; : 2, &quot;position&quot; : 5, &quot;time_segment&quot; : 1 }, { &quot;player_id&quot; : 1, &quot;position&quot; : 5, &quot;time_segment&quot; : 2 } ]</p>"}]}},filename:"auto_generated/match_setups_a_p_i.coffee",groupTitle:"MatchSetupsAPI",name:"PutApiV1Match",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{description:"<p>Get a list of finished games created by user. Pagination is supported. Played at time is in UTC. Convert to your timezone before using.</p>",version:"1.0.0",type:"GET",url:"api/v1/game-finished",title:"List Finished Games",group:"Performance",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"},{group:"Parameter",type:"String",optional:!1,field:"page",description:"<p>Page number</p>"}]}},filename:"auto_generated/performance.coffee",groupTitle:"Performance",name:"GetApiV1GameFinished",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{description:"<p>Get the player porformance</p>",version:"1.0.0",type:"GET",url:"api/v1/player-performance",title:"Player Performance",group:"Performance",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"},{group:"Parameter",type:"Integer",optional:!1,field:"player_id",description:"<p>Player ID</p>"}]}},filename:"auto_generated/performance.coffee",groupTitle:"Performance",name:"GetApiV1PlayerPerformance",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{description:"<p>Get the Player porformance PDF link from permalink param of the response</p>",version:"1.0.0",type:"GET",url:"api/v1/player-performance-pdf",title:"Player Performance PDF",group:"Performance",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"},{group:"Parameter",type:"Integer",optional:!1,field:"player_id",description:"<p>Player ID</p>"}]}},filename:"auto_generated/performance.coffee",groupTitle:"Performance",name:"GetApiV1PlayerPerformancePdf",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{description:"<p>Get the team porformance</p>",version:"1.0.0",type:"GET",url:"api/v1/team-performance",title:"Team Performance",group:"Performance",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"}]}},filename:"auto_generated/performance.coffee",groupTitle:"Performance",name:"GetApiV1TeamPerformance",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{description:"<p>Get the team porformance PDF link from permalink param of the response</p>",version:"1.0.0",type:"GET",url:"api/v1/team-performance-pdf",title:"Team Performance PDF",group:"Performance",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"}]}},filename:"auto_generated/performance.coffee",groupTitle:"Performance",name:"GetApiV1TeamPerformancePdf",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{description:"<p>Team player and game time</p>",version:"1.0.0",type:"GET",url:"api/v1/team-players",title:"Team Players with game time",group:"Performance",parameter:{fields:{Parameter:[{group:"Parameter",type:"String",optional:!1,field:"page",description:"<p>Page number</p>"},{group:"Parameter",type:"Integer",optional:!1,field:"game_id",description:"<p>Game ID</p>"},{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"}]}},success:{examples:[{title:"Success-Response / HTTP 200 OK",content:`
+{
+    "payload": [
+        {
+            "id": 1,
+            "uuid": "0a0b846c-3811-46f0-b405-def00f9aef16",
+            "team_id": 1,
+            "image_uuid": null,
+            "name": "Nishshanka B",
+            "email": null,
+            "positions": "2",
+            "metadata": null,
+            "performance_notes": "second comment",
+            "prefered_positions": [
+                {
+                    "id": 2,
+                    "name": "Goal Defence",
+                    "short_name": "GD"
+                }
+            ],
+            "image": null,
+            "game_time_score": [
+                {
+                    "id": 1,
+                    "uuid": "c279f77d-85de-4bfe-b249-73fe96c288dc",
+                    "game_id": 1,
+                    "time_segment": "Quarter 1",
+                    "position": "2",
+                    "player_id": 1,
+                    "score": 5,
+                    "active_player": 1,
+                    "error_record": 0,
+                    "contract": 0,
+                    "center_pass": 0,
+                    "intercept": 0,
+                    "tip": 0,
+                    "rebound": 0,
+                    "goal_missed": 2,
+                    "positionPreferedPlayers": [
                         {
                             "id": 2,
                             "uuid": "20ee2fe7-9a73-401a-be23-795ef8aa5c78",
@@ -719,32 +630,7 @@ function print() { __p += __j.call(arguments, '') }
                                     "short_name": "WD"
                                 }
                             ],
-                            "image": null,
-                            "score": [
-                                {
-                                    "id": 3,
-                                    "uuid": "ff6a4606-98eb-4911-b48b-2b1e3e9b50ab",
-                                    "game_id": 1,
-                                    "time_segment": "Quarter 2",
-                                    "position": "5",
-                                    "player_id": 2,
-                                    "score": 2,
-                                    "active_player": 1,
-                                    "error_record": 0,
-                                    "contract": 0,
-                                    "center_pass": 0,
-                                    "intercept": 0,
-                                    "tip": 0,
-                                    "rebound": 0,
-                                    "goal_missed": 0,
-                                    "positionPreferedPlayers": [],
-                                    "position_obj": {
-                                        "id": 5,
-                                        "name": "Goal Attack",
-                                        "short_name": "GA"
-                                    }
-                                }
-                            ]
+                            "image": null
                         },
                         {
                             "id": 3,
@@ -773,86 +659,231 @@ function print() { __p += __j.call(arguments, '') }
                                     "short_name": "WD"
                                 }
                             ],
-                            "image": null,
-                            "score": [
-                                {
-                                    "id": 4,
-                                    "uuid": "aee01164-86bf-46eb-bb57-69287e362880",
-                                    "game_id": 1,
-                                    "time_segment": "Quarter 1",
-                                    "position": "2",
-                                    "player_id": 3,
-                                    "score": 0,
-                                    "active_player": 0,
-                                    "error_record": 0,
-                                    "contract": 0,
-                                    "center_pass": 0,
-                                    "intercept": 0,
-                                    "tip": 0,
-                                    "rebound": 0,
-                                    "goal_missed": 0,
-                                    "positionPreferedPlayers": [
-                                        {
-                                            "id": 1,
-                                            "uuid": "0a0b846c-3811-46f0-b405-def00f9aef16",
-                                            "team_id": 1,
-                                            "image_uuid": null,
-                                            "name": "Nishshanka B",
-                                            "email": null,
-                                            "positions": "2",
-                                            "metadata": null,
-                                            "performance_notes": "second comment",
-                                            "prefered_positions": [
-                                                {
-                                                    "id": 2,
-                                                    "name": "Goal Defence",
-                                                    "short_name": "GD"
-                                                }
-                                            ],
-                                            "image": null
-                                        },
-                                        {
-                                            "id": 2,
-                                            "uuid": "20ee2fe7-9a73-401a-be23-795ef8aa5c78",
-                                            "team_id": 1,
-                                            "image_uuid": null,
-                                            "name": "asdcdd",
-                                            "email": "nb@gmail.com",
-                                            "positions": "1,2,3",
-                                            "metadata": null,
-                                            "performance_notes": null,
-                                            "prefered_positions": [
-                                                {
-                                                    "id": 1,
-                                                    "name": "Goal Keeper",
-                                                    "short_name": "GK"
-                                                },
-                                                {
-                                                    "id": 2,
-                                                    "name": "Goal Defence",
-                                                    "short_name": "GD"
-                                                },
-                                                {
-                                                    "id": 3,
-                                                    "name": "Wing Defence",
-                                                    "short_name": "WD"
-                                                }
-                                            ],
-                                            "image": null
-                                        }
-                                    ],
-                                    "position_obj": {
-                                        "id": 2,
-                                        "name": "Goal Defence",
-                                        "short_name": "GD"
-                                    }
-                                }
-                            ]
+                            "image": null
                         }
                     ],
-                    "message": "",
-                    "result": true
-                }`,type:"json"}]},filename:"auto_generated/performance.coffee",groupTitle:"Performance",name:"GetApiV1TeamPlayers",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{description:"<p>Store the player porformance comment</p>",version:"1.0.0",type:"POST",url:"api/v1/player-performance-comment",title:"Player Performance Comment",group:"Performance",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"player_id",description:"<p>player id</p>"},{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"},{group:"Parameter",type:"String",optional:!1,field:"comment",description:"<p>performance comment</p>"}]}},filename:"auto_generated/performance.coffee",groupTitle:"Performance",name:"PostApiV1PlayerPerformanceComment",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{description:"<p>Store the tesm porformance comment</p>",version:"1.0.0",type:"POST",url:"api/v1/team-performance-comment",title:"Team Performance Comment",group:"Performance",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"},{group:"Parameter",type:"String",optional:!1,field:"comment",description:"<p>performance comment</p>"}]}},filename:"auto_generated/performance.coffee",groupTitle:"Performance",name:"PostApiV1TeamPerformanceComment",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{version:"1.0.0",type:"DELETE",url:"api/v1/players/{uuid}",title:"Delete Player",group:"PlayersAPI",parameter:{fields:{Parameter:[{group:"Parameter",type:"String",optional:!1,field:"uuid",description:"<p>uuid of the player to delete</p>"}]}},success:{examples:[{title:"Success-Response / HTTP 200 OK",content:`{
+                    "position_obj": {
+                        "id": 2,
+                        "name": "Goal Defence",
+                        "short_name": "GD"
+                    }
+                },
+                {
+                    "id": 2,
+                    "uuid": "8e96f352-65fc-4f9a-a3dc-08dac6474a61",
+                    "game_id": 1,
+                    "time_segment": "Quarter 1",
+                    "position": "5",
+                    "player_id": 1,
+                    "score": 2,
+                    "active_player": 0,
+                    "error_record": 0,
+                    "contract": 0,
+                    "center_pass": 0,
+                    "intercept": 0,
+                    "tip": 0,
+                    "rebound": 0,
+                    "goal_missed": 0,
+                    "positionPreferedPlayers": [],
+                    "position_obj": {
+                        "id": 5,
+                        "name": "Goal Attack",
+                        "short_name": "GA"
+                    }
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "uuid": "20ee2fe7-9a73-401a-be23-795ef8aa5c78",
+            "team_id": 1,
+            "image_uuid": null,
+            "name": "asdcdd",
+            "email": "nb@gmail.com",
+            "positions": "1,2,3",
+            "metadata": null,
+            "performance_notes": null,
+            "prefered_positions": [
+                {
+                    "id": 1,
+                    "name": "Goal Keeper",
+                    "short_name": "GK"
+                },
+                {
+                    "id": 2,
+                    "name": "Goal Defence",
+                    "short_name": "GD"
+                },
+                {
+                    "id": 3,
+                    "name": "Wing Defence",
+                    "short_name": "WD"
+                }
+            ],
+            "image": null,
+            "game_time_score": [
+                {
+                    "id": 3,
+                    "uuid": "ff6a4606-98eb-4911-b48b-2b1e3e9b50ab",
+                    "game_id": 1,
+                    "time_segment": "Quarter 2",
+                    "position": "5",
+                    "player_id": 2,
+                    "score": 2,
+                    "active_player": 1,
+                    "error_record": 0,
+                    "contract": 0,
+                    "center_pass": 0,
+                    "intercept": 0,
+                    "tip": 0,
+                    "rebound": 0,
+                    "goal_missed": 0,
+                    "positionPreferedPlayers": [],
+                    "position_obj": {
+                        "id": 5,
+                        "name": "Goal Attack",
+                        "short_name": "GA"
+                    }
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "uuid": "b0b15d02-4e33-40f3-9bbd-3a9fe647921f",
+            "team_id": 1,
+            "image_uuid": null,
+            "name": "asdcdd",
+            "email": "nb@gmail.com",
+            "positions": "1,2,3",
+            "metadata": null,
+            "performance_notes": null,
+            "prefered_positions": [
+                {
+                    "id": 1,
+                    "name": "Goal Keeper",
+                    "short_name": "GK"
+                },
+                {
+                    "id": 2,
+                    "name": "Goal Defence",
+                    "short_name": "GD"
+                },
+                {
+                    "id": 3,
+                    "name": "Wing Defence",
+                    "short_name": "WD"
+                }
+            ],
+            "image": null,
+            "game_time_score": [
+                {
+                    "id": 4,
+                    "uuid": "aee01164-86bf-46eb-bb57-69287e362880",
+                    "game_id": 1,
+                    "time_segment": "Quarter 1",
+                    "position": "2",
+                    "player_id": 3,
+                    "score": 0,
+                    "active_player": 0,
+                    "error_record": 0,
+                    "contract": 0,
+                    "center_pass": 0,
+                    "intercept": 0,
+                    "tip": 0,
+                    "rebound": 0,
+                    "goal_missed": 0,
+                    "positionPreferedPlayers": [
+                        {
+                            "id": 1,
+                            "uuid": "0a0b846c-3811-46f0-b405-def00f9aef16",
+                            "team_id": 1,
+                            "image_uuid": null,
+                            "name": "Nishshanka B",
+                            "email": null,
+                            "positions": "2",
+                            "metadata": null,
+                            "performance_notes": "second comment",
+                            "prefered_positions": [
+                                {
+                                    "id": 2,
+                                    "name": "Goal Defence",
+                                    "short_name": "GD"
+                                }
+                            ],
+                            "image": null
+                        },
+                        {
+                            "id": 2,
+                            "uuid": "20ee2fe7-9a73-401a-be23-795ef8aa5c78",
+                            "team_id": 1,
+                            "image_uuid": null,
+                            "name": "asdcdd",
+                            "email": "nb@gmail.com",
+                            "positions": "1,2,3",
+                            "metadata": null,
+                            "performance_notes": null,
+                            "prefered_positions": [
+                                {
+                                    "id": 1,
+                                    "name": "Goal Keeper",
+                                    "short_name": "GK"
+                                },
+                                {
+                                    "id": 2,
+                                    "name": "Goal Defence",
+                                    "short_name": "GD"
+                                },
+                                {
+                                    "id": 3,
+                                    "name": "Wing Defence",
+                                    "short_name": "WD"
+                                }
+                            ],
+                            "image": null
+                        }
+                    ],
+                    "position_obj": {
+                        "id": 2,
+                        "name": "Goal Defence",
+                        "short_name": "GD"
+                    }
+                }
+            ]
+        }
+    ],
+    "paginator": {
+        "current_page": 1,
+        "first_page_url": "http://127.0.0.1:8000/api/v1/team-players?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http://127.0.0.1:8000/api/v1/team-players?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http://127.0.0.1:8000/api/v1/team-players?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &raquo;",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http://127.0.0.1:8000/api/v1/team-players",
+        "per_page": 15,
+        "prev_page_url": null,
+        "to": 3,
+        "total": 3
+    },
+    "message": "",
+    "result": true
+}`,type:"json"}]},filename:"auto_generated/performance.coffee",groupTitle:"Performance",name:"GetApiV1TeamPlayers",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{description:"<p>Store the player porformance comment</p>",version:"1.0.0",type:"POST",url:"api/v1/player-performance-comment",title:"Player Performance Comment",group:"Performance",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"player_id",description:"<p>player id</p>"},{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"},{group:"Parameter",type:"String",optional:!1,field:"comment",description:"<p>performance comment</p>"}]}},filename:"auto_generated/performance.coffee",groupTitle:"Performance",name:"PostApiV1PlayerPerformanceComment",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{description:"<p>Store the tesm porformance comment</p>",version:"1.0.0",type:"POST",url:"api/v1/team-performance-comment",title:"Team Performance Comment",group:"Performance",parameter:{fields:{Parameter:[{group:"Parameter",type:"Integer",optional:!1,field:"team_id",description:"<p>Team ID</p>"},{group:"Parameter",type:"String",optional:!1,field:"comment",description:"<p>performance comment</p>"}]}},filename:"auto_generated/performance.coffee",groupTitle:"Performance",name:"PostApiV1TeamPerformanceComment",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}},{version:"1.0.0",type:"DELETE",url:"api/v1/players/{uuid}",title:"Delete Player",group:"PlayersAPI",parameter:{fields:{Parameter:[{group:"Parameter",type:"String",optional:!1,field:"uuid",description:"<p>uuid of the player to delete</p>"}]}},success:{examples:[{title:"Success-Response / HTTP 200 OK",content:`{
     "payload": null,
     "message": "",
     "result": true
@@ -1398,4 +1429,4 @@ function print() { __p += __j.call(arguments, '') }
     },
     "message": "",
     "result": true
-}`,type:"json"}]},filename:"auto_generated/teams_a_p_i.coffee",groupTitle:"TeamsAPI",name:"PutApiV1TeamsUuid",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}}];const le={name:"WebApp Backend API",version:"1.0.0",description:"Web service to communicate with the backend.",url:"",sampleUrl:!1,defaultVersion:"0.0.0",apidoc:"0.3.0",generator:{name:"apidoc",time:"Wed Sep 28 2022 10:50:44 GMT+0530 (India Standard Time)",url:"https://apidocjs.com",version:"0.52.0"}};Be();const xe=l().compile(y()("#template-header").html()),De=l().compile(y()("#template-footer").html()),ae=l().compile(y()("#template-article").html()),ve=l().compile(y()("#template-compare-article").html()),me=l().compile(y()("#template-generator").html()),Ee=l().compile(y()("#template-project").html()),qe=l().compile(y()("#template-sections").html()),Xe=l().compile(y()("#template-sidenav").html()),je={aloneDisplay:!1,showRequiredLabels:!1,withGenerator:!0,withCompare:!0};le.template=Object.assign(je,(q=le.template)!=null?q:{}),le.template.forceLanguage&&Me(le.template.forceLanguage);const Pe=(0,a.groupBy)(Fe,Z=>Z.group),Ke={};y().each(Pe,(Z,W)=>{Ke[Z]=(0,a.groupBy)(W,J=>J.name)});const Qe=[];y().each(Ke,(Z,W)=>{let J=[];y().each(W,(ee,se)=>{const fe=se[0].title;fe&&J.push(fe.toLowerCase()+"#~#"+ee)}),J.sort(),le.order&&(J=M(J,le.order,"#~#")),J.forEach(ee=>{const fe=ee.split("#~#")[1];W[fe].forEach(ge=>{Qe.push(ge)})})}),Fe=Qe;let Je={};const $t={};let Ot={};Ot[le.version]=1,y().each(Fe,(Z,W)=>{Je[W.group]=1,$t[W.group]=W.groupTitle||W.group,Ot[W.version]=1}),Je=Object.keys(Je),Je.sort(),le.order&&(Je=K($t,le.order)),Ot=Object.keys(Ot),Ot.sort(r().compare),Ot.reverse();const xt=[];Je.forEach(Z=>{xt.push({group:Z,isHeader:!0,title:$t[Z]});let W="";Fe.forEach(J=>{J.group===Z&&(W!==J.name?xt.push({title:J.title,group:Z,name:J.name,type:J.type,version:J.version,url:J.url}):xt.push({title:J.title,group:Z,hidden:!0,name:J.name,type:J.type,version:J.version,url:J.url}),W=J.name)})});function wn(Z,W,J){let ee=!1;if(!W)return ee;const se=W.match(/<h(1|2).*?>(.+?)<\/h(1|2)>/gi);return se&&se.forEach(function(fe){const ge=fe.substring(2,3),Se=fe.replace(/<.+?>/g,""),we=fe.match(/id="api-([^-]+)(?:-(.+))?"/),Le=we?we[1]:null,Ye=we?we[2]:null;ge==="1"&&Se&&Le&&(Z.splice(J,0,{group:Le,isHeader:!0,title:Se,isFixed:!0}),J++,ee=!0),ge==="2"&&Se&&Le&&Ye&&(Z.splice(J,0,{group:Le,name:Ye,isHeader:!1,title:Se,isFixed:!1,version:"1.0"}),J++)}),ee}let an;if(le.header&&(an=wn(xt,le.header.content,0),an||xt.unshift({group:"_header",isHeader:!0,title:le.header.title==null?Ae("General"):le.header.title,isFixed:!0})),le.footer){const Z=xt.length;an=wn(xt,le.footer.content,xt.length),!an&&le.footer.title!=null&&xt.splice(Z,0,{group:"_footer",isHeader:!0,title:le.footer.title,isFixed:!0})}const Wt=le.title?le.title:"apiDoc: "+le.name+" - "+le.version;y()(document).attr("title",Wt),y()("#loader").remove();const hn={nav:xt};y()("#sidenav").append(Xe(hn)),y()("#generator").append(me(le)),(0,a.extend)(le,{versions:Ot}),y()("#project").append(Ee(le)),le.header&&y()("#header").append(xe(le.header)),le.footer&&(y()("#footer").append(De(le.footer)),le.template.aloneDisplay&&document.getElementById("api-_footer").classList.add("hide"));const Mt={};let gn="";Je.forEach(function(Z){const W=[];let J="",ee={},se=Z,fe="";Mt[Z]={},Fe.forEach(function(ge){Z===ge.group&&(J!==ge.name?(Fe.forEach(function(Se){Z===Se.group&&ge.name===Se.name&&(Object.prototype.hasOwnProperty.call(Mt[ge.group],ge.name)||(Mt[ge.group][ge.name]=[]),Mt[ge.group][ge.name].push(Se.version))}),ee={article:ge,versions:Mt[ge.group][ge.name]}):ee={article:ge,hidden:!0,versions:Mt[ge.group][ge.name]},le.sampleUrl&&le.sampleUrl===!0&&(le.sampleUrl=window.location.origin),le.url&&ee.article.url.substr(0,4).toLowerCase()!=="http"&&(ee.article.url=le.url+ee.article.url),xn(ee,ge),ge.groupTitle&&(se=ge.groupTitle),ge.groupDescription&&(fe=ge.groupDescription),W.push({article:ae(ee),group:ge.group,name:ge.name,aloneDisplay:le.template.aloneDisplay}),J=ge.name)}),ee={group:Z,title:se,description:fe,articles:W,aloneDisplay:le.template.aloneDisplay},gn+=qe(ee)}),y()("#sections").append(gn),le.template.aloneDisplay||(document.body.dataset.spy="scroll",y()("body").scrollspy({target:"#scrollingNav"})),y()(".form-control").on("focus change",function(){y()(this).removeClass("border-danger")}),y()(".sidenav").find("a").on("click",function(Z){Z.preventDefault();const W=this.getAttribute("href");if(le.template.aloneDisplay){const J=document.querySelector(".sidenav > li.active");J&&J.classList.remove("active"),this.parentNode.classList.add("active")}else{const J=document.querySelector(W);J&&y()("html,body").animate({scrollTop:J.offsetTop},400)}window.location.hash=W});function vt(Z){let W=!1;return y().each(Z,J=>{W=W||(0,a.some)(Z[J],ee=>ee.type)}),W}function Tn(){y()('button[data-toggle="popover"]').popover().click(function(W){W.preventDefault()});const Z=y()("#version strong").html();if(y()("#sidenav li").removeClass("is-new"),le.template.withCompare&&y()("#sidenav li[data-version='"+Z+"']").each(function(){const W=y()(this).data("group"),J=y()(this).data("name"),ee=y()("#sidenav li[data-group='"+W+"'][data-name='"+J+"']").length,se=y()("#sidenav li[data-group='"+W+"'][data-name='"+J+"']").index(y()(this));(ee===1||se===ee-1)&&y()(this).addClass("is-new")}),y()(".nav-tabs-examples a").click(function(W){W.preventDefault(),y()(this).tab("show")}),y()(".nav-tabs-examples").find("a:first").tab("show"),y()(".sample-request-content-type-switch").change(function(){y()(this).val()==="body-form-data"?(y()("#sample-request-body-json-input-"+y()(this).data("id")).hide(),y()("#sample-request-body-form-input-"+y()(this).data("id")).show()):(y()("#sample-request-body-form-input-"+y()(this).data("id")).hide(),y()("#sample-request-body-json-input-"+y()(this).data("id")).show())}),le.template.aloneDisplay&&(y()(".show-group").click(function(){const W="."+y()(this).attr("data-group")+"-group",J="."+y()(this).attr("data-group")+"-article";y()(".show-api-group").addClass("hide"),y()(W).removeClass("hide"),y()(".show-api-article").addClass("hide"),y()(J).removeClass("hide")}),y()(".show-api").click(function(){const W=this.getAttribute("href").substring(1),J=document.getElementById("version").textContent.trim(),ee=`.${this.dataset.name}-article`,se=`[id="${W}-${J}"]`,fe=`.${this.dataset.group}-group`;y()(".show-api-group").addClass("hide"),y()(fe).removeClass("hide"),y()(".show-api-article").addClass("hide");let ge=y()(ee);y()(se).length&&(ge=y()(se).parent()),ge.removeClass("hide"),W.match(/_(header|footer)/)&&document.getElementById(W).classList.remove("hide")})),le.template.aloneDisplay||y()("body").scrollspy("refresh"),le.template.aloneDisplay){const W=window.location.hash;if(W!=null&&W.length!==0){const J=document.getElementById("version").textContent.trim(),ee=document.querySelector(`li .${W.slice(1)}-init`),se=document.querySelector(`li[data-version="${J}"] .show-api.${W.slice(1)}-init`);let fe=ee;se&&(fe=se),fe.click()}}}function kn(Z){typeof Z=="undefined"?Z=y()("#version strong").html():y()("#version strong").html(Z),y()("article").addClass("hide"),y()("#sidenav li:not(.nav-fixed)").addClass("hide");const W={};document.querySelectorAll("article[data-version]").forEach(J=>{const ee=J.dataset.group,se=J.dataset.name,fe=J.dataset.version,ge=ee+se;!W[ge]&&r().lte(fe,Z)&&(W[ge]=!0,document.querySelector(`article[data-group="${ee}"][data-name="${se}"][data-version="${fe}"]`).classList.remove("hide"),document.querySelector(`#sidenav li[data-group="${ee}"][data-name="${se}"][data-version="${fe}"]`).classList.remove("hide"),document.querySelector(`#sidenav li.nav-header[data-group="${ee}"]`).classList.remove("hide"))}),y()("article[data-version]").each(function(J){const ee=y()(this).data("group");y()("section#api-"+ee).removeClass("hide"),y()("section#api-"+ee+" article:visible").length===0?y()("section#api-"+ee).addClass("hide"):y()("section#api-"+ee).removeClass("hide")})}if(kn(),y()("#versions li.version a").on("click",function(Z){Z.preventDefault(),kn(y()(this).html())}),y()("#compareAllWithPredecessor").on("click",Hn),y()("article .versions li.version a").on("click",pn),y().urlParam=function(Z){const W=new RegExp("[\\?&amp;]"+Z+"=([^&amp;#]*)").exec(window.location.href);return W&&W[1]?W[1]:null},y().urlParam("compare")&&y()("#compareAllWithPredecessor").trigger("click"),window.location.hash){const Z=decodeURI(window.location.hash);y()(Z).length>0&&y()("html,body").animate({scrollTop:parseInt(y()(Z).offset().top)},0)}y()("#scrollingNav .sidenav-search input.search").focus(),y()('[data-action="filter-search"]').on("keyup",Z=>{const W=Z.currentTarget.value.toLowerCase();y()(".sidenav").find("a.nav-list-item").each((J,ee)=>{y()(ee).show(),ee.innerText.toLowerCase().includes(W)||y()(ee).hide()})}),y()("span.search-reset").on("click",function(){y()("#scrollingNav .sidenav-search input.search").val("").focus(),y()(".sidenav").find("a.nav-list-item").show()});function pn(Z){Z.preventDefault();const W=y()(this).parents("article"),J=y()(this).html(),ee=W.find(".version"),se=ee.find("strong").html();ee.find("strong").html(J);const fe=W.data("group"),ge=W.data("name"),Se=W.data("version"),we=W.data("compare-version");if(we!==J&&!(!we&&Se===J)){if(we&&Mt[fe][ge][0]===J||Se===J)Xn(fe,ge,Se);else{let Le={},Ye={};y().each(Ke[fe][ge],function(at,Zt){Zt.version===Se&&(Le=Zt),Zt.version===J&&(Ye=Zt)});const ye={article:Le,compare:Ye,versions:Mt[fe][ge]};ye.article.id=ye.article.group+"-"+ye.article.name+"-"+ye.article.version,ye.article.id=ye.article.id.replace(/\./g,"_"),ye.compare.id=ye.compare.group+"-"+ye.compare.name+"-"+ye.compare.version,ye.compare.id=ye.compare.id.replace(/\./g,"_");let Oe=Le;Oe.parameter&&Oe.parameter.fields&&(ye._hasTypeInParameterFields=vt(Oe.parameter.fields)),Oe.error&&Oe.error.fields&&(ye._hasTypeInErrorFields=vt(Oe.error.fields)),Oe.success&&Oe.success.fields&&(ye._hasTypeInSuccessFields=vt(Oe.success.fields)),Oe.info&&Oe.info.fields&&(ye._hasTypeInInfoFields=vt(Oe.info.fields)),Oe=Ye,ye._hasTypeInParameterFields!==!0&&Oe.parameter&&Oe.parameter.fields&&(ye._hasTypeInParameterFields=vt(Oe.parameter.fields)),ye._hasTypeInErrorFields!==!0&&Oe.error&&Oe.error.fields&&(ye._hasTypeInErrorFields=vt(Oe.error.fields)),ye._hasTypeInSuccessFields!==!0&&Oe.success&&Oe.success.fields&&(ye._hasTypeInSuccessFields=vt(Oe.success.fields)),ye._hasTypeInInfoFields!==!0&&Oe.info&&Oe.info.fields&&(ye._hasTypeInInfoFields=vt(Oe.info.fields));const yt=ve(ye);W.after(yt),W.next().find(".versions li.version a").on("click",pn),y()("#sidenav li[data-group='"+fe+"'][data-name='"+ge+"'][data-version='"+se+"']").addClass("has-modifications"),W.remove()}m().highlightAll()}}function Hn(Z){Z.preventDefault(),y()("article:visible .versions").each(function(){const J=y()(this).parents("article").data("version");let ee=null;y()(this).find("li.version a").each(function(){y()(this).html()<J&&!ee&&(ee=y()(this))}),ee&&ee.trigger("click")})}function xn(Z,W){Z.id=Z.article.group+"-"+Z.article.name+"-"+Z.article.version,Z.id=Z.id.replace(/\./g,"_"),W.header&&W.header.fields&&(Z._hasTypeInHeaderFields=vt(W.header.fields)),W.parameter&&W.parameter.fields&&(Z._hasTypeInParameterFields=vt(W.parameter.fields)),W.error&&W.error.fields&&(Z._hasTypeInErrorFields=vt(W.error.fields)),W.success&&W.success.fields&&(Z._hasTypeInSuccessFields=vt(W.success.fields)),W.info&&W.info.fields&&(Z._hasTypeInInfoFields=vt(W.info.fields)),Z.template=le.template}function lr(Z,W,J){let ee={};y().each(Ke[Z][W],function(fe,ge){ge.version===J&&(ee=ge)});const se={article:ee,versions:Mt[Z][W]};return xn(se,ee),ae(se)}function Xn(Z,W,J){const ee=y()("article[data-group='"+Z+"'][data-name='"+W+"']:visible"),se=lr(Z,W,J);ee.after(se),ee.next().find(".versions li.version a").on("click",pn),y()("#sidenav li[data-group='"+Z+"'][data-name='"+W+"'][data-version='"+J+"']").removeClass("has-modifications"),ee.remove()}function M(Z,W,J){const ee=[];return W.forEach(function(se){J?Z.forEach(function(fe){const ge=fe.split(J);(ge[0]===se||ge[1]===se)&&ee.push(fe)}):Z.forEach(function(fe){fe===se&&ee.push(se)})}),Z.forEach(function(se){ee.indexOf(se)===-1&&ee.push(se)}),ee}function K(Z,W){const J=[];return W.forEach(ee=>{Object.keys(Z).forEach(se=>{Z[se].replace(/_/g," ")===ee&&J.push(se)})}),Object.keys(Z).forEach(ee=>{J.indexOf(ee)===-1&&J.push(ee)}),J}Tn()}})()})();
+}`,type:"json"}]},filename:"auto_generated/teams_a_p_i.coffee",groupTitle:"TeamsAPI",name:"PutApiV1TeamsUuid",header:{fields:{Header:[{group:"Header",type:"String",optional:!1,field:"Accept",description:"<p>Set to <code>application/json</code></p>"},{group:"Header",type:"String",optional:!1,field:"x-api-key",description:"<p>API Key</p>"},{group:"Header",type:"String",optional:!1,field:"x-access-token",description:"<p>Unique user authentication token</p>"}]}}}];const le={name:"WebApp Backend API",version:"1.0.0",description:"Web service to communicate with the backend.",url:"",sampleUrl:!1,defaultVersion:"0.0.0",apidoc:"0.3.0",generator:{name:"apidoc",time:"Thu Sep 29 2022 10:07:27 GMT+0530 (India Standard Time)",url:"https://apidocjs.com",version:"0.52.0"}};Be();const xe=l().compile(y()("#template-header").html()),De=l().compile(y()("#template-footer").html()),ae=l().compile(y()("#template-article").html()),ve=l().compile(y()("#template-compare-article").html()),me=l().compile(y()("#template-generator").html()),Ee=l().compile(y()("#template-project").html()),qe=l().compile(y()("#template-sections").html()),Xe=l().compile(y()("#template-sidenav").html()),je={aloneDisplay:!1,showRequiredLabels:!1,withGenerator:!0,withCompare:!0};le.template=Object.assign(je,(q=le.template)!=null?q:{}),le.template.forceLanguage&&Me(le.template.forceLanguage);const Pe=(0,a.groupBy)(Fe,Z=>Z.group),Ke={};y().each(Pe,(Z,W)=>{Ke[Z]=(0,a.groupBy)(W,J=>J.name)});const Qe=[];y().each(Ke,(Z,W)=>{let J=[];y().each(W,(ee,se)=>{const fe=se[0].title;fe&&J.push(fe.toLowerCase()+"#~#"+ee)}),J.sort(),le.order&&(J=M(J,le.order,"#~#")),J.forEach(ee=>{const fe=ee.split("#~#")[1];W[fe].forEach(ge=>{Qe.push(ge)})})}),Fe=Qe;let Je={};const $t={};let Ot={};Ot[le.version]=1,y().each(Fe,(Z,W)=>{Je[W.group]=1,$t[W.group]=W.groupTitle||W.group,Ot[W.version]=1}),Je=Object.keys(Je),Je.sort(),le.order&&(Je=K($t,le.order)),Ot=Object.keys(Ot),Ot.sort(r().compare),Ot.reverse();const xt=[];Je.forEach(Z=>{xt.push({group:Z,isHeader:!0,title:$t[Z]});let W="";Fe.forEach(J=>{J.group===Z&&(W!==J.name?xt.push({title:J.title,group:Z,name:J.name,type:J.type,version:J.version,url:J.url}):xt.push({title:J.title,group:Z,hidden:!0,name:J.name,type:J.type,version:J.version,url:J.url}),W=J.name)})});function wn(Z,W,J){let ee=!1;if(!W)return ee;const se=W.match(/<h(1|2).*?>(.+?)<\/h(1|2)>/gi);return se&&se.forEach(function(fe){const ge=fe.substring(2,3),Se=fe.replace(/<.+?>/g,""),we=fe.match(/id="api-([^-]+)(?:-(.+))?"/),Le=we?we[1]:null,Ye=we?we[2]:null;ge==="1"&&Se&&Le&&(Z.splice(J,0,{group:Le,isHeader:!0,title:Se,isFixed:!0}),J++,ee=!0),ge==="2"&&Se&&Le&&Ye&&(Z.splice(J,0,{group:Le,name:Ye,isHeader:!1,title:Se,isFixed:!1,version:"1.0"}),J++)}),ee}let an;if(le.header&&(an=wn(xt,le.header.content,0),an||xt.unshift({group:"_header",isHeader:!0,title:le.header.title==null?Ae("General"):le.header.title,isFixed:!0})),le.footer){const Z=xt.length;an=wn(xt,le.footer.content,xt.length),!an&&le.footer.title!=null&&xt.splice(Z,0,{group:"_footer",isHeader:!0,title:le.footer.title,isFixed:!0})}const Wt=le.title?le.title:"apiDoc: "+le.name+" - "+le.version;y()(document).attr("title",Wt),y()("#loader").remove();const hn={nav:xt};y()("#sidenav").append(Xe(hn)),y()("#generator").append(me(le)),(0,a.extend)(le,{versions:Ot}),y()("#project").append(Ee(le)),le.header&&y()("#header").append(xe(le.header)),le.footer&&(y()("#footer").append(De(le.footer)),le.template.aloneDisplay&&document.getElementById("api-_footer").classList.add("hide"));const Mt={};let gn="";Je.forEach(function(Z){const W=[];let J="",ee={},se=Z,fe="";Mt[Z]={},Fe.forEach(function(ge){Z===ge.group&&(J!==ge.name?(Fe.forEach(function(Se){Z===Se.group&&ge.name===Se.name&&(Object.prototype.hasOwnProperty.call(Mt[ge.group],ge.name)||(Mt[ge.group][ge.name]=[]),Mt[ge.group][ge.name].push(Se.version))}),ee={article:ge,versions:Mt[ge.group][ge.name]}):ee={article:ge,hidden:!0,versions:Mt[ge.group][ge.name]},le.sampleUrl&&le.sampleUrl===!0&&(le.sampleUrl=window.location.origin),le.url&&ee.article.url.substr(0,4).toLowerCase()!=="http"&&(ee.article.url=le.url+ee.article.url),xn(ee,ge),ge.groupTitle&&(se=ge.groupTitle),ge.groupDescription&&(fe=ge.groupDescription),W.push({article:ae(ee),group:ge.group,name:ge.name,aloneDisplay:le.template.aloneDisplay}),J=ge.name)}),ee={group:Z,title:se,description:fe,articles:W,aloneDisplay:le.template.aloneDisplay},gn+=qe(ee)}),y()("#sections").append(gn),le.template.aloneDisplay||(document.body.dataset.spy="scroll",y()("body").scrollspy({target:"#scrollingNav"})),y()(".form-control").on("focus change",function(){y()(this).removeClass("border-danger")}),y()(".sidenav").find("a").on("click",function(Z){Z.preventDefault();const W=this.getAttribute("href");if(le.template.aloneDisplay){const J=document.querySelector(".sidenav > li.active");J&&J.classList.remove("active"),this.parentNode.classList.add("active")}else{const J=document.querySelector(W);J&&y()("html,body").animate({scrollTop:J.offsetTop},400)}window.location.hash=W});function vt(Z){let W=!1;return y().each(Z,J=>{W=W||(0,a.some)(Z[J],ee=>ee.type)}),W}function Tn(){y()('button[data-toggle="popover"]').popover().click(function(W){W.preventDefault()});const Z=y()("#version strong").html();if(y()("#sidenav li").removeClass("is-new"),le.template.withCompare&&y()("#sidenav li[data-version='"+Z+"']").each(function(){const W=y()(this).data("group"),J=y()(this).data("name"),ee=y()("#sidenav li[data-group='"+W+"'][data-name='"+J+"']").length,se=y()("#sidenav li[data-group='"+W+"'][data-name='"+J+"']").index(y()(this));(ee===1||se===ee-1)&&y()(this).addClass("is-new")}),y()(".nav-tabs-examples a").click(function(W){W.preventDefault(),y()(this).tab("show")}),y()(".nav-tabs-examples").find("a:first").tab("show"),y()(".sample-request-content-type-switch").change(function(){y()(this).val()==="body-form-data"?(y()("#sample-request-body-json-input-"+y()(this).data("id")).hide(),y()("#sample-request-body-form-input-"+y()(this).data("id")).show()):(y()("#sample-request-body-form-input-"+y()(this).data("id")).hide(),y()("#sample-request-body-json-input-"+y()(this).data("id")).show())}),le.template.aloneDisplay&&(y()(".show-group").click(function(){const W="."+y()(this).attr("data-group")+"-group",J="."+y()(this).attr("data-group")+"-article";y()(".show-api-group").addClass("hide"),y()(W).removeClass("hide"),y()(".show-api-article").addClass("hide"),y()(J).removeClass("hide")}),y()(".show-api").click(function(){const W=this.getAttribute("href").substring(1),J=document.getElementById("version").textContent.trim(),ee=`.${this.dataset.name}-article`,se=`[id="${W}-${J}"]`,fe=`.${this.dataset.group}-group`;y()(".show-api-group").addClass("hide"),y()(fe).removeClass("hide"),y()(".show-api-article").addClass("hide");let ge=y()(ee);y()(se).length&&(ge=y()(se).parent()),ge.removeClass("hide"),W.match(/_(header|footer)/)&&document.getElementById(W).classList.remove("hide")})),le.template.aloneDisplay||y()("body").scrollspy("refresh"),le.template.aloneDisplay){const W=window.location.hash;if(W!=null&&W.length!==0){const J=document.getElementById("version").textContent.trim(),ee=document.querySelector(`li .${W.slice(1)}-init`),se=document.querySelector(`li[data-version="${J}"] .show-api.${W.slice(1)}-init`);let fe=ee;se&&(fe=se),fe.click()}}}function kn(Z){typeof Z=="undefined"?Z=y()("#version strong").html():y()("#version strong").html(Z),y()("article").addClass("hide"),y()("#sidenav li:not(.nav-fixed)").addClass("hide");const W={};document.querySelectorAll("article[data-version]").forEach(J=>{const ee=J.dataset.group,se=J.dataset.name,fe=J.dataset.version,ge=ee+se;!W[ge]&&r().lte(fe,Z)&&(W[ge]=!0,document.querySelector(`article[data-group="${ee}"][data-name="${se}"][data-version="${fe}"]`).classList.remove("hide"),document.querySelector(`#sidenav li[data-group="${ee}"][data-name="${se}"][data-version="${fe}"]`).classList.remove("hide"),document.querySelector(`#sidenav li.nav-header[data-group="${ee}"]`).classList.remove("hide"))}),y()("article[data-version]").each(function(J){const ee=y()(this).data("group");y()("section#api-"+ee).removeClass("hide"),y()("section#api-"+ee+" article:visible").length===0?y()("section#api-"+ee).addClass("hide"):y()("section#api-"+ee).removeClass("hide")})}if(kn(),y()("#versions li.version a").on("click",function(Z){Z.preventDefault(),kn(y()(this).html())}),y()("#compareAllWithPredecessor").on("click",Hn),y()("article .versions li.version a").on("click",pn),y().urlParam=function(Z){const W=new RegExp("[\\?&amp;]"+Z+"=([^&amp;#]*)").exec(window.location.href);return W&&W[1]?W[1]:null},y().urlParam("compare")&&y()("#compareAllWithPredecessor").trigger("click"),window.location.hash){const Z=decodeURI(window.location.hash);y()(Z).length>0&&y()("html,body").animate({scrollTop:parseInt(y()(Z).offset().top)},0)}y()("#scrollingNav .sidenav-search input.search").focus(),y()('[data-action="filter-search"]').on("keyup",Z=>{const W=Z.currentTarget.value.toLowerCase();y()(".sidenav").find("a.nav-list-item").each((J,ee)=>{y()(ee).show(),ee.innerText.toLowerCase().includes(W)||y()(ee).hide()})}),y()("span.search-reset").on("click",function(){y()("#scrollingNav .sidenav-search input.search").val("").focus(),y()(".sidenav").find("a.nav-list-item").show()});function pn(Z){Z.preventDefault();const W=y()(this).parents("article"),J=y()(this).html(),ee=W.find(".version"),se=ee.find("strong").html();ee.find("strong").html(J);const fe=W.data("group"),ge=W.data("name"),Se=W.data("version"),we=W.data("compare-version");if(we!==J&&!(!we&&Se===J)){if(we&&Mt[fe][ge][0]===J||Se===J)Xn(fe,ge,Se);else{let Le={},Ye={};y().each(Ke[fe][ge],function(at,Zt){Zt.version===Se&&(Le=Zt),Zt.version===J&&(Ye=Zt)});const ye={article:Le,compare:Ye,versions:Mt[fe][ge]};ye.article.id=ye.article.group+"-"+ye.article.name+"-"+ye.article.version,ye.article.id=ye.article.id.replace(/\./g,"_"),ye.compare.id=ye.compare.group+"-"+ye.compare.name+"-"+ye.compare.version,ye.compare.id=ye.compare.id.replace(/\./g,"_");let Oe=Le;Oe.parameter&&Oe.parameter.fields&&(ye._hasTypeInParameterFields=vt(Oe.parameter.fields)),Oe.error&&Oe.error.fields&&(ye._hasTypeInErrorFields=vt(Oe.error.fields)),Oe.success&&Oe.success.fields&&(ye._hasTypeInSuccessFields=vt(Oe.success.fields)),Oe.info&&Oe.info.fields&&(ye._hasTypeInInfoFields=vt(Oe.info.fields)),Oe=Ye,ye._hasTypeInParameterFields!==!0&&Oe.parameter&&Oe.parameter.fields&&(ye._hasTypeInParameterFields=vt(Oe.parameter.fields)),ye._hasTypeInErrorFields!==!0&&Oe.error&&Oe.error.fields&&(ye._hasTypeInErrorFields=vt(Oe.error.fields)),ye._hasTypeInSuccessFields!==!0&&Oe.success&&Oe.success.fields&&(ye._hasTypeInSuccessFields=vt(Oe.success.fields)),ye._hasTypeInInfoFields!==!0&&Oe.info&&Oe.info.fields&&(ye._hasTypeInInfoFields=vt(Oe.info.fields));const yt=ve(ye);W.after(yt),W.next().find(".versions li.version a").on("click",pn),y()("#sidenav li[data-group='"+fe+"'][data-name='"+ge+"'][data-version='"+se+"']").addClass("has-modifications"),W.remove()}m().highlightAll()}}function Hn(Z){Z.preventDefault(),y()("article:visible .versions").each(function(){const J=y()(this).parents("article").data("version");let ee=null;y()(this).find("li.version a").each(function(){y()(this).html()<J&&!ee&&(ee=y()(this))}),ee&&ee.trigger("click")})}function xn(Z,W){Z.id=Z.article.group+"-"+Z.article.name+"-"+Z.article.version,Z.id=Z.id.replace(/\./g,"_"),W.header&&W.header.fields&&(Z._hasTypeInHeaderFields=vt(W.header.fields)),W.parameter&&W.parameter.fields&&(Z._hasTypeInParameterFields=vt(W.parameter.fields)),W.error&&W.error.fields&&(Z._hasTypeInErrorFields=vt(W.error.fields)),W.success&&W.success.fields&&(Z._hasTypeInSuccessFields=vt(W.success.fields)),W.info&&W.info.fields&&(Z._hasTypeInInfoFields=vt(W.info.fields)),Z.template=le.template}function lr(Z,W,J){let ee={};y().each(Ke[Z][W],function(fe,ge){ge.version===J&&(ee=ge)});const se={article:ee,versions:Mt[Z][W]};return xn(se,ee),ae(se)}function Xn(Z,W,J){const ee=y()("article[data-group='"+Z+"'][data-name='"+W+"']:visible"),se=lr(Z,W,J);ee.after(se),ee.next().find(".versions li.version a").on("click",pn),y()("#sidenav li[data-group='"+Z+"'][data-name='"+W+"'][data-version='"+J+"']").removeClass("has-modifications"),ee.remove()}function M(Z,W,J){const ee=[];return W.forEach(function(se){J?Z.forEach(function(fe){const ge=fe.split(J);(ge[0]===se||ge[1]===se)&&ee.push(fe)}):Z.forEach(function(fe){fe===se&&ee.push(se)})}),Z.forEach(function(se){ee.indexOf(se)===-1&&ee.push(se)}),ee}function K(Z,W){const J=[];return W.forEach(ee=>{Object.keys(Z).forEach(se=>{Z[se].replace(/_/g," ")===ee&&J.push(se)})}),Object.keys(Z).forEach(ee=>{J.indexOf(ee)===-1&&J.push(ee)}),J}Tn()}})()})();

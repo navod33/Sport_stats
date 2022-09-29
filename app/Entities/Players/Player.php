@@ -181,7 +181,7 @@ class Player extends Model
             'prefered_positions' => ['type' => 'array', 'items' => 'PlayerPosition'],
             'id' => 'integer',
             'team_id' => 'integer',
-            'score' => ['type' => 'array', 'items' => 'score'],
+            'game_time_score' => ['type' => 'array', 'items' => 'score'],
         ];
         
     }
@@ -210,7 +210,7 @@ class Player extends Model
         return PlayerPosition::whereIn('id',$positions_arr)->get();
     }
 
-    public function score()
+    public function gameTimeScore()
     {
         return $this->hasMany(Score::class, 'player_id', 'id');
     }

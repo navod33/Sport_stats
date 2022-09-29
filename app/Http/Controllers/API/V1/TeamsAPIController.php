@@ -564,7 +564,8 @@ class TeamsAPIController extends APIBaseController
                 ->setName('Team Players with game time')
                 ->setDescription('Team player and game time')
                 ->setSuccessPaginatedObject(Score::class)
-                ->setSuccessExample('{
+                ->setSuccessExample('
+                {
                     "payload": [
                         {
                             "id": 1,
@@ -584,7 +585,7 @@ class TeamsAPIController extends APIBaseController
                                 }
                             ],
                             "image": null,
-                            "score": [
+                            "game_time_score": [
                                 {
                                     "id": 1,
                                     "uuid": "c279f77d-85de-4bfe-b249-73fe96c288dc",
@@ -720,7 +721,7 @@ class TeamsAPIController extends APIBaseController
                                 }
                             ],
                             "image": null,
-                            "score": [
+                            "game_time_score": [
                                 {
                                     "id": 3,
                                     "uuid": "ff6a4606-98eb-4911-b48b-2b1e3e9b50ab",
@@ -774,7 +775,7 @@ class TeamsAPIController extends APIBaseController
                                 }
                             ],
                             "image": null,
-                            "score": [
+                            "game_time_score": [
                                 {
                                     "id": 4,
                                     "uuid": "aee01164-86bf-46eb-bb57-69287e362880",
@@ -850,11 +851,42 @@ class TeamsAPIController extends APIBaseController
                             ]
                         }
                     ],
+                    "paginator": {
+                        "current_page": 1,
+                        "first_page_url": "http://127.0.0.1:8000/api/v1/team-players?page=1",
+                        "from": 1,
+                        "last_page": 1,
+                        "last_page_url": "http://127.0.0.1:8000/api/v1/team-players?page=1",
+                        "links": [
+                            {
+                                "url": null,
+                                "label": "&laquo; Previous",
+                                "active": false
+                            },
+                            {
+                                "url": "http://127.0.0.1:8000/api/v1/team-players?page=1",
+                                "label": "1",
+                                "active": true
+                            },
+                            {
+                                "url": null,
+                                "label": "Next &raquo;",
+                                "active": false
+                            }
+                        ],
+                        "next_page_url": null,
+                        "path": "http://127.0.0.1:8000/api/v1/team-players",
+                        "per_page": 15,
+                        "prev_page_url": null,
+                        "to": 3,
+                        "total": 3
+                    },
                     "message": "",
                     "result": true
                 }
                 ')
                 ->setParams([
+                    'page|Page number',
                     (new Param('game_id'))->dataType(Param::TYPE_INT)->setDescription('Game ID'),
                     (new Param('team_id'))->dataType(Param::TYPE_INT)->setDescription('Team ID'),
                 ]);
@@ -865,18 +897,17 @@ class TeamsAPIController extends APIBaseController
             'game_id' => 'required | integer',
         ]);
 
-        $team = Player::with(['score'])
-                        ->wherehas('score', function ($query) {
+        $team = Player::with(['gameTimeScore'])
+                        ->wherehas('gameTimeScore', function ($query) {
                             $query->where('team_id', request('team_id'))
                             ->where('game_id', request('game_id'));
                         })
-                        ->where('team_id',$request->team_id)
-                        ->get();
+                        ->where('team_id',$request->team_id);
 
         if (!$team) {
             return response()->apiError('team not found.');
         }
 
-        return response()->apiSuccess($team);
+        return response()->apiSuccessPaginated($team->paginate());
     }
 }

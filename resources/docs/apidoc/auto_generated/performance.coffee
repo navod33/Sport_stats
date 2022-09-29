@@ -91,11 +91,13 @@
 @apiVersion 1.0.0
 @api {GET} api/v1/team-players Team Players with game time
 @apiGroup Performance
+@apiParam {String} page Page number
 @apiParam {Integer} game_id Game ID
 @apiParam {Integer} team_id Team ID
 @apiUse default_headers
 @apiSuccessExample {json} Success-Response / HTTP 200 OK
-{
+
+                {
                     "payload": [
                         {
                             "id": 1,
@@ -115,7 +117,7 @@
                                 }
                             ],
                             "image": null,
-                            "score": [
+                            "game_time_score": [
                                 {
                                     "id": 1,
                                     "uuid": "c279f77d-85de-4bfe-b249-73fe96c288dc",
@@ -251,7 +253,7 @@
                                 }
                             ],
                             "image": null,
-                            "score": [
+                            "game_time_score": [
                                 {
                                     "id": 3,
                                     "uuid": "ff6a4606-98eb-4911-b48b-2b1e3e9b50ab",
@@ -305,7 +307,7 @@
                                 }
                             ],
                             "image": null,
-                            "score": [
+                            "game_time_score": [
                                 {
                                     "id": 4,
                                     "uuid": "aee01164-86bf-46eb-bb57-69287e362880",
@@ -381,6 +383,36 @@
                             ]
                         }
                     ],
+                    "paginator": {
+                        "current_page": 1,
+                        "first_page_url": "http://127.0.0.1:8000/api/v1/team-players?page=1",
+                        "from": 1,
+                        "last_page": 1,
+                        "last_page_url": "http://127.0.0.1:8000/api/v1/team-players?page=1",
+                        "links": [
+                            {
+                                "url": null,
+                                "label": "&laquo; Previous",
+                                "active": false
+                            },
+                            {
+                                "url": "http://127.0.0.1:8000/api/v1/team-players?page=1",
+                                "label": "1",
+                                "active": true
+                            },
+                            {
+                                "url": null,
+                                "label": "Next &raquo;",
+                                "active": false
+                            }
+                        ],
+                        "next_page_url": null,
+                        "path": "http://127.0.0.1:8000/api/v1/team-players",
+                        "per_page": 15,
+                        "prev_page_url": null,
+                        "to": 3,
+                        "total": 3
+                    },
                     "message": "",
                     "result": true
                 }
