@@ -4374,7 +4374,7 @@
                 "payload": {
                     "type": "array",
                     "items": {
-                        "$ref": "#\/definitions\/Score"
+                        "$ref": "#\/definitions\/Player"
                     }
                 },
                 "paginator": {

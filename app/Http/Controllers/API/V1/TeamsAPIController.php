@@ -563,7 +563,7 @@ class TeamsAPIController extends APIBaseController
                 ->setGroup('Performance')
                 ->setName('Team Players with game time')
                 ->setDescription('Team player and game time')
-                ->setSuccessPaginatedObject(Score::class)
+                ->setSuccessPaginatedObject(Player::class)
                 ->setSuccessExample('
                 {
                     "payload": [
