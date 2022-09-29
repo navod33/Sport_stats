@@ -181,7 +181,7 @@ class Player extends Model
             'prefered_positions' => ['type' => 'array', 'items' => 'PlayerPosition'],
             'id' => 'integer',
             'team_id' => 'integer',
-            'game_time_score' => ['type' => 'array', 'items' => 'score'],
+            'game_time_score' => ['type' => 'array', 'items' => 'Score'],
         ];
         
     }

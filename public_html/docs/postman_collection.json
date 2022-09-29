@@ -3975,7 +3975,7 @@
                 "game_time_score": {
                     "type": "array",
                     "items": {
-                        "$ref": "#\/definitions\/score"
+                        "$ref": "#\/definitions\/Score"
                     }
                 }
             }
