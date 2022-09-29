@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
     title: 'Boost App API'
-    version: 1.0.0.20220928
+    version: 1.0.0.20220929
 host: boost.test
 schemes:
     - http
@@ -1250,6 +1250,12 @@ paths:
             operationId: performance_get_team_players_with_game_time
             description: 'Team player and game time'
             parameters:
+                -
+                    name: page
+                    in: query
+                    required: true
+                    description: 'Page number'
+                    type: string
                 -
                     name: game_id
                     in: query
@@ -2715,7 +2721,7 @@ definitions:
                 type: array
                 items:
                     $ref: '#/definitions/PlayerPosition'
-            score:
+            game_time_score:
                 type: array
                 items:
                     $ref: '#/definitions/score'
