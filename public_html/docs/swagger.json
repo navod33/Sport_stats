@@ -1832,6 +1832,13 @@
                         "type": "string"
                     },
                     {
+                        "name": "q",
+                        "in": "query",
+                        "required": false,
+                        "description": "search by season or tournament name",
+                        "type": "string"
+                    },
+                    {
                         "name": "Accept",
                         "in": "header",
                         "required": true,

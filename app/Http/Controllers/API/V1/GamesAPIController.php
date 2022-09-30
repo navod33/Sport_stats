@@ -238,6 +238,8 @@ class GamesAPIController extends APIBaseController
                 	    ->setParams([
                 	        (new Param('team_id'))->dataType(Param::TYPE_INT)->setDescription('Team ID'),
                 	        'page|Page number',
+                            (new Param('q'))->dataType(Param::TYPE_STRING)->setDescription('search by season or tournament name')->optional(),
+                            
                         ])
                         ->setSuccessPaginatedObject(Game::class);
                 });
@@ -251,6 +253,14 @@ class GamesAPIController extends APIBaseController
                         ->where('team_a_id', $request->team_id)
                         ->where('game_started', true)
                         ->where('game_finished', true)
+                        ->when(request('q') , function ($query) {
+                            $query->where(function ($query) {
+                            $query->whereHas('season', function ($query1) {
+                                        $query1->where('name', 'like','%'. request('q') .'%');
+                                    });
+                            $query->orWhere('tournament_name', 'like','%'. request('q') .'%');
+                                });
+                        })
                         ->orderBy('id', 'desc');
 
 

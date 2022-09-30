@@ -274,5 +274,6 @@
 @apiGroup Performance
 @apiParam {Integer} team_id Team ID
 @apiParam {String} page Page number
+@apiParam {String} [q] search by season or tournament name
 @apiUse default_headers
 ###
