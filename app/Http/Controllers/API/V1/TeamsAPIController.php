@@ -564,7 +564,8 @@ class TeamsAPIController extends APIBaseController
                 ->setName('Team Players with game time')
                 ->setDescription('Team player and game time')
                 ->setSuccessPaginatedObject(Player::class)
-                ->setSuccessExample('{
+                ->setSuccessExample('
+                {
                     "payload": [
                         {
                             "id": 1,
@@ -586,9 +587,105 @@ class TeamsAPIController extends APIBaseController
                             "image": null,
                             "game_time": [
                                 {
-                                    "game_id": 2,
+                                    "game_id": 1,
                                     "team_id": 1,
                                     "time_segment": "Quarter 1",
+                                    "played_positions": "GA/WA",
+                                    "position_obj": {
+                                        "id": 5,
+                                        "name": "Goal Attack",
+                                        "short_name": "GA"
+                                    }
+                                },
+                                {
+                                    "game_id": 1,
+                                    "team_id": 1,
+                                    "time_segment": "Quarter 2",
+                                    "played_positions": "GA/WA",
+                                    "position_obj": {
+                                        "id": 4,
+                                        "name": "Wing Attack",
+                                        "short_name": "WA"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": 2,
+                            "uuid": "20ee2fe7-9a73-401a-be23-795ef8aa5c78",
+                            "team_id": 1,
+                            "image_uuid": null,
+                            "name": "asdcdd",
+                            "email": "nb@gmail.com",
+                            "positions": "1,2,3",
+                            "metadata": null,
+                            "performance_notes": null,
+                            "prefered_positions": [
+                                {
+                                    "id": 1,
+                                    "name": "Goal Keeper",
+                                    "short_name": "GK"
+                                },
+                                {
+                                    "id": 2,
+                                    "name": "Goal Defence",
+                                    "short_name": "GD"
+                                },
+                                {
+                                    "id": 3,
+                                    "name": "Wing Defence",
+                                    "short_name": "WD"
+                                }
+                            ],
+                            "image": null,
+                            "game_time": [
+                                {
+                                    "game_id": 1,
+                                    "team_id": 1,
+                                    "time_segment": "Quarter 2",
+                                    "played_positions": "GA",
+                                    "position_obj": {
+                                        "id": 5,
+                                        "name": "Goal Attack",
+                                        "short_name": "GA"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": 3,
+                            "uuid": "b0b15d02-4e33-40f3-9bbd-3a9fe647921f",
+                            "team_id": 1,
+                            "image_uuid": null,
+                            "name": "asdcdd",
+                            "email": "nb@gmail.com",
+                            "positions": "1,2,3",
+                            "metadata": null,
+                            "performance_notes": null,
+                            "prefered_positions": [
+                                {
+                                    "id": 1,
+                                    "name": "Goal Keeper",
+                                    "short_name": "GK"
+                                },
+                                {
+                                    "id": 2,
+                                    "name": "Goal Defence",
+                                    "short_name": "GD"
+                                },
+                                {
+                                    "id": 3,
+                                    "name": "Wing Defence",
+                                    "short_name": "WD"
+                                }
+                            ],
+                            "image": null,
+                            "game_time": [
+                                {
+                                    "game_id": 1,
+                                    "team_id": 1,
+                                    "time_segment": "Quarter 1",
+                                    "played_positions": "GD",
                                     "position_obj": {
                                         "id": 2,
                                         "name": "Goal Defence",
@@ -625,8 +722,8 @@ class TeamsAPIController extends APIBaseController
                         "path": "http://127.0.0.1:8000/api/v1/team-players",
                         "per_page": 15,
                         "prev_page_url": null,
-                        "to": 1,
-                        "total": 1
+                        "to": 3,
+                        "total": 3
                     },
                     "message": "",
                     "result": true

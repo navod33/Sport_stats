@@ -4096,6 +4096,9 @@
                 },
                 "team_id": {
                     "type": "string"
+                },
+                "played_positions": {
+                    "type": "string"
                 }
             }
         },
