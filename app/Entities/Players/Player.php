@@ -3,6 +3,7 @@
 namespace App\Entities\Players;
 
 use App\Entities\Files\File;
+use App\Entities\GameTimeScores\GameTimeScore;
 use App\Entities\PlayerPositions\PlayerPosition;
 use App\Entities\Scores\Score;
 use App\Entities\Teams\Team;
@@ -181,7 +182,7 @@ class Player extends Model
             'prefered_positions' => ['type' => 'array', 'items' => 'PlayerPosition'],
             'id' => 'integer',
             'team_id' => 'integer',
-            'game_time_score' => ['type' => 'array', 'items' => 'Score'],
+            'game_time' => ['type' => 'array', 'items' => 'GameTimeScore'],
         ];
         
     }
@@ -210,8 +211,8 @@ class Player extends Model
         return PlayerPosition::whereIn('id',$positions_arr)->get();
     }
 
-    public function gameTimeScore()
+    public function gameTime()
     {
-        return $this->hasMany(Score::class, 'player_id', 'id');
+        return $this->hasMany(GameTimeScore::class, 'player_id', 'id');
     }
 }
