@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
     title: 'Boost App API'
-    version: 1.0.0.20220929
+    version: 1.0.0.20220930
 host: '{{host}}'
 schemes:
     - '{{scheme}}'
@@ -3121,10 +3121,10 @@ definitions:
                 type: array
                 items:
                     $ref: '#/definitions/PlayerPosition'
-            game_time_score:
+            game_time:
                 type: array
                 items:
-                    $ref: '#/definitions/Score'
+                    $ref: '#/definitions/GameTimeScore'
     Score:
         type: object
         properties:
@@ -3191,6 +3191,17 @@ definitions:
             created_at:
                 type: string
             updated_at:
+                type: string
+    GameTimeScore:
+        type: object
+        properties:
+            time_segment:
+                type: string
+            position_obj:
+                $ref: '#/definitions/PlayerPosition'
+            game_id:
+                type: string
+            team_id:
                 type: string
     MatchSetup:
         type: object

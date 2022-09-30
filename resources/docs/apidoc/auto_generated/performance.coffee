@@ -96,8 +96,7 @@
 @apiParam {Integer} team_id Team ID
 @apiUse default_headers
 @apiSuccessExample {json} Success-Response / HTTP 200 OK
-
-                {
+{
                     "payload": [
                         {
                             "id": 1,
@@ -117,263 +116,11 @@
                                 }
                             ],
                             "image": null,
-                            "game_time_score": [
+                            "game_time": [
                                 {
-                                    "id": 1,
-                                    "uuid": "c279f77d-85de-4bfe-b249-73fe96c288dc",
-                                    "game_id": 1,
+                                    "game_id": 2,
+                                    "team_id": 1,
                                     "time_segment": "Quarter 1",
-                                    "position": "2",
-                                    "player_id": 1,
-                                    "score": 5,
-                                    "active_player": 1,
-                                    "error_record": 0,
-                                    "contract": 0,
-                                    "center_pass": 0,
-                                    "intercept": 0,
-                                    "tip": 0,
-                                    "rebound": 0,
-                                    "goal_missed": 2,
-                                    "positionPreferedPlayers": [
-                                        {
-                                            "id": 2,
-                                            "uuid": "20ee2fe7-9a73-401a-be23-795ef8aa5c78",
-                                            "team_id": 1,
-                                            "image_uuid": null,
-                                            "name": "asdcdd",
-                                            "email": "nb@gmail.com",
-                                            "positions": "1,2,3",
-                                            "metadata": null,
-                                            "performance_notes": null,
-                                            "prefered_positions": [
-                                                {
-                                                    "id": 1,
-                                                    "name": "Goal Keeper",
-                                                    "short_name": "GK"
-                                                },
-                                                {
-                                                    "id": 2,
-                                                    "name": "Goal Defence",
-                                                    "short_name": "GD"
-                                                },
-                                                {
-                                                    "id": 3,
-                                                    "name": "Wing Defence",
-                                                    "short_name": "WD"
-                                                }
-                                            ],
-                                            "image": null
-                                        },
-                                        {
-                                            "id": 3,
-                                            "uuid": "b0b15d02-4e33-40f3-9bbd-3a9fe647921f",
-                                            "team_id": 1,
-                                            "image_uuid": null,
-                                            "name": "asdcdd",
-                                            "email": "nb@gmail.com",
-                                            "positions": "1,2,3",
-                                            "metadata": null,
-                                            "performance_notes": null,
-                                            "prefered_positions": [
-                                                {
-                                                    "id": 1,
-                                                    "name": "Goal Keeper",
-                                                    "short_name": "GK"
-                                                },
-                                                {
-                                                    "id": 2,
-                                                    "name": "Goal Defence",
-                                                    "short_name": "GD"
-                                                },
-                                                {
-                                                    "id": 3,
-                                                    "name": "Wing Defence",
-                                                    "short_name": "WD"
-                                                }
-                                            ],
-                                            "image": null
-                                        }
-                                    ],
-                                    "position_obj": {
-                                        "id": 2,
-                                        "name": "Goal Defence",
-                                        "short_name": "GD"
-                                    }
-                                },
-                                {
-                                    "id": 2,
-                                    "uuid": "8e96f352-65fc-4f9a-a3dc-08dac6474a61",
-                                    "game_id": 1,
-                                    "time_segment": "Quarter 1",
-                                    "position": "5",
-                                    "player_id": 1,
-                                    "score": 2,
-                                    "active_player": 0,
-                                    "error_record": 0,
-                                    "contract": 0,
-                                    "center_pass": 0,
-                                    "intercept": 0,
-                                    "tip": 0,
-                                    "rebound": 0,
-                                    "goal_missed": 0,
-                                    "positionPreferedPlayers": [],
-                                    "position_obj": {
-                                        "id": 5,
-                                        "name": "Goal Attack",
-                                        "short_name": "GA"
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "id": 2,
-                            "uuid": "20ee2fe7-9a73-401a-be23-795ef8aa5c78",
-                            "team_id": 1,
-                            "image_uuid": null,
-                            "name": "asdcdd",
-                            "email": "nb@gmail.com",
-                            "positions": "1,2,3",
-                            "metadata": null,
-                            "performance_notes": null,
-                            "prefered_positions": [
-                                {
-                                    "id": 1,
-                                    "name": "Goal Keeper",
-                                    "short_name": "GK"
-                                },
-                                {
-                                    "id": 2,
-                                    "name": "Goal Defence",
-                                    "short_name": "GD"
-                                },
-                                {
-                                    "id": 3,
-                                    "name": "Wing Defence",
-                                    "short_name": "WD"
-                                }
-                            ],
-                            "image": null,
-                            "game_time_score": [
-                                {
-                                    "id": 3,
-                                    "uuid": "ff6a4606-98eb-4911-b48b-2b1e3e9b50ab",
-                                    "game_id": 1,
-                                    "time_segment": "Quarter 2",
-                                    "position": "5",
-                                    "player_id": 2,
-                                    "score": 2,
-                                    "active_player": 1,
-                                    "error_record": 0,
-                                    "contract": 0,
-                                    "center_pass": 0,
-                                    "intercept": 0,
-                                    "tip": 0,
-                                    "rebound": 0,
-                                    "goal_missed": 0,
-                                    "positionPreferedPlayers": [],
-                                    "position_obj": {
-                                        "id": 5,
-                                        "name": "Goal Attack",
-                                        "short_name": "GA"
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "id": 3,
-                            "uuid": "b0b15d02-4e33-40f3-9bbd-3a9fe647921f",
-                            "team_id": 1,
-                            "image_uuid": null,
-                            "name": "asdcdd",
-                            "email": "nb@gmail.com",
-                            "positions": "1,2,3",
-                            "metadata": null,
-                            "performance_notes": null,
-                            "prefered_positions": [
-                                {
-                                    "id": 1,
-                                    "name": "Goal Keeper",
-                                    "short_name": "GK"
-                                },
-                                {
-                                    "id": 2,
-                                    "name": "Goal Defence",
-                                    "short_name": "GD"
-                                },
-                                {
-                                    "id": 3,
-                                    "name": "Wing Defence",
-                                    "short_name": "WD"
-                                }
-                            ],
-                            "image": null,
-                            "game_time_score": [
-                                {
-                                    "id": 4,
-                                    "uuid": "aee01164-86bf-46eb-bb57-69287e362880",
-                                    "game_id": 1,
-                                    "time_segment": "Quarter 1",
-                                    "position": "2",
-                                    "player_id": 3,
-                                    "score": 0,
-                                    "active_player": 0,
-                                    "error_record": 0,
-                                    "contract": 0,
-                                    "center_pass": 0,
-                                    "intercept": 0,
-                                    "tip": 0,
-                                    "rebound": 0,
-                                    "goal_missed": 0,
-                                    "positionPreferedPlayers": [
-                                        {
-                                            "id": 1,
-                                            "uuid": "0a0b846c-3811-46f0-b405-def00f9aef16",
-                                            "team_id": 1,
-                                            "image_uuid": null,
-                                            "name": "Nishshanka B",
-                                            "email": null,
-                                            "positions": "2",
-                                            "metadata": null,
-                                            "performance_notes": "second comment",
-                                            "prefered_positions": [
-                                                {
-                                                    "id": 2,
-                                                    "name": "Goal Defence",
-                                                    "short_name": "GD"
-                                                }
-                                            ],
-                                            "image": null
-                                        },
-                                        {
-                                            "id": 2,
-                                            "uuid": "20ee2fe7-9a73-401a-be23-795ef8aa5c78",
-                                            "team_id": 1,
-                                            "image_uuid": null,
-                                            "name": "asdcdd",
-                                            "email": "nb@gmail.com",
-                                            "positions": "1,2,3",
-                                            "metadata": null,
-                                            "performance_notes": null,
-                                            "prefered_positions": [
-                                                {
-                                                    "id": 1,
-                                                    "name": "Goal Keeper",
-                                                    "short_name": "GK"
-                                                },
-                                                {
-                                                    "id": 2,
-                                                    "name": "Goal Defence",
-                                                    "short_name": "GD"
-                                                },
-                                                {
-                                                    "id": 3,
-                                                    "name": "Wing Defence",
-                                                    "short_name": "WD"
-                                                }
-                                            ],
-                                            "image": null
-                                        }
-                                    ],
                                     "position_obj": {
                                         "id": 2,
                                         "name": "Goal Defence",
@@ -410,8 +157,8 @@
                         "path": "http://127.0.0.1:8000/api/v1/team-players",
                         "per_page": 15,
                         "prev_page_url": null,
-                        "to": 3,
-                        "total": 3
+                        "to": 1,
+                        "total": 1
                     },
                     "message": "",
                     "result": true

@@ -150,7 +150,6 @@ class Score extends Model
     public function position_obj()
     {
         return $this->belongsTo(PlayerPosition::class,'position');
-        dd();
     }
 
     public $appends = [ 'positionPreferedPlayers'];
