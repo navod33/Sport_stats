@@ -3,6 +3,7 @@
 namespace App\Entities\GameTimeScores;
 
 use App\Entities\PlayerPositions\PlayerPosition;
+use App\Entities\Scores\Score;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use EMedia\Formation\Entities\GeneratesFields;
 use Illuminate\Database\Eloquent\Model;
@@ -52,14 +53,17 @@ class GameTimeScore extends Model
         'position_obj',
         'game_id',
         'team_id',
+        'played_positions',
     ];
     protected $with =[
         'position_obj',
     ];
+    public $appends = [ 'played_positions'];
     public function getExtraApiFields()
     {
         return [
-            'position_obj' => ['type' => 'object', 'items' => 'PlayerPosition'],    
+            'position_obj' => ['type' => 'object', 'items' => 'PlayerPosition'],  
+            'played_positions' => 'string',  
         ];
         
     }
@@ -113,5 +117,25 @@ class GameTimeScore extends Model
     public function position_obj()
     {
         return $this->belongsTo(PlayerPosition::class,'position');
+    }
+
+    public function getPlayedPositionsAttribute()
+    {
+        $game_id = $this->game_id;
+        $team_id = $this->team_id;
+        $player_id = $this->player_id;
+        $positions=null;
+        $positions_arr = Score::where('game_id',$game_id)
+                        ->where('team_id',$team_id)
+                        ->where('player_id',$player_id)->pluck('position')->unique();
+                        
+        $res= PlayerPosition::select('short_name')->whereIn('id',$positions_arr)->get();
+
+        foreach ($res as $key => $value) {
+            $positions = $value->short_name.'/'.$positions;
+        }
+
+        return $positions = rtrim($positions, "/");
+
     }
 }

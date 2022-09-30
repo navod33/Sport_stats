@@ -3203,6 +3203,8 @@ definitions:
                 type: string
             team_id:
                 type: string
+            played_positions:
+                type: string
     MatchSetup:
         type: object
         properties:
