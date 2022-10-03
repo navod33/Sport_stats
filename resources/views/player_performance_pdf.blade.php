@@ -13,20 +13,28 @@
         span{
             color: #646868;
         }
-
+        .progress-bar{
+            background-color: #00419C !important;
+        }
+        .percentage-span{
+            color: #999999;
+        }
+        .labels-span{
+            color: #000000;  
+        }
     </style>
   </head>
   <body>
-    <div style="background-color: #191a1a;">
+    <div style="background-color: #273043;">
     <img  src="{{ public_path('images/logo.png') }}" 
     alt="logo" style="width:10%;position:absolute;margin-top:10px;margin-left:20px;">
     <center><h5 style="color: white;padding:5px;">Player Performance</h5>
     <h6 style="color: #cbcdcd">{{$performance->player_name}} </h6></center>
-    <h6 style="color: rgb(225, 221, 221);position:absolute;right:20px;top:40px;font-size:14px;">Date : <?php echo Date("Y-m-d"); ?></h6>
+    {{-- <h6 style="color: rgb(225, 221, 221);position:absolute;right:20px;top:40px;font-size:14px;">Date : <?php echo Date("Y-m-d"); ?></h6> --}}
     </div>
     <br>
 
-    <span>Conversion</span> <span class="float-right"> {{$performance->conversion}}%</span>
+    <span>Conversion</span> <span class="float-right percentage-span"> {{$performance->conversion}}%</span>
     <div class="progress mt-2" style="height: 10px;">
         <div class="progress-bar" role="progressbar" style="width: {{$performance->conversion}}%;height:100%" aria-valuenow="{{$performance->conversion}}" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
@@ -36,37 +44,37 @@
         <table width="100%">
         
             <tr>
-                <td width="25%"> <span>Goal In</span> <br></td>
-                <td width="25%"><span style="border: 2px solid green;padding:10px 20px 10px 20px;" class="float-right">{{$performance->goal_in }}</span></td>
-                <td width="25%"> <span style="margin-left: 10px;"> Goal Missed</span> </td>
-                <td width="25%"><span style="border: 2px solid red;padding:10px 20px 10px 20px;" class="float-right">{{$performance->goal_missed }}</span></td>
+                <td width="25%"> <span class="labels-span">Goal In</span> <br></td>
+                <td width="25%"><span style="border: 2px solid green;padding:10px 20px 10px 20px;" class="float-right"><?php echo substr(str_repeat(0, 2).$performance->goal_in , - 2); ?></span></td>
+                <td width="25%"> <span style="margin-left: 10px;" class="labels-span"> Goal Missed</span> </td>
+                <td width="25%"><span style="border: 2px solid red;padding:10px 20px 10px 20px;" class="float-right"><?php echo substr(str_repeat(0, 2).$performance->goal_missed , - 2); ?></span></td>
             </tr>
         </table>
 
         <table width="100%" style="margin-top:40px; ">
             <tr >
-                <td width="25%"> <span>Contact/Obstruction</span> </td>
-                <td width="25%"><span style="border: 2px solid #ff751a;padding:10px 20px 10px 20px;" class="float-right">{{$performance->contract}}</span></td>
-                <td width="25%"> <span style="margin-left: 10px;"> Error</span> </td>
-                <td width="25%"><span style="border: 2px solid #ff471a;padding:10px 20px 10px 20px;" class="float-right">{{$performance->error_record }}</span></td>
+                <td width="25%"> <span class="labels-span">Contact/Obstruction</span> </td>
+                <td width="25%"><span style="border: 2px solid #ff751a;padding:10px 20px 10px 20px;" class="float-right"><?php echo substr(str_repeat(0, 2).$performance->contract, - 2); ?></span></td>
+                <td width="25%"> <span style="margin-left: 10px;" class="labels-span"> Error</span> </td>
+                <td width="25%"><span style="border: 2px solid #ff471a;padding:10px 20px 10px 20px;" class="float-right"><?php echo substr(str_repeat(0, 2).$performance->error_record , - 2); ?></span></td>
             </tr>
         </table>
 
         <table width="100%" style="margin-top:40px; ">
             <tr >
-                <td width="25%"> <span>Tip</span> </td>
-                <td width="25%"><span style="border: 2px solid #1ab2ff;padding:10px 20px 10px 20px;" class="float-right">{{$performance->tip }}</span></td>
-                <td width="25%"> <span style="margin-left: 10px;"> Intercept</span> </td>
-                <td width="25%"><span style="border: 2px solid #00e600;padding:10px 20px 10px 20px;" class="float-right">{{$performance->intercept}}</span></td>
+                <td width="25%"> <span class="labels-span">Tip</span> </td>
+                <td width="25%"><span style="border: 2px solid #1ab2ff;padding:10px 20px 10px 20px;" class="float-right"><?php echo substr(str_repeat(0, 2).$performance->tip , - 2); ?></span></td>
+                <td width="25%"> <span style="margin-left: 10px;" class="labels-span"> Intercept</span> </td>
+                <td width="25%"><span style="border: 2px solid #00e600;padding:10px 20px 10px 20px;" class="float-right"><?php echo substr(str_repeat(0, 2).$performance->intercept, - 2); ?></span></td>
             </tr>
         </table>
 
         <table width="100%" style="margin-top:40px;margin-bottom:40px; ">
             <tr >
-                <td width="25%"> <span>Center Passes</span> </td>
-                <td width="25%"><span style="border: 2px solid #e6e600;padding:10px 20px 10px 20px;" class="float-right">{{$performance->center_pass}}</span></td>
-                <td width="25%"> <span style="margin-left: 10px;"> Rebound</span> </td>
-                <td width="25%"><span style="border: 2px solid #5c00e6;padding:10px 20px 10px 20px;" class="float-right">{{$performance->rebound }}</span></td>
+                <td width="25%"> <span class="labels-span">Center Passes</span> </td>
+                <td width="25%"><span style="border: 2px solid #e6e600;padding:10px 20px 10px 20px;" class="float-right"><?php echo substr(str_repeat(0, 2).$performance->center_pass, - 2); ?></span></td>
+                <td width="25%"> <span style="margin-left: 10px;" class="labels-span"> Rebound</span> </td>
+                <td width="25%"><span style="border: 2px solid #5c00e6;padding:10px 20px 10px 20px;" class="float-right"><?php echo substr(str_repeat(0, 2).$performance->rebound , - 2); ?></span></td>
             </tr>
         </table>
   <hr>
