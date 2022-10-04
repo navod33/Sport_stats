@@ -199,6 +199,11 @@ class Game extends Model
             {
                 return 'Ongoing';
             } 
+
+            if($started==1 && $finished==1)
+            {
+                return 'Played';
+            }
             
             else 
             {
