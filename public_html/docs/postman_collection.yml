@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
     title: 'Boost App API'
-    version: 1.0.0.20220930
+    version: 1.0.0.20221004
 host: '{{host}}'
 schemes:
     - '{{scheme}}'
@@ -1575,6 +1575,62 @@ paths:
                     schema:
                         $ref: '#/definitions/ApiError'
                     description: 'Generic API error. Check `message` for more information.'
+    /match-result:
+        get:
+            tags:
+                - Result
+            summary: 'List Match Results'
+            consumes:
+                - application/json
+                - application/x-www-form-urlencoded
+            produces:
+                - application/json
+            operationId: result_get_list_match_results
+            description: 'Get a list of finished games created by user. Pagination is supported. Played at time is in UTC. Convert to your timezone before using.'
+            parameters:
+                -
+                    name: page
+                    in: query
+                    required: true
+                    description: 'Page number'
+                    type: string
+                -
+                    name: Accept
+                    in: header
+                    required: true
+                    description: 'Set to `application/json`'
+                    type: string
+                    schema:
+                        type: string
+                        example: application/json
+                -
+                    type: string
+                    name: x-access-token
+                    in: header
+                    description: 'Unique user authentication token'
+                    schema:
+                        type: string
+                        example: '{{x-access-token}}'
+            security:
+                -
+                    apiKey: []
+            responses:
+                200:
+                    schema:
+                        $ref: '#/definitions/ResultListMatchResultsResponse'
+                    description: ResultListMatchResultsResponse
+                401:
+                    schema:
+                        $ref: '#/definitions/ApiErrorUnauthorized'
+                    description: 'Authentication failed'
+                403:
+                    schema:
+                        $ref: '#/definitions/ApiErrorAccessDenied'
+                    description: 'Access denied'
+                422:
+                    schema:
+                        $ref: '#/definitions/ApiError'
+                    description: 'Generic API error. Check `message` for more information.'
     /player-positions:
         get:
             tags:
@@ -3100,6 +3156,8 @@ definitions:
                 type: integer
             game_status:
                 type: string
+            match_results:
+                type: string
     Player:
         type: object
         properties:
@@ -3544,6 +3602,20 @@ definitions:
             paginator:
                 $ref: '#/definitions/Paginator'
     PerformanceListFinishedGamesResponse:
+        type: object
+        properties:
+            message:
+                type: string
+            result:
+                type: boolean
+                default: true
+            payload:
+                type: array
+                items:
+                    $ref: '#/definitions/Game'
+            paginator:
+                $ref: '#/definitions/Paginator'
+    ResultListMatchResultsResponse:
         type: object
         properties:
             message:
