@@ -145,11 +145,12 @@ class Game extends Model
             'season' => ['type' => 'object', 'items' => 'Season'],
             'team_a_score' => 'integer',
             'game_status' => 'string',
+            'match_results' => 'string',
         ];
         
     }
 
-    public $appends = [ 'team_a_score','game_status'];
+    public $appends = [ 'team_a_score','game_status','match_results'];
     protected $with = ['team_a_image','team_b_image','team_a','season'];
 
     public function owner()
@@ -207,6 +208,23 @@ class Game extends Model
         else
         {
             return 'Played';
+        }
+    }
+
+    public function getMatchResultsAttribute() {
+        $team_a_score = (int) $this->scores()->where('team_id',$this->team_a->id ?? null)->sum('score'); 
+        $team_b_score = (int) $this->team_b_score;
+        
+        if ($team_a_score>$team_b_score) {
+            return 'WON';
+        }
+
+        if ($team_a_score<$team_b_score) {
+            return 'LOST';
+        }
+
+        if ($team_a_score==$team_b_score) {
+            return 'DRAW';
         }
     }
 }

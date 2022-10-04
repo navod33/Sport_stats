@@ -66,6 +66,7 @@ Route::group([
 			//Route::get('/player-game-time', [TeamsAPIController::class, 'gametime']);
 			Route::get('/team-players', [TeamsAPIController::class, 'team_players']);
 			Route::get('/game-finished', [GamesAPIController::class, 'finished_games']);
+			Route::get('/match-result', [GamesAPIController::class, 'match_result']);
 
 			Route::get('/player-positions', [PlayersAPIController::class, 'ppositions']);
 

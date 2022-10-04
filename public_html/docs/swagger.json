@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "title": "Boost App API",
-        "version": "1.0.0.20220930"
+        "version": "1.0.0.20221004"
     },
     "host": "boost.test",
     "schemes": [
@@ -1882,6 +1882,73 @@
                 }
             }
         },
+        "\/match-result": {
+            "get": {
+                "tags": [
+                    "Result"
+                ],
+                "summary": "List Match Results",
+                "consumes": [
+                    "application\/json",
+                    "application\/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "operationId": "result_get_list_match_results",
+                "description": "Get a list of finished games created by user. Pagination is supported. Played at time is in UTC. Convert to your timezone before using.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": true,
+                        "description": "Page number",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "Set to `application\/json`",
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    },
+                    {
+                        "accessToken": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ResultListMatchResultsResponse"
+                        },
+                        "description": "ResultListMatchResultsResponse"
+                    },
+                    "401": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorUnauthorized"
+                        },
+                        "description": "Authentication failed"
+                    },
+                    "403": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorAccessDenied"
+                        },
+                        "description": "Access denied"
+                    },
+                    "422": {
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiError"
+                        },
+                        "description": "Generic API error. Check `message` for more information."
+                    }
+                }
+            }
+        },
         "\/player-positions": {
             "get": {
                 "tags": [
@@ -3737,6 +3804,9 @@
                 },
                 "game_status": {
                     "type": "string"
+                },
+                "match_results": {
+                    "type": "string"
                 }
             }
         },
@@ -4410,6 +4480,27 @@
             }
         },
         "PerformanceListFinishedGamesResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "payload": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/Game"
+                    }
+                },
+                "paginator": {
+                    "$ref": "#\/definitions\/Paginator"
+                }
+            }
+        },
+        "ResultListMatchResultsResponse": {
             "type": "object",
             "properties": {
                 "message": {
