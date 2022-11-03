@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
     title: 'Boost App API'
-    version: 1.0.0.20221004
+    version: 1.0.0.20221103
 host: boost.test
 schemes:
     - http
@@ -2511,6 +2511,53 @@ paths:
                     schema:
                         $ref: '#/definitions/ApiError'
                     description: 'Generic API error. Check `message` for more information.'
+    /blog:
+        get:
+            tags:
+                - Blog
+            summary: 'List Blog Posts'
+            consumes:
+                - application/json
+                - application/x-www-form-urlencoded
+            produces:
+                - application/json
+            operationId: blog_get_list_blog_posts
+            description: ''
+            parameters:
+                -
+                    name: page
+                    in: query
+                    required: true
+                    description: 'Page number'
+                    type: string
+                -
+                    name: Accept
+                    in: header
+                    required: true
+                    description: 'Set to `application/json`'
+                    type: string
+            security:
+                -
+                    apiKey: []
+                -
+                    accessToken: []
+            responses:
+                200:
+                    schema:
+                        $ref: '#/definitions/BlogListBlogPostsResponse'
+                    description: BlogListBlogPostsResponse
+                401:
+                    schema:
+                        $ref: '#/definitions/ApiErrorUnauthorized'
+                    description: 'Authentication failed'
+                403:
+                    schema:
+                        $ref: '#/definitions/ApiErrorAccessDenied'
+                    description: 'Access denied'
+                422:
+                    schema:
+                        $ref: '#/definitions/ApiError'
+                    description: 'Generic API error. Check `message` for more information.'
     /settings:
         get:
             tags:
@@ -2847,6 +2894,21 @@ definitions:
                 type: string
             updated_at:
                 type: string
+    Blog:
+        type: object
+        properties:
+            id:
+                type: integer
+            title:
+                type: string
+            description:
+                type: string
+            created_at:
+                type: string
+            updated_at:
+                type: string
+            image:
+                $ref: '#/definitions/File'
     GameTimeScore:
         type: object
         properties:
@@ -3366,6 +3428,20 @@ definitions:
                 default: true
             payload:
                 $ref: '#/definitions/Contactus'
+    BlogListBlogPostsResponse:
+        type: object
+        properties:
+            message:
+                type: string
+            result:
+                type: boolean
+                default: true
+            payload:
+                type: array
+                items:
+                    $ref: '#/definitions/Blog'
+            paginator:
+                $ref: '#/definitions/Paginator'
     SettingsGetSettingsResponse:
         type: object
         properties:
