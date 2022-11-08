@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\V1\BlogsAPIController;
 use App\Http\Controllers\API\V1\GamesAPIController;
 use App\Http\Controllers\API\V1\MatchSetupsAPIController;
 use App\Http\Controllers\API\V1\PDFSharesAPIController;
@@ -97,6 +98,9 @@ Route::group([
 			Route::post('/match-start', [MatchSetupsAPIController::class, 'start']);
 
 			Route::post('/contact-us', 'ContactusesAPIController@store');
+
+			//blog
+			Route::get('/blog', [BlogsAPIController::class, 'index']);
 		});
 	}
 });

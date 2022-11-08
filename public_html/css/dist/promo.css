@@ -1,0 +1,984 @@
+@font-face {
+    font-family: workSans;
+    src: url('../../fonts/static/WorkSans-Medium.ttf');
+}
+@font-face {
+    font-family: workSansLight;
+    src: url('../../fonts/static/WorkSans-Light.ttf');
+}
+@font-face {
+    font-family: workSansRegular;
+    src: url('../../fonts/static/WorkSans-Regular.ttf');
+}
+@font-face {
+    font-family: workSansSemiBold;
+    src: url('../../fonts/static/WorkSans-SemiBold.ttf');
+}
+@font-face {
+    font-family: workSansBold;
+    src: url('../../fonts/static/WorkSans-Bold.ttf');
+}
+
+body{
+    overflow-x: hidden !important;
+}
+
+.top{
+    background: linear-gradient(90deg, rgba(39,48,67,1) 35%, rgba(77,130,177,1) 100%);
+}
+
+#logo_image{
+    width: 5%;
+    margin-left: 25%;
+}
+.screen{
+    margin-bottom:-150px;
+}
+
+/* .main-top{
+    background: linear-gradient(90deg, rgba(39,48,67,1) 35%, rgba(77,130,177,1) 100%);
+} */
+
+.logo{
+    padding-left: 1000px;
+    padding-right:200px;
+}
+.navbar-dark .navbar-nav .nav-link {
+
+    font-family: workSans;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+    line-height: 19px;
+    color: #ffffff;
+}
+
+.navbar-dark .navbar-nav .nav-link .active {
+    font-weight: 700;
+    }
+
+    #h-bg-t-1{
+        position: absolute;
+        font-family: workSansLight;
+        color: #ffffff;
+    }
+
+    #h-bg-t-2{
+        position: absolute;
+        font-family: workSans;
+        color: #ffffff;
+    }
+
+    #h-bg-t-3{
+        position: absolute;
+        font-family: workSansRegular;
+        color: #ffffff;
+    }
+
+    #h-bg-t-4{
+        position: absolute;
+        font-family: workSansSemiBold;
+        color: #ffffff;
+    }
+
+    .aboutbg{
+        position: relative;
+        background: linear-gradient(90deg, rgba(44,101,153,1) 0%, rgba(77,130,179,1) 100%);
+        height: 400px;
+    }
+
+    .about-section-heading{
+        position: relative;
+        font-family: workSansSemiBold;
+        color: #ffffff;
+        left: 45%;
+    }
+
+    #a-bg-t-1{
+        position: relative;
+        font-family: workSansRegular;
+        color: #ffffff;
+        text-align: center;
+    }
+
+    .features-bg{
+        position: relative;
+        /* background-color: #ffffff; */
+        /* background: linear-gradient(180deg, rgba(39,48,67,1) 0%, rgba(77,130,177,1) 100%); */
+        background: linear-gradient(143.91deg, #273043 0%, #4D82B1 100%);
+        height: 640px;
+    }
+
+    #f-bg-1{
+        position: absolute;
+        top: -3%;
+        left: 3%;
+        width: 94%;
+    }
+
+    #f-bg-2{
+        position: absolute;
+        top: -3%;
+        left: 3%;
+        width: 94%;
+    }
+
+    #f-bg-3{
+        position: absolute;
+        top: -3%;
+        left: 3%;
+        width: 94%;
+    }
+
+    #f-bg-4{
+        position: absolute;
+        top: 26%;
+        left: 43%;
+        width: 14%;
+        box-shadow: 0 8px 35px 0 rgba(0,0,0,0.29);
+    }
+
+    .features-bg .features-section-heading{
+        position: absolute;
+        font-family: workSansSemiBold;
+        color: black;
+        top: 8%;
+        left: 46%;
+    }
+
+    .fci1{
+        position: absolute;
+        background-color: #273043;
+        color: #ffff;
+        box-shadow: 0 24px 50px -17px rgba(0,0,0,0.14);
+    }
+
+    .fci2{
+        position: absolute;
+        background-color: #273043;
+        color: #ffff;
+        box-shadow: 0 24px 50px -17px rgba(0,0,0,0.14);
+    }
+
+    .fci3{
+        position: absolute;
+        background-color: #273043;
+        color: #ffff;
+        box-shadow: 0 24px 50px -17px rgba(0,0,0,0.14);
+    }
+
+    .fci4{
+        position: absolute;
+        background-color: #273043;
+        color: #ffff;
+        box-shadow: 0 24px 50px -17px rgba(0,0,0,0.14);
+    }
+
+    #cd-f-title{
+        width: 10%;
+    }
+
+    .f-card-title{
+        font-family: workSansBold;
+    }
+
+    .f-card-text{
+        font-family: workSansRegular;
+        padding-top: 5%;
+    }
+
+    #screens{
+        position: relative;
+        background: linear-gradient(47.68deg, #2C6599 0%, #4D82B3 100%);
+        height: 680px;
+    }
+
+    .screens-section-heading{
+        position: absolute;
+        font-family: workSansSemiBold;
+        color: #ffffff;
+    }
+
+    .swiper-wrapper {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        align-items: center;
+        padding: 5px auto;
+        height: auto;
+    }
+    .swiper-slide-active {
+        margin-top: inherit;
+    }
+    
+    .swiper-slide {
+        margin-top: inherit;
+        margin-bottom: inherit;
+        height: auto;
+        border-radius: 7px;
+    }
+    
+    .swiper-slide img {
+        border-radius: 7px;
+    }
+    
+    .swiper-slide-active {
+        transform: scale(1.2);
+        transition: 0.6ss;
+    }
+    
+    .swiper-button-next {
+        background-image: url(../../images/ic_screens_right_arrow.png);
+        background-repeat: no-repeat;
+        background-size: 75% auto;
+        background-position: center;
+    }
+    
+    .swiper-pagination{
+        color: #ffffff;
+        margin-bottom: 100px;
+    }
+    .swiper-button-prev {
+        background-image: url(../../images/ic_screens_left_arrow.png);
+        background-repeat: no-repeat;
+        background-size: 75% auto;
+        background-position: center;
+    
+    }
+    
+    .swiper-button-next::after,
+    .swiper-container-rtl .swiper-button-next::after {
+        content: "none";
+    }
+    
+    .swiper-button-prev::after,
+    .swiper-container-rtl .swiper-button-prev::after {
+        content: "none";
+    }
+
+    .mySwiper{
+        width: 85%;
+    }
+
+    .contactbg{
+        position: relative;
+        background: linear-gradient(40.27deg, #273043 0%, #2F4573 57.99%, #2D5479 80.38%, #4D82B1 100%);
+        height: 380px;
+    }
+
+    .contact-section-heading{
+        position: absolute;
+        font-family: workSansSemiBold;
+        color: #000;
+        top: -25%;
+    }
+
+    .form-control-text{
+        box-shadow: 0 10px 20px 0 rgba(0,0,0,0.04);
+        border: 0.5px solid #E2E5EB;
+        font-family: workSansRegular;
+    }
+
+    .sbtn{
+        background: #273043;
+        color: #ffff;
+        font-family: workSansSemiBold;
+        font-size: 12px;
+    }
+
+    .footer2{
+        background: #273043;
+    }
+
+    .copyright-2021-kee a {
+        color: #ffff;
+        font-family: workSans;
+        text-decoration: none;
+        font-size: 12px;
+    }
+
+    .cpr {
+        color: #ffff;
+        font-family: workSans;
+        text-decoration: none;
+        font-size: 12px;
+    }
+
+    #c-bg-1{
+        position: absolute;
+        top: -4%;
+        left: 13%;
+        height: 95%;
+        overflow-x: hidden;
+    }
+
+    form{
+        position: relative;
+        width: 94%;
+        left: 10%;
+    }
+
+    .cu-div{
+        position: relative;
+        width: 54%;
+    }
+
+    #c-1{
+        position: absolute;
+        left: 40%;
+    }
+
+    #c-t-1{
+        position: absolute;
+        top: 1%;
+        left: 45%;
+        font-family: workSansRegular;
+        font-size: 14px;
+        color: #242424;
+    }
+
+    #c-2{
+        position: absolute;
+        left: 41%;
+        top: 16%;
+    }
+
+    #c-t-2{
+        position: absolute;
+        top: 16%;
+        left: 45%;
+        font-family: workSansRegular;
+        font-size: 14px;
+        color: #242424;
+    }
+
+    #c-t-3{
+        position: absolute;
+        top: 32%;
+        left: 40%;
+        font-family: workSansLight;
+        font-size: 14px;
+        color: #242424;
+    }
+
+    #c-t-4{
+        position: absolute;
+        top: 40%;
+        left: 40%;
+        font-family: workSansRegular;
+        font-size: 12px;
+        color: #242424;
+        width: 30%;
+        font-weight: 500;
+        letter-spacing: 0;
+        line-height: 16px;
+    }
+
+    #c-3{
+        position: absolute;
+        left: 40%;
+        top: 65%;
+        width: 4%;
+    }
+
+    #c-4{
+        position: absolute;
+        left: 45%;
+        top: 65%;
+        width: 4%;
+    }
+
+    #c-5{
+        position: absolute;
+        left: 50%;
+        top: 65%;
+        width: 4%;
+    }
+
+    /* Extra small devices (portrait phones, less than 576px) */
+    @media (max-width: 575.98px) { 
+        .h_socila_media_icons{
+            width: 10%;
+        }
+     }
+    
+    /* Small devices (landscape phones, 576px and up) */
+    @media (min-width: 576px) and (max-width: 767.98px) {  }
+    
+    /* Medium devices (tablets, 768px and up) */
+    @media (min-width: 768px) and (max-width: 991.98px) {  }
+    
+    /* Large devices (desktops, 992px and up) */
+    @media only (min-width: 992px) and (max-width: 1199.98px) { 
+        .top{
+            height: 550px;
+        }
+        .home-bg{
+            height: 550px;
+        }
+
+        .home-bg #h-bg-1{
+            position: relative;
+            width: 100%;
+            height: 570px;
+        }
+
+        #h-bg-2{
+            position: absolute;
+            top: 15%;
+            left: 2%;
+            width: 17%;
+            z-index: 1000;
+        }
+
+        #h-bg-3{
+            position: absolute;
+            top: 25%;
+            left: 18%;
+            width: 20%;
+        }
+
+        #h-bg-4{
+            position: absolute;
+            top: 22%;
+            left: 27%;
+            width: 17%;
+        }
+
+        #h-bg-t-1{
+            position: absolute;
+            top: 29%;
+            left: 47%;
+            width: 33%;
+            font-size: 27px;
+            letter-spacing: 0.2px;
+            line-height: 19px;
+            font-weight: 300;
+        }
+
+        #h-bg-t-2{
+            position: absolute;
+            top: 34%;
+            left: 47%;
+            width: 33%;
+            font-size: 30px;
+            letter-spacing: 0.2px;
+            line-height: 38px;
+        }
+
+        #h-bg-t-3{
+            position: absolute;
+            top: 56%;
+            left: 47%;
+            width: 32%;
+            font-size: 12px;
+            letter-spacing: 0.2px;
+            line-height: 20px;
+            font-weight: 500;
+        }
+
+        #h-bg-t-4{
+            position: absolute;
+            top: 68%;
+            left: 47%;
+            width: 31%;
+            font-size: 10px;
+            letter-spacing: 0.2px;
+            line-height: 29px;
+            font-weight: 500;
+        }
+
+        #h-bg-5{
+            position: absolute;
+            top: 74%;
+            left: 47%;
+            width: 10%;
+        }
+
+        #h-bg-6{
+            position: absolute;
+            top: 74%;
+            left: 58%;
+            width: 9%;
+        }
+
+        #h-bg-7{
+            position: absolute;
+            top: 15%;
+            left: 78%;
+            width: 22%;
+            z-index: 10000;
+        }
+
+        .aboutbg{
+            position: relative;
+            background: linear-gradient(90deg, rgba(44,101,153,1) 0%, rgba(77,130,179,1) 100%);
+            height: 350px;
+        }
+
+        .about-section-heading{
+            font-size: 26px;
+            left: 45%;
+        }
+
+        #a-bg-t-1{
+            top: 29%;
+            left: 21%;
+            width: 62%;
+            font-size: 13px;
+            letter-spacing: 0.2px;
+            line-height: 20px;
+            font-weight: 100;
+        }
+
+        #a-bg-1{
+            position: absolute;
+            top: 10%;
+            left: 9%;
+            width: 24%;
+        }
+
+        .features-section-heading{
+            font-size: 26px;
+        }
+
+        #f-bg-1{
+            top: -3%;
+            left: 3%;
+            width: 96%;
+            height: 100%;
+        }
+    
+        #f-bg-2{
+            top: 11%;
+            left: 8%;
+            width: 12%;
+        }
+    
+        #f-bg-3{
+            top: 34%;
+            left: 76%;
+            width: 23%;
+        }
+
+        
+
+        #cd-f-title{
+            width: 11%;
+        }
+
+        .f-card-title{
+            font-size: 13px;
+        }
+
+        .f-card-text{
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+            line-height: 15px;
+        }
+        .fci1{
+            top: 18%;
+            left: 18%;
+            width: 24%;
+        }
+
+        .fci2{
+            top: 50%;
+            left: 18%;
+            width: 24%;
+        }
+
+        .fci3{
+            top: 18%;
+            left: 62%;
+            width: 24%;
+        }
+
+        .fci4{
+            top: 50%;
+            left: 62%;
+            width: 24%;
+        }
+
+        #f-bg-4{
+            position: absolute;
+            top: 23%;
+            left: 44%;
+            width: 16%;
+            box-shadow: 0 8px 35px 0 rgba(0,0,0,0.29);
+        }
+        .card-img-top{
+            width: 80%;
+        }
+
+        .screens-section-heading{
+            font-size: 27px;
+            left: 46%;
+            top: 5%;
+        }
+
+        #screens{
+            height: 600px;
+        }
+
+        .swiper-slide-active .card-img-top{
+            
+            transform: scale(1.1);
+            transition: 0.6ss;
+        }
+
+        .contact-section-heading{
+            font-size: 26px;
+        }
+
+        #c-1{
+            position: absolute;
+            left: 40%;
+            top: 2%;
+        }
+
+        #c-t-1{
+            position: absolute;
+            left: 45%;
+            font-family: workSansRegular;
+            font-size: 14px;
+            color: #242424;
+        }
+
+        #c-3{
+            position: absolute;
+            left: 40%;
+            top: 67%;
+            width: 4%;
+        }
+    
+        #c-4{
+            position: absolute;
+            left: 45%;
+            top: 67%;
+            width: 4%;
+        }
+    
+        #c-5{
+            position: absolute;
+            left: 50%;
+            top: 67%;
+            width: 4%;
+        }
+
+        #c-bg-1{
+            width: 85%;
+            height: 95%;
+            overflow-x: hidden;
+            border: #000;
+        }
+    }
+    
+    /* Extra large devices (large desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) { 
+        .top{
+            height: 620px;
+        }
+        .home-bg{
+            height: 620px;
+        }
+
+        .home-bg #h-bg-1{
+            position: relative;
+            width: 100%;
+            height: 570px;
+        }
+
+        #h-bg-2{
+            position: absolute;
+            top: 17%;
+            left: 2%;
+            width: 15%;
+            z-index: 10000;
+        }
+
+        #h-bg-3{
+            position: absolute;
+            top: 25%;
+            left: 20%;
+            width: 18%;
+        }
+
+        #h-bg-4{
+            position: absolute;
+            top: 22%;
+            left: 29%;
+            width: 15%;
+        }
+
+        #h-bg-t-1{
+            position: absolute;
+            top: 29%;
+            left: 47%;
+            width: 33%;
+            font-size: 28px;
+            letter-spacing: 0.2px;
+            line-height: 19px;
+            font-weight: 300;
+        }
+
+        #h-bg-t-2{
+            position: absolute;
+            top: 34%;
+            left: 47%;
+            width: 33%;
+            font-size: 37px;
+            letter-spacing: 0.2px;
+            line-height: 44px;
+        }
+
+        #h-bg-t-3{
+            position: absolute;
+            top: 59%;
+            left: 47%;
+            width: 31%;
+            font-size: 13px;
+            letter-spacing: 0.2px;
+            line-height: 20px;
+            font-weight: 500;
+        }
+
+        #h-bg-t-4{
+            position: absolute;
+            top: 73%;
+            left: 47%;
+            width: 31%;
+            font-size: 10px;
+            letter-spacing: 0.2px;
+            line-height: 20px;
+            font-weight: 500;
+        }
+
+        #h-bg-5{
+            position: absolute;
+            top: 78%;
+            left: 47%;
+            width: 10%;
+        }
+
+        #h-bg-6{
+            position: absolute;
+            top: 78%;
+            left: 58%;
+            width: 9%;
+        }
+
+        #h-bg-7{
+            position: absolute;
+            top: 15%;
+            left: 78%;
+            width: 20%;
+            z-index: 10000;
+        }
+
+        .about-section-heading{
+            font-size: 26px;
+            left: 45%;
+        }
+
+        #a-bg-t-1{
+            top: 29%;
+            left: 20%;
+            width: 60%;
+            font-size: 13px;
+            letter-spacing: 0.2px;
+            line-height: 20px;
+            font-weight: 100;
+        }
+
+        #a-bg-1{
+            position: absolute;
+            top: 10%;
+            left: 12%;
+            width: 22%;
+        }
+
+        .features-section-heading{
+            font-size: 26px;
+        }
+
+        #f-bg-1{
+            top: -3%;
+            left: 3%;
+            width: 94%;
+        }
+    
+        #f-bg-2{
+            top: 13%;
+            left: 8%;
+            width: 12%;
+        }
+    
+        #f-bg-3{
+            top: 28%;
+            left: 68%;
+            width: 29%;
+        }
+
+        .fci1{
+            top: 24%;
+            left: 19%;
+            width: 22%;
+        }
+
+        #cd-f-title{
+            width: 11%;
+        }
+
+        #c-1{
+            position: absolute;
+            left: 40%;
+            top: 2%;
+        }
+
+        .f-card-title{
+            font-size: 13px;
+        }
+
+        .f-card-text{
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+            line-height: 15px;
+        }
+
+        .fci2{
+            top: 57%;
+            left: 19%;
+            width: 22%;
+        }
+
+        .fci3{
+            top: 24%;
+            left: 59%;
+            width: 22%;
+        }
+
+        .fci4{
+            top: 57%;
+            left: 59%;
+            width: 22%;
+        }
+
+        .card-img-top{
+            width: 80%;
+        }
+
+        .screens-section-heading{
+            font-size: 27px;
+            left: 46%;
+            top: 5%;
+        }
+
+        .swiper-slide-active .card-img-top{
+            
+            transform: scale(1.1);
+            transition: 0.6ss;
+        }
+
+        .contact-section-heading{
+            font-size: 26px;
+        }
+
+        .cpr {
+            color: #ffff;
+            font-family: workSans;
+            text-decoration: none;
+            font-size: 12px;
+        }
+    
+        #c-bg-1{
+            position: absolute;
+            top: -4%;
+            left: 13%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+    
+        form{
+            position: relative;
+            width: 94%;
+            left: 10%;
+        }
+    
+        .cu-div{
+            position: relative;
+            width: 54%;
+        }
+    
+        #c-1{
+            position: absolute;
+            left: 40%;
+        }
+    
+        #c-t-1{
+            position: absolute;
+            top: 1%;
+            left: 45%;
+            font-family: workSansRegular;
+            font-size: 14px;
+            color: #242424;
+        }
+    
+        #c-2{
+            position: absolute;
+            left: 41%;
+            top: 16%;
+        }
+    
+        #c-t-2{
+            position: absolute;
+            top: 16%;
+            left: 45%;
+            font-family: workSansRegular;
+            font-size: 14px;
+            color: #242424;
+        }
+    
+        #c-t-3{
+            position: absolute;
+            top: 32%;
+            left: 40%;
+            font-family: workSansLight;
+            font-size: 14px;
+            color: #242424;
+        }
+    
+        #c-t-4{
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            font-family: workSansRegular;
+            font-size: 12px;
+            color: #242424;
+            width: 30%;
+            font-weight: 500;
+            letter-spacing: 0;
+            line-height: 16px;
+        }
+    
+        #c-3{
+            position: absolute;
+            left: 40%;
+            top: 65%;
+            width: 4%;
+        }
+    
+        #c-4{
+            position: absolute;
+            left: 45%;
+            top: 65%;
+            width: 4%;
+        }
+    
+        #c-5{
+            position: absolute;
+            left: 50%;
+            top: 65%;
+            width: 4%;
+        }
+     }
