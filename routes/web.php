@@ -26,13 +26,14 @@ use Laravel\Fortify\Http\Controllers\VerifyEmailController;
 //    $domainRoot = env('DEV_BROWSERSYNC_URL', '');
 //    if ($domainRoot !== '') \Illuminate\Support\Facades\URL::forceRootUrl($domainRoot);
 // }
-
+// Landing Page
+Route::get('/', 'PromopageController@index');
 // Start Oxygen routes
 
 // Home
-Route::get('/', function () {
-	return view('oxygen::pages.welcome', ['pageTitle' => 'The Awesomeness Starts Here...']);
-})->name('home');
+// Route::get('/', function () {
+// 	return view('oxygen::pages.welcome', ['pageTitle' => 'The Awesomeness Starts Here...']);
+// })->name('home');
 
 // Filler Pages...
 Route::get('/privacy-policy', 'Common\PagesController@privacyPolicy')->name('pages.privacy-policy');
