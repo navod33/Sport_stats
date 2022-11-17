@@ -34,7 +34,7 @@
                 <div class="container-fluid mx-auto .col-xl-12" style="background-color:#273043">
                     <nav class="navbar navbar-expand-xl navbar-expand-md navbar-dark toggles-ignore text-light"
                         id="topnav" style="margin-top:0px;background-color:#273043" >
-                        <img src="/images/logo.png" alt="logo" id="logo_image" class="d-none d-md-block d-lg-block d-lg-block d-xl-block">
+                        <img src="/images/logo.png" alt="logo" id="logo_image" class=" d-md-block d-lg-block d-lg-block d-xl-block">
 
                         <button class="navbar-toggler" style="background-color: #273043;" type="button"
                             data-toggle="collapse" data-target=".navbar-dual">
@@ -79,40 +79,52 @@
             </div>
 
 
-            <div class="row home-bg">
-                
+            <div class="row home-bg" >
+
                     {{-- <img src="/images/img_header_background.png" id="h-bg-1" class="img-fluid">  --}}
-                    <img src="/images/img_header_background_image.png" id="h-bg-1" class="img-fluid"> 
+                    <div class="main">
+                    <img src="/images/img_header_background_image.png" id="h-bg-1" class="img-fluid">
+                    </div>
+                    <div class="sub1">
                     <img src="/images/img_header_bg_artwork_01.png" id="h-bg-2" class="img-fluid">
-                    <img src="/images/img_header_02.png" id="h-bg-3" class="img-fluid">
-                    <img src="/images/img_header_01.png" id="h-bg-4" class="img-fluid">
+                    </div>
+                    <div class="header-one">
+                    <img src="/images/img_header_02.png" id="h-bg-3" class=" header-one img-fluid">
+                    </div>
+                    <div class="header-two">
+                    <img src="/images/img_header_01.png" id="h-bg-4" class="header-two img-fluid">
+                    </div>
+                    <div class="header-content">
                     <p id="h-bg-t-1">Lorem Ipsum</p>
                     <p id="h-bg-t-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     <p id="h-bg-t-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut (Max 116 Characters)</p>
-                    <p id="h-bg-t-4">Available on</p>   
-                    <img src="/images/img_google_play.png" id="h-bg-5" class="img-fluid">
-                    <img src="/images/img_appstore.png" id="h-bg-6" class="img-fluid">
+                    <p id="h-bg-t-4">Available on</p>
+                    </div>
+                    <img src="/images/img_google_play.png" id="h-bg-5" class="google img-fluid">
+                    <img src="/images/img_appstore.png" id="h-bg-6" class="apple img-fluid">
+                    <div class="sub2">
                     <img src="/images/img_header_bg_artwork_02.png" id="h-bg-7" class="img-fluid">
-                
+                    </div>
+
             </div>
         </div>
-        
+
     </div>
 
-    <div class="aboutbg " id="about">
-        <div class="container py-5 about">
+     <div class="aboutbg " id="about">
+        <div class="container py-5 about" >
             <p class="about-section-heading">About Us</p>
             <div class="row about-bg">
                 <p id="a-bg-t-1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
                     Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature..
                     (Max 696 Characters)</p>
-                <img src="/images/img_about_us_bg_artwork.png" id="a-bg-1" class="img-fluid">     
+                <img src="/images/img_about_us_bg_artwork.png" id="a-bg-1" class="about-img img-fluid">
             </div>
         </div>
     </div>
 
-    <div class="fecture " id="features">
+   <div class="fecture " id="features">
         <div class="container-fluid">
             <div class="row features-bg">
                 <img src="/images/ph_feature_bg_artwork.png" id="f-bg-1" class="img-fluid">
@@ -121,13 +133,13 @@
                 <img src="/images/img_feature.png" id="f-bg-4" class="img-fluid">
 
                 <p class="features-section-heading">Features</p>
-                     
-                
+
+
                     <div class="card fci1">
                         <div class="card-body">
                           <span class="card-title f-card-title"><img src="/images/ph_feature_bullet_point.png" id="cd-f-title" class="img-fluid">&nbsp; Feature Title</span>
                           <p class="card-text f-card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. (Max 240 Characters)</p>
-                          
+
                         </div>
                     </div>
 
@@ -135,7 +147,7 @@
                         <div class="card-body">
                           <span class="card-title f-card-title"><img src="/images/ph_feature_bullet_point.png" id="cd-f-title" class="img-fluid">&nbsp; Feature Title</span>
                           <p class="card-text f-card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. (Max 240 Characters)</p>
-                          
+
                         </div>
                     </div>
 
@@ -143,7 +155,7 @@
                         <div class="card-body">
                           <span class="card-title f-card-title"><img src="/images/ph_feature_bullet_point.png" id="cd-f-title" class="img-fluid">&nbsp; Feature Title</span>
                           <p class="card-text f-card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. (Max 240 Characters)</p>
-                          
+
                         </div>
                     </div>
 
@@ -151,7 +163,7 @@
                         <div class="card-body">
                           <span class="card-title f-card-title"><img src="/images/ph_feature_bullet_point.png" id="cd-f-title" class="img-fluid">&nbsp; Feature Title</span>
                           <p class="card-text f-card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. (Max 240 Characters)</p>
-                          
+
                         </div>
                     </div>
             </div>
@@ -161,7 +173,7 @@
 
 
 
-   <div class="features-container mx-auto" id="screens">
+ <div class="features-container mx-auto" id="screens">
 
         <div class="container py-3 ">
                     <p class="screens-section-heading" >Screens</p>
@@ -183,21 +195,21 @@
       </div>
         </div>
     </div>
-    
-    <div id="contactus" class="contactbg">
+
+     <div id="contactus" class="contactbg">
         <div class="container">
 
                     <div class="container py-5">
                         <div class="c-bg">
-                            <img src="/images/ph_contact_us_background.png" id="c-bg-1" class="img-fluid">
+                            <img src="/images/ph_contact_us_background.png" id="c-bg-1" class="contact-back img-fluid">
                             <div class="row">
-                                <form action="{{ route('contact-us') }}" method="post" style="margin-top:5% " class="col-md-6">
+                                <form action="{{ route('contact-us') }}" method="post" style="margin-top:5% " class=" form col-md-6">
                                     <p class="contact-section-heading"> Contact Us</p>
                                     <br>
                                     @csrf
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
-                                                
+
                                                     <input type="text"
                                                         class="form-control form-control-text" name="name"
                                                         id="name" placeholder="Name" value="{{ old('name') }}"
@@ -207,10 +219,10 @@
                                                             <strong>{{ $errors->first('name') }}</strong>
                                                         </span>
                                                     @endif
-                                                
+
                                             </div>
                                             <div class="col-lg-6 col-md-6">
-                                                
+
                                                     <input type="text" editor x udemy
                                                         class="form-control form-control-text email"
                                                         name="email" id="email" placeholder="Email"
@@ -220,15 +232,15 @@
                                                             <strong>{{ $errors->first('email') }}</strong>
                                                         </span>
                                                     @endif
-                                                
+
                                             </div>
-        
+
                                         </div>
                                         <br />
                                         <div class="row">
                                             <div class="col-lg-12 col-md-12">
                                                 <div class="form-group">
-                                                    <textarea class="form-control form-control-text" id="message"
+                                                    <textarea class="form-control form-control-text" id="message" style="overflow:auto;resize:none" rows="4" cols="20"
                                                         name="userMessage" placeholder="Message"
                                                         required>{{ old('userMessage') }}</textarea>
                                                     @if ($errors->has('userMessage'))
@@ -245,9 +257,9 @@
                                               <button type="submit" class="btn btn-block sbtn">Submit</button>
                                             </div>
                                         </div>
-                                    
+
                                 </form>
-                                <div class="col-md-6" id="cu-div">
+                                <div class="detail col-md-6" id="cu-div">
                                     <img src="/images/ic_contact_us_mail.png" id="c-1" class="img-fluid">
                                     <p id="c-t-1">admin@email.com</p>
 
@@ -256,23 +268,23 @@
 
                                     <p id="c-t-3">Address</p>
                                     <p id="c-t-4">
-                                        Lorem Ipsum is simply 
-                                        dummy text of the printing 
+                                        Lorem Ipsum is simply
+                                        dummy text of the printing
                                         and typesetting industry.
                                     </p>
 
-                                    <a href="#"><img src="/images/ic_contact_us_facebook.png" id="c-3" class="img-fluid"></a>
-                                    <a href="#"><img src="/images/ic_contact_us_instagram.png" id="c-4" class="img-fluid"></a>
-                                    <a href="#"><img src="/images/ic_contact_us_twitter.png" id="c-5" class="img-fluid"></a>
+                                    <a href="#"><img src="/images/ic_contact_us_facebook.png" id="c-3" class="icon1 img-fluid"></a>
+                                    <a href="#"><img src="/images/ic_contact_us_instagram.png" id="c-4" class="icon1 img-fluid"></a>
+                                    <a href="#"><img src="/images/ic_contact_us_twitter.png" id="c-5" class="icon1 img-fluid"></a>
                                 </div>
                             </div>
-                            
+
                         </div>
                         </div>
 
                     </div>
             </div>
-    <footer class="footer2">
+     <footer class="footer2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12">
@@ -285,7 +297,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-12" \>
                     <div class="card-body ">
                         <center>
-                            <p 
+                            <p
                                 class="copyright-2021-kee cpr">2021 © Boost | All rights Reserved
                             </p>
                         </center>
