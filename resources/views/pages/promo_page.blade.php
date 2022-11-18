@@ -79,11 +79,11 @@
             </div>
 
 
-            <div class="row home-bg" >
+            <div class="row home-bg" style="background-image:url(/images/img_header_background_image.png); background-size:cover;background-position: right;" >
 
                     {{-- <img src="/images/img_header_background.png" id="h-bg-1" class="img-fluid">  --}}
                     <div class="main">
-                    <img src="/images/img_header_background_image.png" id="h-bg-1" class="img-fluid">
+
                     </div>
                     <div class="sub1">
                     <img src="/images/img_header_bg_artwork_01.png" id="h-bg-2" class="img-fluid">
@@ -137,7 +137,7 @@
 
                     <div class="card fci1">
                         <div class="card-body">
-                          <span class="card-title f-card-title"><img src="/images/ph_feature_bullet_point.png" id="cd-f-title" class="img-fluid">&nbsp; Feature Title</span>
+                          <span class="card-title f-card-title"><img src="/images/ph_feature_bullet_point.png" id="cd-f-title" class="img-fluid">&nbsp; Feature Title1</span>
                           <p class="card-text f-card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. (Max 240 Characters)</p>
 
                         </div>
@@ -145,7 +145,7 @@
 
                     <div class="card fci2">
                         <div class="card-body">
-                          <span class="card-title f-card-title"><img src="/images/ph_feature_bullet_point.png" id="cd-f-title" class="img-fluid">&nbsp; Feature Title</span>
+                          <span class="card-title f-card-title"><img src="/images/ph_feature_bullet_point.png" id="cd-f-title" class="img-fluid">&nbsp; Feature Title2</span>
                           <p class="card-text f-card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. (Max 240 Characters)</p>
 
                         </div>
@@ -153,7 +153,7 @@
 
                     <div class="card fci3">
                         <div class="card-body">
-                          <span class="card-title f-card-title"><img src="/images/ph_feature_bullet_point.png" id="cd-f-title" class="img-fluid">&nbsp; Feature Title</span>
+                          <span class="card-title f-card-title"><img src="/images/ph_feature_bullet_point.png" id="cd-f-title" class="img-fluid">&nbsp; Feature Title3</span>
                           <p class="card-text f-card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. (Max 240 Characters)</p>
 
                         </div>
@@ -161,7 +161,7 @@
 
                     <div class="card fci4">
                         <div class="card-body">
-                          <span class="card-title f-card-title"><img src="/images/ph_feature_bullet_point.png" id="cd-f-title" class="img-fluid">&nbsp; Feature Title</span>
+                          <span class="card-title f-card-title"><img src="/images/ph_feature_bullet_point.png" id="cd-f-title" class="img-fluid">&nbsp; Feature Title4</span>
                           <p class="card-text f-card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. (Max 240 Characters)</p>
 
                         </div>
