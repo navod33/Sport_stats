@@ -10,11 +10,12 @@ use Tests\TestCase;
 
 class APIBaseTestCase extends TestCase
 {
-    use \EMedia\Api\Domain\Traits\NamesAndPathLocations;
 
-    protected $responseStoragePath;
+	use \EMedia\Api\Domain\Traits\NamesAndPathLocations;
+
+	protected $responseStoragePath;
     protected $saveResponses = false;
-    protected $accessToken;
+	protected $accessToken;
 
     protected function setUp(): void
     {
@@ -28,25 +29,21 @@ class APIBaseTestCase extends TestCase
 
     protected function saveResponse($data, $name, $status = '200', $extension = 'json')
     {
-        if (!$this->saveResponses) {
-            return false;
-        }
+        if (!$this->saveResponses) return false;
 
         $filePath = $this->responseStoragePath . DIRECTORY_SEPARATOR . "{$name}_{$status}.{$extension}";
         $json = json_encode(json_decode($data, true), JSON_PRETTY_PRINT);
         file_put_contents($filePath, $json);
     }
 
-    protected function getApiKey()
-    {
-        $key = env('API_KEY', false);
+	protected function getApiKey()
+	{
+		$key = env('API_KEY', false);
 
-        if (!$key) {
-            throw new \Exception("You don't have an active API_KEY on `.env` file.");
-        }
+		if (!$key) throw new \Exception("You don't have an active API_KEY on `.env` file.");
 
-        return $key;
-    }
+		return $key;
+	}
 
     /**
      *
@@ -72,4 +69,5 @@ class APIBaseTestCase extends TestCase
 
         return $accessToken;
     }
+
 }

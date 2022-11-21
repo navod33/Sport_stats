@@ -31,7 +31,7 @@ class ScoresSeeder extends Seeder
                 $score->score = rand(0, 100);
                 $score->time_segment = 'Quarter ' . rand(1, 4);
                 $score->save();
-            }
+           }
         }
     }
 }

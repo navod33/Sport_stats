@@ -7,18 +7,18 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class ProfileUpdateMyAvatarAPITest extends APIBaseTestCase
+class ScoresAPICreateTeamBScoreAPITest extends APIBaseTestCase
 {
 
 	use DatabaseTransactions;
 
     /**
      *
-     * 
+     * Create a new score for team B.
      *
      * @return  void
      */
-    public function test_api_profile_post_update_my_avatar()
+    public function test_api_scoresapi_post_create_team_b_score()
     {
         $data = $cookies = $files = $headers = $server = [];
         $faker = \Faker\Factory::create('en_AU');
@@ -30,11 +30,12 @@ class ProfileUpdateMyAvatarAPITest extends APIBaseTestCase
 	                    	        	            	                    $headers['x-api-key'] = $this->getApiKey();
 	                    	        		
 					// form params
-                            $data['image'] = \Illuminate\Http\UploadedFile::fake()->image('image.jpg');
+                            $data['gameUuid'] = '';
+                            $data['score_type'] = '';
             		
-                        $response = $this->post('/api/v1/avatar', $data, $headers);
+                        $response = $this->post('/api/v1/games/scores/teamb', $data, $headers);
                 
-        $this->saveResponse($response->getContent(), 'profile_post_update_my_avatar', $response->getStatusCode());
+        $this->saveResponse($response->getContent(), 'scoresapi_post_create_team_b_score', $response->getStatusCode());
 
 		$response->assertStatus(200);
     }

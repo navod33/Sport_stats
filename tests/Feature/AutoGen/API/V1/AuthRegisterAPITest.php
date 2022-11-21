@@ -9,7 +9,8 @@ use Tests\TestCase;
 
 class AuthRegisterAPITest extends APIBaseTestCase
 {
-    use DatabaseTransactions;
+
+	use DatabaseTransactions;
 
     /**
      *
@@ -23,22 +24,23 @@ class AuthRegisterAPITest extends APIBaseTestCase
         $faker = \Faker\Factory::create('en_AU');
         $content = null;
 
-        // header params
-        $headers['Accept'] = 'application/json';
-        $headers['x-api-key'] = $this->getApiKey();
-
-        // form params
-        $data['device_id'] = $faker->uuid;
-        $data['device_type'] = 'apple';
-        $data['device_push_token'] = '';
-        $data['email'] = $faker->safeEmail;
-        $data['password'] = '12345678';
-        $data['password_confirmation'] = '12345678';
-
-        $response = $this->post('/api/v1/register', $data, $headers);
-
+					// header params
+	        	            	                    $headers['Accept'] = 'application/json';
+	            	        	            	                    $headers['x-api-key'] = $this->getApiKey();
+	                    	        		
+					// form params
+                            $data['device_id'] = $faker->uuid;
+                            $data['device_type'] = 'apple';
+                            $data['device_push_token'] = '';
+                            $data['email'] = $faker->safeEmail;
+                            $data['password'] = '12345678';
+                            $data['password_confirmation'] = '12345678';
+            		
+                        $response = $this->post('/api/v1/register', $data, $headers);
+                
         $this->saveResponse($response->getContent(), 'auth_post_register', $response->getStatusCode());
 
-        $response->assertStatus(200);
+		$response->assertStatus(200);
     }
+
 }

@@ -9,11 +9,12 @@ use Tests\TestCase;
 
 class AuthResendVerificationCodeAPITest extends APIBaseTestCase
 {
-    use DatabaseTransactions;
+
+	use DatabaseTransactions;
 
     /**
      *
-     *
+     * 
      *
      * @return  void
      */
@@ -23,16 +24,17 @@ class AuthResendVerificationCodeAPITest extends APIBaseTestCase
         $faker = \Faker\Factory::create('en_AU');
         $content = null;
 
-        // header params
-        $headers['Accept'] = 'application/json';
-        $headers['x-access-token'] = $this->getAccessToken();
-        $headers['x-api-key'] = $this->getApiKey();
-
-
-        $response = $this->post('/api/v1/resend-code', $data, $headers);
-
+					// header params
+	        	            	                    $headers['Accept'] = 'application/json';
+	            	        	            	                    $headers['x-access-token'] = $this->getAccessToken();
+	                    	        	            	                    $headers['x-api-key'] = $this->getApiKey();
+	                    	        		
+		
+                        $response = $this->post('/api/v1/resend-code', $data, $headers);
+                
         $this->saveResponse($response->getContent(), 'auth_post_resend_verification_code', $response->getStatusCode());
 
-        $response->assertStatus(200);
+		$response->assertStatus(200);
     }
+
 }

@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class ProfileUpdateMyAvatarAPITest extends APIBaseTestCase
+class contact-uscontact-usAPITest extends APIBaseTestCase
 {
 
 	use DatabaseTransactions;
@@ -18,7 +18,7 @@ class ProfileUpdateMyAvatarAPITest extends APIBaseTestCase
      *
      * @return  void
      */
-    public function test_api_profile_post_update_my_avatar()
+    public function test_api_contact-us_post_contact-us()
     {
         $data = $cookies = $files = $headers = $server = [];
         $faker = \Faker\Factory::create('en_AU');
@@ -30,11 +30,11 @@ class ProfileUpdateMyAvatarAPITest extends APIBaseTestCase
 	                    	        	            	                    $headers['x-api-key'] = $this->getApiKey();
 	                    	        		
 					// form params
-                            $data['image'] = \Illuminate\Http\UploadedFile::fake()->image('image.jpg');
+                            $data['message'] = '';
             		
-                        $response = $this->post('/api/v1/avatar', $data, $headers);
+                        $response = $this->post('/api/v1/contact-us', $data, $headers);
                 
-        $this->saveResponse($response->getContent(), 'profile_post_update_my_avatar', $response->getStatusCode());
+        $this->saveResponse($response->getContent(), 'contact-us_post_contact-us', $response->getStatusCode());
 
 		$response->assertStatus(200);
     }

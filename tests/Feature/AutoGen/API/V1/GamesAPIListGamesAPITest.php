@@ -9,7 +9,8 @@ use Tests\TestCase;
 
 class GamesAPIListGamesAPITest extends APIBaseTestCase
 {
-    use DatabaseTransactions;
+
+	use DatabaseTransactions;
 
     /**
      *
@@ -23,16 +24,17 @@ class GamesAPIListGamesAPITest extends APIBaseTestCase
         $faker = \Faker\Factory::create('en_AU');
         $content = null;
 
-        // header params
-        $headers['Accept'] = 'application/json';
-        $headers['x-access-token'] = $this->getAccessToken();
-        $headers['x-api-key'] = $this->getApiKey();
-
-
-        $response = $this->get('/api/v1/games', $headers);
-
+					// header params
+	        	            	                    $headers['Accept'] = 'application/json';
+	            	        	            	                    $headers['x-access-token'] = $this->getAccessToken();
+	                    	        	            	                    $headers['x-api-key'] = $this->getApiKey();
+	                    	        		
+		
+                        $response = $this->get('/api/v1/games', $headers);
+                
         $this->saveResponse($response->getContent(), 'gamesapi_get_list_games', $response->getStatusCode());
 
-        $response->assertStatus(200);
+		$response->assertStatus(200);
     }
+
 }

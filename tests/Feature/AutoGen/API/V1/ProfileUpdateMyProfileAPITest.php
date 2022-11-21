@@ -9,11 +9,12 @@ use Tests\TestCase;
 
 class ProfileUpdateMyProfileAPITest extends APIBaseTestCase
 {
-    use DatabaseTransactions;
+
+	use DatabaseTransactions;
 
     /**
      *
-     *
+     * 
      *
      * @return  void
      */
@@ -23,23 +24,24 @@ class ProfileUpdateMyProfileAPITest extends APIBaseTestCase
         $faker = \Faker\Factory::create('en_AU');
         $content = null;
 
-        // header params
-        $headers['Accept'] = 'application/json';
-        $headers['x-access-token'] = $this->getAccessToken();
-        $headers['x-api-key'] = $this->getApiKey();
-
-        // form params
-        $data['first_name'] = $faker->firstName;
-        $data['last_name'] = '';
-        $data['email'] = 'apps+suadmin@elegantmedia.com.au';
-        $data['phone'] = '';
-
-        $server = $this->transformHeadersToServerVars($headers);
-        $cookies = $this->prepareCookiesForRequest();
-        $response = $this->call('put', '/api/v1/profile', $data, $cookies, $files, $server, $content);
-
+					// header params
+	        	            	                    $headers['Accept'] = 'application/json';
+	            	        	            	                    $headers['x-access-token'] = $this->getAccessToken();
+	                    	        	            	                    $headers['x-api-key'] = $this->getApiKey();
+	                    	        		
+					// form params
+                            $data['first_name'] = $faker->firstName;
+                            $data['last_name'] = '';
+                            $data['email'] = 'apps+suadmin@elegantmedia.com.au';
+                            $data['phone'] = '';
+            		
+                        $server = $this->transformHeadersToServerVars($headers);
+				$cookies = $this->prepareCookiesForRequest();
+                $response = $this->call('put', '/api/v1/profile', $data, $cookies, $files, $server, $content);
+        
         $this->saveResponse($response->getContent(), 'profile_put_update_my_profile', $response->getStatusCode());
 
-        $response->assertStatus(200);
+		$response->assertStatus(200);
     }
+
 }

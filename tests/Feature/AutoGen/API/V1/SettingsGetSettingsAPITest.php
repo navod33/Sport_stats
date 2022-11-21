@@ -9,7 +9,8 @@ use Tests\TestCase;
 
 class SettingsGetSettingsAPITest extends APIBaseTestCase
 {
-    use DatabaseTransactions;
+
+	use DatabaseTransactions;
 
     /**
      *
@@ -23,15 +24,16 @@ class SettingsGetSettingsAPITest extends APIBaseTestCase
         $faker = \Faker\Factory::create('en_AU');
         $content = null;
 
-        // header params
-        $headers['Accept'] = 'application/json';
-        $headers['x-api-key'] = $this->getApiKey();
-
-
-        $response = $this->get('/api/v1/settings', $headers);
-
+					// header params
+	        	            	                    $headers['Accept'] = 'application/json';
+	            	        	            	                    $headers['x-api-key'] = $this->getApiKey();
+	                    	        		
+		
+                        $response = $this->get('/api/v1/settings', $headers);
+                
         $this->saveResponse($response->getContent(), 'settings_get_get_settings', $response->getStatusCode());
 
-        $response->assertStatus(200);
+		$response->assertStatus(200);
     }
+
 }

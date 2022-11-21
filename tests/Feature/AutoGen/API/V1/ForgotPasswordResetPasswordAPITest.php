@@ -9,11 +9,12 @@ use Tests\TestCase;
 
 class ForgotPasswordResetPasswordAPITest extends APIBaseTestCase
 {
-    use DatabaseTransactions;
+
+	use DatabaseTransactions;
 
     /**
      *
-     *
+     * 
      *
      * @return  void
      */
@@ -23,17 +24,18 @@ class ForgotPasswordResetPasswordAPITest extends APIBaseTestCase
         $faker = \Faker\Factory::create('en_AU');
         $content = null;
 
-        // header params
-        $headers['Accept'] = 'application/json';
-        $headers['x-api-key'] = $this->getApiKey();
-
-        // form params
-        $data['email'] = 'apps+suadmin@elegantmedia.com.au';
-
-        $response = $this->post('/api/v1/password/email', $data, $headers);
-
+					// header params
+	        	            	                    $headers['Accept'] = 'application/json';
+	            	        	            	                    $headers['x-api-key'] = $this->getApiKey();
+	                    	        		
+					// form params
+                            $data['email'] = 'apps+suadmin@elegantmedia.com.au';
+            		
+                        $response = $this->post('/api/v1/password/email', $data, $headers);
+                
         $this->saveResponse($response->getContent(), 'forgotpassword_post_reset_password', $response->getStatusCode());
 
-        $response->assertStatus(200);
+		$response->assertStatus(200);
     }
+
 }

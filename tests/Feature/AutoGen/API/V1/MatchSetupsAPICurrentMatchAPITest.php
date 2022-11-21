@@ -7,18 +7,18 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class ProfileUpdateMyAvatarAPITest extends APIBaseTestCase
+class MatchSetupsAPICurrentMatchAPITest extends APIBaseTestCase
 {
 
 	use DatabaseTransactions;
 
     /**
      *
-     * 
+     * Get a match details for a time segment
      *
      * @return  void
      */
-    public function test_api_profile_post_update_my_avatar()
+    public function test_api_matchsetupsapi_get_current_match()
     {
         $data = $cookies = $files = $headers = $server = [];
         $faker = \Faker\Factory::create('en_AU');
@@ -29,12 +29,10 @@ class ProfileUpdateMyAvatarAPITest extends APIBaseTestCase
 	            	        	            	                    $headers['x-access-token'] = $this->getAccessToken();
 	                    	        	            	                    $headers['x-api-key'] = $this->getApiKey();
 	                    	        		
-					// form params
-                            $data['image'] = \Illuminate\Http\UploadedFile::fake()->image('image.jpg');
-            		
-                        $response = $this->post('/api/v1/avatar', $data, $headers);
+		
+                        $response = $this->get('/api/v1/match', $headers);
                 
-        $this->saveResponse($response->getContent(), 'profile_post_update_my_avatar', $response->getStatusCode());
+        $this->saveResponse($response->getContent(), 'matchsetupsapi_get_current_match', $response->getStatusCode());
 
 		$response->assertStatus(200);
     }

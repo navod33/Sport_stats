@@ -1,10 +1,10 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "Boost App API",
-        "version": "1.0.0.20221103"
+        "title": "sportstat API",
+        "version": "1.0.0.20221121"
     },
-    "host": "boost.test",
+    "host": "127.0.0.1",
     "schemes": [
         "http"
     ],
@@ -2143,7 +2143,7 @@
                         "name": "players",
                         "in": "formData",
                         "required": true,
-                        "description": "List of Players. Example \r\n\r\n                               [\r\n                                    {\r\n                                        \"name\":\"wije\", \/\/player name required\r\n                                        \"positions\":\"1,2\", \/\/player positions as comma separated string - optional\r\n                                        \"image_uuid\":\"e41b5ecc-ca36-4648-abc2-eee71ba06275\", \/\/uuid of the image - optional\r\n                                        \"email\":\"abc.emedia@gmail.com\", \/\/email address - optional\r\n                                    },\r\n                                    {\r\n                                        \"name\":\"arjun\",\r\n                                        \"positions\":\"1\"\r\n                                    }\r\n                                ] ",
+                        "description": "List of Players. Example \n\n                               [\n                                    {\n                                        \"name\":\"wije\", \/\/player name required\n                                        \"positions\":\"1,2\", \/\/player positions as comma separated string - optional\n                                        \"image_uuid\":\"e41b5ecc-ca36-4648-abc2-eee71ba06275\", \/\/uuid of the image - optional\n                                        \"email\":\"abc.emedia@gmail.com\", \/\/email address - optional\n                                    },\n                                    {\n                                        \"name\":\"arjun\",\n                                        \"positions\":\"1\"\n                                    }\n                                ] ",
                         "type": "string"
                     },
                     {
@@ -2955,7 +2955,7 @@
                         "name": "score_type",
                         "in": "formData",
                         "required": true,
-                        "description": " `goal_in`,`goal_missed`, `error_record`,\r\n                    `contract`,\r\n                    `center_pass`,\r\n                    `intercept`,\r\n                    `tip`,\r\n                    `rebound`,\r\n                    `goal_in_reverse`,\r\n                    `goal_missed_reverse`,\r\n                    `error_record_reverse`,\r\n                    `contract_reverse`,\r\n                    `center_pass_reverse`,\r\n                    `intercept_reverse`,\r\n                    `tip_reverse`,\r\n                    `rebound_reverse`",
+                        "description": " `goal_in`,`goal_missed`, `error_record`,\n                    `contract`,\n                    `center_pass`,\n                    `intercept`,\n                    `tip`,\n                    `rebound`,\n                    `goal_in_reverse`,\n                    `goal_missed_reverse`,\n                    `error_record_reverse`,\n                    `contract_reverse`,\n                    `center_pass_reverse`,\n                    `intercept_reverse`,\n                    `tip_reverse`,\n                    `rebound_reverse`",
                         "type": "string"
                     },
                     {
@@ -3110,7 +3110,7 @@
                         "name": "players",
                         "in": "formData",
                         "required": true,
-                        "description": "players array. player id required. position required. \r\n\t\t\t\t\t\t(get the position id from the List Players Positions API end point). time_segment required. if the time segment is Quater 1. then, just send 1.\r\n\r\n\r\n\t\t\t\t\t\t[\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"player_id\" : 1,\r\n\t\t\t\t\t\t\t\"position\" : 2,\r\n\t\t\t\t\t\t\t\"time_segment\" : 1,\r\n\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"player_id\" : 2,\r\n\t\t\t\t\t\t\t\"position\" : 5,\r\n\t\t\t\t\t\t\t\"time_segment\" : 1,\r\n\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"player_id\" : 1,\r\n\t\t\t\t\t\t\t\"position\" : 5,\r\n\t\t\t\t\t\t\t\"time_segment\" : 2,\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t]\r\n\t\t\t\t\t\t",
+                        "description": "players array. player id required. position required. \n\t\t\t\t\t\t(get the position id from the List Players Positions API end point). time_segment required. if the time segment is Quater 1. then, just send 1.\n\n\n\t\t\t\t\t\t[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"player_id\" : 1,\n\t\t\t\t\t\t\t\"position\" : 2,\n\t\t\t\t\t\t\t\"time_segment\" : 1,\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"player_id\" : 2,\n\t\t\t\t\t\t\t\"position\" : 5,\n\t\t\t\t\t\t\t\"time_segment\" : 1,\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"player_id\" : 1,\n\t\t\t\t\t\t\t\"position\" : 5,\n\t\t\t\t\t\t\t\"time_segment\" : 2,\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t",
                         "type": "string"
                     },
                     {
@@ -3189,7 +3189,7 @@
                         "name": "players",
                         "in": "formData",
                         "required": true,
-                        "description": "players array. player id required. position required. \r\n\t\t\t\t\t\t(get the position id from the List Players Positions API end point). time_segment required. if the time segment is Quater 1. then, just send 1.\r\n\r\n\r\n\t\t\t\t\t\t[\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"player_id\" : 1,\r\n\t\t\t\t\t\t\t\"position\" : 2,\r\n\t\t\t\t\t\t\t\"time_segment\" : 1\r\n\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"player_id\" : 2,\r\n\t\t\t\t\t\t\t\"position\" : 5,\r\n\t\t\t\t\t\t\t\"time_segment\" : 1\r\n\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"player_id\" : 1,\r\n\t\t\t\t\t\t\t\"position\" : 5,\r\n\t\t\t\t\t\t\t\"time_segment\" : 2\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t]\r\n\t\t\t\t\t\t",
+                        "description": "players array. player id required. position required. \n\t\t\t\t\t\t(get the position id from the List Players Positions API end point). time_segment required. if the time segment is Quater 1. then, just send 1.\n\n\n\t\t\t\t\t\t[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"player_id\" : 1,\n\t\t\t\t\t\t\t\"position\" : 2,\n\t\t\t\t\t\t\t\"time_segment\" : 1\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"player_id\" : 2,\n\t\t\t\t\t\t\t\"position\" : 5,\n\t\t\t\t\t\t\t\"time_segment\" : 1\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"player_id\" : 1,\n\t\t\t\t\t\t\t\"position\" : 5,\n\t\t\t\t\t\t\t\"time_segment\" : 2\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t",
                         "type": "string"
                     },
                     {
@@ -4026,26 +4026,102 @@
                 }
             }
         },
-        "Blog": {
+        "PlayerPosition": {
             "type": "object",
             "properties": {
                 "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "short_name": {
+                    "type": "string"
+                }
+            }
+        },
+        "TeamPerformancemodel": {
+            "type": "object",
+            "properties": {
+                "team_conversion": {
                     "type": "integer"
                 },
-                "title": {
-                    "type": "string"
+                "opposition_conversion": {
+                    "type": "integer"
                 },
-                "description": {
-                    "type": "string"
+                "center_pass_conversion": {
+                    "type": "integer"
                 },
-                "created_at": {
-                    "type": "string"
+                "goal_in": {
+                    "type": "integer"
                 },
-                "updated_at": {
-                    "type": "string"
+                "goal_missed": {
+                    "type": "integer"
                 },
-                "image": {
-                    "$ref": "#\/definitions\/File"
+                "error_record": {
+                    "type": "integer"
+                },
+                "contract": {
+                    "type": "integer"
+                },
+                "center_pass": {
+                    "type": "integer"
+                },
+                "intercept": {
+                    "type": "integer"
+                },
+                "tip": {
+                    "type": "integer"
+                },
+                "rebound": {
+                    "type": "integer"
+                },
+                "team_id": {
+                    "type": "integer"
+                },
+                "comment": {
+                    "type": "string"
+                }
+            }
+        },
+        "PlayerPerformancemodel": {
+            "type": "object",
+            "properties": {
+                "conversion": {
+                    "type": "integer"
+                },
+                "goal_in": {
+                    "type": "integer"
+                },
+                "goal_missed": {
+                    "type": "integer"
+                },
+                "error_record": {
+                    "type": "integer"
+                },
+                "contract": {
+                    "type": "integer"
+                },
+                "center_pass": {
+                    "type": "integer"
+                },
+                "intercept": {
+                    "type": "integer"
+                },
+                "tip": {
+                    "type": "integer"
+                },
+                "rebound": {
+                    "type": "integer"
+                },
+                "team_id": {
+                    "type": "integer"
+                },
+                "player_id": {
+                    "type": "integer"
+                },
+                "comment": {
+                    "type": "string"
                 }
             }
         },
@@ -4066,6 +4142,29 @@
                 },
                 "played_positions": {
                     "type": "string"
+                }
+            }
+        },
+        "Blog": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "image": {
+                    "$ref": "#\/definitions\/File"
                 }
             }
         },
@@ -4125,105 +4224,6 @@
                 },
                 "goal_missed": {
                     "type": "integer"
-                }
-            }
-        },
-        "PlayerPerformancemodel": {
-            "type": "object",
-            "properties": {
-                "conversion": {
-                    "type": "integer"
-                },
-                "goal_in": {
-                    "type": "integer"
-                },
-                "goal_missed": {
-                    "type": "integer"
-                },
-                "error_record": {
-                    "type": "integer"
-                },
-                "contract": {
-                    "type": "integer"
-                },
-                "center_pass": {
-                    "type": "integer"
-                },
-                "intercept": {
-                    "type": "integer"
-                },
-                "tip": {
-                    "type": "integer"
-                },
-                "rebound": {
-                    "type": "integer"
-                },
-                "team_id": {
-                    "type": "integer"
-                },
-                "player_id": {
-                    "type": "integer"
-                },
-                "comment": {
-                    "type": "string"
-                }
-            }
-        },
-        "PlayerPosition": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "short_name": {
-                    "type": "string"
-                }
-            }
-        },
-        "TeamPerformancemodel": {
-            "type": "object",
-            "properties": {
-                "team_conversion": {
-                    "type": "integer"
-                },
-                "opposition_conversion": {
-                    "type": "integer"
-                },
-                "center_pass_conversion": {
-                    "type": "integer"
-                },
-                "goal_in": {
-                    "type": "integer"
-                },
-                "goal_missed": {
-                    "type": "integer"
-                },
-                "error_record": {
-                    "type": "integer"
-                },
-                "contract": {
-                    "type": "integer"
-                },
-                "center_pass": {
-                    "type": "integer"
-                },
-                "intercept": {
-                    "type": "integer"
-                },
-                "tip": {
-                    "type": "integer"
-                },
-                "rebound": {
-                    "type": "integer"
-                },
-                "team_id": {
-                    "type": "integer"
-                },
-                "comment": {
-                    "type": "string"
                 }
             }
         },
