@@ -117,6 +117,9 @@ Route::group([
 
 		Route::resource('devices', '\App\Http\Controllers\Manage\ManageDevicesController')
 		 ->only('index', 'show', 'destroy');
+
+		 Route::resource('blog', 'PostsController');
+		 // Blog route
 	});
 // End Devices Routes
 // Start AppSettings Routes

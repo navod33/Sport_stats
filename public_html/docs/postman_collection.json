@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "title": "sportstat API",
-        "version": "1.0.0.20221121"
+        "version": "1.0.0.20221122"
     },
     "host": "127.0.0.1",
     "schemes": [
