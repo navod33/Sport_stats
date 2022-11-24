@@ -32,17 +32,24 @@ class Blog extends Model
         ];
     }
     */
+    protected $with = ['file'];
+
+    public function file()
+    {
+        return $this->hasOne(File::class,'blog_id');
+    }
+
     protected $table = 'blog';
 	protected $fillable = [
-		'name'
+		'title' , 'description'
 	];
 
 	protected $searchable = [
-		'name'
+		'title', 'description'
 	];
 
 	protected $editable = [
-    	'name',
+    	'title' , 'description'
     ];
 
     public function getExtraApiFields()
@@ -63,7 +70,7 @@ class Blog extends Model
     public function getCreateRules()
     {
         return [
-            'name' => 'required',
+            'title' => 'required',
         ];
     }
 
@@ -76,7 +83,7 @@ class Blog extends Model
     public function getUpdateRules()
     {
         return [
-            'name' => 'required',
+            'title' => 'required',
         ];
     }
 

@@ -26,6 +26,7 @@ class File extends Model
 		'file_url',
 		'file_size_bytes',
 		'uploaded_by_user_id',
+		'blog_id'
 	];
 
 	protected $appends = [
@@ -40,6 +41,7 @@ class File extends Model
         'public_url',
 		'file_url',
 		'permalink',
+		'blog_id'
 	];
 
 	protected $searchable = [

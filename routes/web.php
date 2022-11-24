@@ -1,12 +1,29 @@
 <?php
 
+use App\Http\Controllers\ManageBlogsController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Laravel\Fortify\Http\Controllers\EmailVerificationNotificationController;
 use Laravel\Fortify\Http\Controllers\EmailVerificationPromptController;
 use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 use Laravel\Fortify\Http\Controllers\VerifyEmailController;
+//use App\Http\Controllers\Manage\ManageBlogsController;
+//use Laravel\Fortify\Http\Controllers\ManageBlogsController;
 
+
+
+//Route::get('blogs', 'App\Http\Controllers\Manage\ManageBlogsController');
+
+
+//Route::resource('blogs', 'ManageBlogsController::class');
+
+// Application Admin Routes
+// Route::group([
+//     'prefix' => 'manage', 'as' => 'manage.',
+//     'middleware' => ['auth', 'auth.acl:roles[super-admins|admins|developers]'],
+//     'namespace' => 'App\Http\Controllers\Manage',
+// ], function () {
+// });
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -118,9 +135,24 @@ Route::group([
 		Route::resource('devices', '\App\Http\Controllers\Manage\ManageDevicesController')
 		 ->only('index', 'show', 'destroy');
 
-		 Route::resource('blog', 'PostsController');
+
 		 // Blog route
+		 
 	});
+// route for blog part 
+    Route::resource('blogs', 'ManageBlogsController');
+
+
+	Route::get('/blogs/create', [ManageBlogsController::class, 'create']);
+    Route::post('/blogs', [ManageBlogsController::class, 'store']);
+    Route::delete('/blogs/{id}', [ManageBlogsController::class, 'destroy']);
+    Route::get('/blogs/{id}/edit', [ManageBlogsController::class, 'edit']);
+    Route::put('/blogs/{id}', [ManageBlogsController::class, 'update']);
+    Route::get('/blogs/{id}', [ManageBlogsController::class, 'view']);
+
+	Route::get('blogs/{id}', 'ManageBlogsController@show')->name('manage.blogs.view');
+
+
 // End Devices Routes
 // Start AppSettings Routes
 Route::group(['prefix' => '/manage/settings', 'middleware' => ['auth', 'auth.acl:roles[super-admins|admins|developers]'], 'as' => 'manage.'], function()
@@ -152,4 +184,6 @@ Route::group(['prefix' => '/manage/settings', 'middleware' => ['auth', 'auth.acl
 		Route::delete('/{id}', 'ManageSettingGroupsController@destroy')->name('setting-groups.destroy');
 	});
 });
+
 // End AppSettings Routes
+// Application Admin Routes

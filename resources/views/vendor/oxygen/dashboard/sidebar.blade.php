@@ -4,8 +4,13 @@
 	], 'default');
 
 	\Navigator::addItem([
+		'text' => 'Blogs', 'icon_class' => 'fas fa-users', 'resource' => 'blogs.index'
+	], 'sidebar.manage');
+
+	\Navigator::addItem([
 		'text' => 'Users', 'icon_class' => 'fas fa-users', 'resource' => 'manage.users.index'
 	], 'sidebar.manage');
+
 
 	\Navigator::addItem([
 		'text' => 'API', 'icon_class' => 'fas fa-plug', 'resource' => 'manage.documentation.index'

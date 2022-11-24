@@ -10,6 +10,7 @@ use Database\Seeders\Auth\UserRolesTableSeeder;
 use Database\Seeders\Auth\UsersTableSeeder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
+use Database\Seeders\OxygenExtensions\AutoSeed\DevicesTableSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -33,8 +34,10 @@ class DatabaseSeeder extends Seeder
 			$this->call(TeamsSeeder::class);
 			$this->call(PlayersSeeder::class);
 			$this->call(GamesSeeder::class);
-			$this->call(ScoresSeeder::class);
+		//	$this->call(ScoresSeeder::class);
 			$this->call(PlayerPositionsSeeder::class);
+			$this->call(DevicesTableSeeder::class);
+
 		}
 
 		/*
